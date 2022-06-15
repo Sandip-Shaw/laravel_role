@@ -78,11 +78,12 @@ class RolePermissionSeeder extends Seeder
                 ]
             ],
             [
-                'group_name' => 'profile',
+                'group_name' => 'company_profile',
                 'permissions' => [
                     // profile Permissions
-                    'profile.view',
-                    'profile.edit',
+                    'company_profile.create',
+                    'company_profile.view',
+                    'company_profile.edit',
                 ]
             ],
 

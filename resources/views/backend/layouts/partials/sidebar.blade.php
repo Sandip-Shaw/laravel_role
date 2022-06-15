@@ -96,18 +96,20 @@
                     </li>
                     @endif
 
-                    @if ($usr->can('company.view')) 
+                    @if ($usr->can('company_profile.create') || $usr->can('company_profile.view') ||  $usr->can('company_profile.edit'))
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
-                            COMPANY
+                            COMPANY 
                         </span></a>
-                        <ul class="collapse {{  Route::is('admin.company.index') || Route::is('admin.company.edit') || Route::is('admin.company.show') ? 'in' : '' }}">
+                        <ul class="collapse {{ Route::is('admin.company.create') || Route::is('admin.company.index') || Route::is('admin.company.edit') || Route::is('admin.company.show') ? 'in' : '' }}">
                             
-                            @if ($usr->can('company.view'))
-                                <li class="{{ Route::is('admin.company.index')  || Route::is('admin.company.edit') ? 'active' : '' }}"><a href="{{ route('admin.company.index') }}">Company Profile</a></li>
+                            @if ($usr->can('company_profile.view'))
+                                <li class="{{ Route::is('admin.company.index')  || Route::is('admin.company.edit') ? 'active' : '' }}"><a href="{{ route('admin.company.index') }}">company</a></li>
                             @endif
 
-                           
+                            @if ($usr->can('company_profile.create'))
+                                <li class="{{ Route::is('admin.company.create')  ? 'active' : '' }}"><a href="{{ route('admin.company.create') }}">Company Profile</a></li>
+                            @endif
                         </ul>
                     </li>
                     @endif
