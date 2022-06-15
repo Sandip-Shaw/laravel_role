@@ -37,8 +37,8 @@ return new class extends Migration
             $table->date('incorporation_date');
             $table->string('incorporation_state');
             $table->string('incorporation_country');
-            $table->float('authorized_capital',8,2);
-            $table->float('paid_ip_capital',8,2);
+            $table->string('authorized_capital');
+            $table->string('paid_ip_capital');
 
             $table->timestamps();
         });
