@@ -2,7 +2,7 @@
 <!-- footer area start-->
 <footer>
     <div class="footer-area">
-        <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
+        <p>© Copyright 2022. All right reserved. Created by <a href="">Alsol Tech</a>.</p>
     </div>
 </footer>
 <!-- footer area end-->

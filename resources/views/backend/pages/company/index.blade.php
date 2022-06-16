@@ -38,6 +38,7 @@ Profile - Admin Panel
 <div class="main-content-inner">
     <div class="row">
         <!-- data table start -->
+        
         <div class="col-md-8">
             <div class="box">
                 <div class="box-body">
@@ -45,8 +46,11 @@ Profile - Admin Panel
                     <!-- <p class="float-right mb-2">
                         <a class="btn btn-primary text-white" href="{{ route('admin.company.create') }}">Create New Profile</a>
                     </p> -->
+                    @foreach ($profile as $profiles)
+                   
+
                     <div class="pull-right">
-                    <a class="btn btn-default btn-xs" onclick="block_ui()" href="">
+                    <a class="btn btn-default btn-xs" onclick="block_ui()" href="{{ route('admin.company.edit',$profiles->id) }}">
                         <i class="fa fa-pencil"></i></a>
                     </div>
                     <div class="clearfix"></div>
@@ -55,7 +59,7 @@ Profile - Admin Panel
                         @include('backend.layouts.partials.messages')
                         <table id="dataTable" class="table table-details">
                             <tbody>
-                            @foreach ($profile as $profiles)
+                          
                                 <tr>
                                     <td class="ft-600" style="width: 250px;"> Company Website</td>
                                     <td> 
@@ -97,6 +101,8 @@ Profile - Admin Panel
                                     {{ $profiles->landline_no }}
                                     </td>
                                 </tr>
+
+                      
 
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">About Company</td>
@@ -143,14 +149,14 @@ Profile - Admin Panel
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">Category</td>
                                     <td> 
-                                    {{ $profiles->contry }}
+                                    {{ $profiles->category }}
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">Company Class</td>
                                     <td> 
-                                    {{ $profiles->category }}
+                                    {{ $profiles->company_class }}
                                     </td>
                                 </tr>
 

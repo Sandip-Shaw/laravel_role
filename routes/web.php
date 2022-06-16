@@ -32,7 +32,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('admins', 'Backend\AdminsController', ['names' => 'admin.admins']);
     Route::resource('blogs', 'Backend\BlogController', ['names' => 'admin.blogs']);
     Route::resource('supports', 'Backend\SupportController', ['names' => 'admin.support']);
-    Route::resource('company_profile', 'Backend\CompanyProfileController', ['names' => 'admin.company']);
+    Route::resource('company', 'Backend\CompanyProfileController', ['names' => 'admin.company']);
+    Route::resource('comp_branch', 'Backend\CompanyBranchController', ['names' => 'admin.comp_branch']);
 
 
     // Login Routes
