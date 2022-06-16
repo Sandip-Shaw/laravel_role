@@ -96,20 +96,23 @@
                     </li>
                     @endif
 
-                    @if ($usr->can('company_profile.create') || $usr->can('company_profile.view') ||  $usr->can('company_profile.edit'))
+                    @if ($usr->can('company_profile.create') || $usr->can('company_profile.view') ||  $usr->can('company_profile.edit') ||  $usr->can('company_branch.create')  ||  $usr->can('company_branch.view')  ||  $usr->can('company_branch.edit'))
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
                             COMPANY 
                         </span></a>
-                        <ul class="collapse {{ Route::is('admin.company.create') || Route::is('admin.company.index') || Route::is('admin.company.edit') || Route::is('admin.company.show') ? 'in' : '' }}">
+                        <ul class="collapse {{ Route::is('admin.company.create') || Route::is('admin.company.index') || Route::is('admin.company.edit') || Route::is('admin.company.show') || Route::is('admin.company.create')  ||  Route::is('admin.company.edit')  ||  Route::is('admin.company.show')  ||Route::is('admin.company.index')? 'in' : '' }}">
                             
                             @if ($usr->can('company_profile.view'))
-                                <li class="{{ Route::is('admin.company.index')  || Route::is('admin.company.edit') ? 'active' : '' }}"><a href="{{ route('admin.company.index') }}">company</a></li>
+                                <li class="{{ Route::is('admin.company.index')  || Route::is('admin.company.edit') ? 'active' : '' }}"><a href="{{ route('admin.company.index') }}"> Company Profile</a></li>
                             @endif
 
                             @if ($usr->can('company_profile.create'))
-                                <li class="{{ Route::is('admin.company.create')  ? 'active' : '' }}"><a href="{{ route('admin.company.create') }}">Company Profile</a></li>
+                                <li class="{{ Route::is('admin.company.create')  ? 'active' : '' }}"><a href="{{ route('admin.company.create') }}">Profile Create</a></li>
                             @endif
+
+                            <li class="{{ Route::is('admin.comp_branch.index')  || Route::is('admin.comp_branch.edit') ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.index') }}">Branch Profile</a></li>
+                            <li class="{{ Route::is('admin.comp_branch.create')  ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.create') }}">Branch Create</a></li>
                         </ul>
                     </li>
                     @endif

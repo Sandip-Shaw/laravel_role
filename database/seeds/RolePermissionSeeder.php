@@ -88,6 +88,19 @@ class RolePermissionSeeder extends Seeder
             ],
 
             [
+                'group_name' => 'company_branch',
+                'permissions' => [
+                    // profile Permissions
+                    'company_branch.create',
+                    'company_branch.view',
+                    'company_branch.edit',
+                    'company_branch.approve',
+                    'company_branch.show',
+                    
+                ]
+            ],
+
+            [
                 'group_name' => 'support',
                 'permissions' => [
                     // profile Permissions
