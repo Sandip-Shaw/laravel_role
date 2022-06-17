@@ -12,6 +12,7 @@ use App\Models\Admin;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\CompanyProfile;
+
 class CompanyProfileController extends Controller
 {
     public $user;

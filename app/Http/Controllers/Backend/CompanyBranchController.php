@@ -17,6 +17,18 @@ use App\Models\CompanyBranch;
 
 class CompanyBranchController extends Controller
 {
+
+    public $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::guard('admin')->user();
+            return $next($request);
+        });
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -24,6 +36,10 @@ class CompanyBranchController extends Controller
      */
     public function index()
     {
+        if (is_null($this->user) || !$this->user->can('company_branch.view')) {
+            abort(403, 'Sorry !! You are Unauthorized to view any admin !');
+        }
+
         $branch = CompanyBranch::all();
         return view('backend.pages.comp_branch.index')->withBranch($branch);
     }
@@ -35,6 +51,10 @@ class CompanyBranchController extends Controller
      */
     public function create()
     {
+        if (is_null($this->user) || !$this->user->can('company_branch.create')) {
+            abort(403, 'Sorry !! You are Unauthorized to create any admin !');
+        }
+
         $branch= CompanyBranch::all();
         return view('backend.pages.comp_branch.create');
     }
@@ -47,6 +67,10 @@ class CompanyBranchController extends Controller
      */
     public function store(Request $request)
     {
+        if (is_null($this->user) || !$this->user->can('company_branch.create')) {
+            abort(403, 'Sorry !! You are Unauthorized to create any admin !');
+        }
+
         $request->validate([
             'branch_name' => 'required',
             'branch_code' => 'required',
@@ -89,7 +113,10 @@ class CompanyBranchController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = CompanyBranch::find($id);
+       // $profile = CompanyBranch::all();
+   //dd($company);
+        return view('backend.pages.comp_branch.show',compact('company')); 
     }
 
     /**
@@ -98,9 +125,15 @@ class CompanyBranchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        if (is_null($this->user) || !$this->user->can('company_branch.edit')) {
+            abort(403, 'Sorry !! You are Unauthorized to edit any admin !');
+        }
+
+        $branch = CompanyBranch::find($id);
+    
+        return view('backend.pages.comp_branch.edit')->withBranch($branch); 
     }
 
     /**
@@ -112,7 +145,43 @@ class CompanyBranchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (is_null($this->user) || !$this->user->can('company_branch.edit')) {
+            abort(403, 'Sorry !! You are Unauthorized to edit any admin !');
+        }
+
+        $branch=CompanyBranch::find($id);
+
+        $request->validate([
+            'branch_name' => 'required',
+            'branch_code' => 'required',
+            'open_date' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'pincode' => 'required',
+            'country' => 'required',
+            'members' => 'required',
+            'email' => 'required|email',
+             
+        ]);
+     
+        $branch->branch_name       =       $request->branch_name;
+        $branch->branch_code       =       $request->branch_code;
+        $branch->open_date         =       $request->open_date;
+        $branch->ifsc_code         =       $request->ifsc_code;
+        $branch->address           =       $request->address;
+        $branch->city              =       $request->city;
+        $branch->state             =       $request->state;
+        $branch->pincode           =       $request->pincode;
+        $branch->country           =       $request->country;
+        $branch->contact_no        =       $request->contact_no;
+        $branch->members           =       $request->members;
+        $branch->email             =       $request->email;
+        $branch->save();
+
+        session()->flash('success', 'Companys Branch has been Updated !!');
+        return redirect()->route('admin.comp_branch.index');
+
     }
 
     /**
@@ -123,6 +192,12 @@ class CompanyBranchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $branch = CompanyBranch::find($id);
+        if (!is_null($branch)) {
+            $branch->delete();
+        }
+
+        session()->flash('success', 'Company Branch has been deleted !!');
+        return back();
     }
 }

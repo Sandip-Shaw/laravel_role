@@ -111,8 +111,13 @@
                                 <li class="{{ Route::is('admin.company.create')  ? 'active' : '' }}"><a href="{{ route('admin.company.create') }}">Profile Create</a></li>
                             @endif
 
-                            <li class="{{ Route::is('admin.comp_branch.index')  || Route::is('admin.comp_branch.edit') ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.index') }}">Branch Profile</a></li>
+                            @if($usr->can('company_branch.view'))
+                            <li class="{{ Route::is('admin.comp_branch.index')  || Route::is('admin.comp_branch.edit') || Route::is('admin.comp_branch.show') ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.index') }}">Branch Profile</a></li>
+                            @endif
+                            
+                            @if($usr->can('company_branch.create'))
                             <li class="{{ Route::is('admin.comp_branch.create')  ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.create') }}">Branch Create</a></li>
+                            @endif
                         </ul>
                     </li>
                     @endif

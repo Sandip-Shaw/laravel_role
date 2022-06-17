@@ -74,19 +74,20 @@ Company Branch - Admin Panel
                                     <td>{{$branches->members}}</td>
                                   
                                        
-                                    <td> </td>
-                                        <!-- <a class="btn btn-success text-white" href="{{ route('admin.users.edit', $branches->id) }}">Edit</a>
+                                    <td> 
+                                         <a class="btn btn-success text-white" href="{{ route('admin.comp_branch.edit', $branches->id) }}">Edit</a>
+                                         <a class="btn btn-primary text-white" href="{{ route('admin.comp_branch.show', $branches->id) }}">Show</a> 
 
-                                        <a class="btn btn-danger text-white" href="{{ route('admin.users.destroy', $branches->id) }}"
+                                        <a class="btn btn-danger text-white" href="{{ route('admin.comp_branch.destroy', $branches->id) }}"
                                         onclick="event.preventDefault(); document.getElementById('delete-form-{{ $branches->id }}').submit();">
                                             Delete
                                         </a>
 
-                                        <form id="delete-form-{{ $branches->id }}" action="{{ route('admin.users.destroy', $branches->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $branches->id }}" action="{{ route('admin.comp_branch.destroy', $branches->id) }}" method="POST" style="display: none;">
                                             @method('DELETE')
                                             @csrf
                                         </form>
-                                    </td> -->
+                                    </td> 
                                 </tr>
                                @endforeach
                             </tbody>
