@@ -96,6 +96,23 @@ class RolePermissionSeeder extends Seeder
                     'company_branch.edit',
                     'company_branch.approve',
                     'company_branch.show',
+                    'company_branch.delete',
+
+                    
+                ]
+            ],
+
+            [
+                'group_name' => 'company_director',
+                'permissions' => [
+                    // profile Permissions
+                    'company_director.create',
+                    'company_director.view',
+                    'company_director.edit',
+                    'company_director.approve',
+                    'company_director.show',
+                    'company_director.delete',
+
                     
                 ]
             ],

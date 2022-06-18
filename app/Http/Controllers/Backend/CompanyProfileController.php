@@ -118,7 +118,7 @@ class CompanyProfileController extends Controller
 
 
         session()->flash('success', 'Profile has been created !!');
-        return redirect()->route('admin.company.create');
+        return redirect()->route('admin.company.index');
 
     }
 

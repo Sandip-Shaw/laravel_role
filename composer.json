@@ -11,6 +11,7 @@
         "php": "^8.0.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "dev-master",
         "laravel/framework": "^9.2",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
