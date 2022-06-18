@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Branches - Admin Panel
+Director - Admin Panel
 @endsection
 
 @section('styles')
@@ -21,12 +21,12 @@ Branches - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Company Branch</h4>
+                <h4 class="page-title pull-left">Company's Director</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li><a href="{{ route('admin.comp_branch.index') }}">Company Branch</a></li>
+                    <li><a href="{{ route('admin.comp_branch.index') }}">Company's Director</a></li>
 
-                    <li><span>{{$company->branch_name}}</span></li>
+                    <li><span>{{$director->director_name}}</span></li>
                 </ul>
             </div>
         </div>
@@ -49,7 +49,7 @@ Branches - Admin Panel
                         <a class="btn btn-primary text-white" href="{{ route('admin.company.create') }}">Create New Profile</a>
                     </p> -->
                     <div class="pull-right">
-                    <a class="btn btn-default btn-xs" onclick="block_ui()" href="{{ route('admin.comp_branch.edit',$company->id) }}">
+                    <a class="btn btn-default btn-xs" onclick="block_ui()" href="{{ route('admin.comp_director.edit',$director->id) }}">
                         <i class="fa fa-pencil"></i></a>
                     </div>
                  
@@ -61,93 +61,66 @@ Branches - Admin Panel
                             <tbody>
              
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;"> Branch Name</td>
+                                    <td class="ft-600" style="width: 250px;"> Designation</td>
                                     <td> 
-                                 {{$company->branch_name}}
+                                 {{$director->designation}}
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;"> Branch Code</td>
+                                    <td class="ft-600" style="width: 250px;"> Member</td>
                                     <td> 
-                                    {{$company->branch_code}}
+                                    {{$director->member}}
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">Opening Date</td>
+                                    <td class="ft-600" style="width: 250px;">Director Name</td>
                                     <td> 
-                                    {{$company->open_date}}
+                                    {{$director->director_name}}
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">IFSC Code</td>
+                                    <td class="ft-600" style="width: 250px;">DIN Number</td>
                                     <td> 
-                                    {{$company->ifsc_code}}
+                                    {{$director->din_no}}
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">Address </td>
+                                    <td class="ft-600" style="width: 250px;">Appointment Date </td>
                                     <td> 
-                                    {{$company->address}}
+                                    {{$director->appointment_date}}
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">City</td>
+                                    <td class="ft-600" style="width: 250px;">Resignation Date</td>
                                     <td> 
-                                    {{$company->city}}
+                                    {{$director->resignation_date}}
                                     </td>
                                 </tr>
 
                       
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">State</td>
+                                    <td class="ft-600" style="width: 250px;">Image</td>
                                     <td> 
-                                    {{$company->state}}
+                                    @if(isset($director))
+                                    <img src="{{asset('/images/directorImage/'.$director->image)}}" width="500">
+                                    @endif
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">Pincode</td>
+                                    <td class="ft-600" style="width: 250px;">Authorized Signatory</td>
                                     <td> 
-                                    {{$company->pincode}}
+                                    {{$director->authorized_signatory}}
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td class="ft-600" style="width: 250px;">Country</td>
-                                    <td> 
-                                    {{$company->country}}
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="ft-600" style="width: 250px;">Contact Number</td>
-                                    <td> 
-                                    {{$company->contact_no}}
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="ft-600" style="width: 250px;">Members</td>
-                                    <td> 
-                                    {{$company->members}}
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="ft-600" style="width: 250px;">Email</td>
-                                    <td> 
-                                    {{$company->email}}
-                                    </td>
-                                </tr>
-                               
-                               
-                        
+                             
                             </tbody>
                             
                         </table>

@@ -100,7 +100,7 @@ class CompanyBranchController extends Controller
         $branch->save();
 
         session()->flash('success', 'Companys Branch has been created !!');
-        return redirect()->route('admin.comp_branch.create');
+        return redirect()->route('admin.comp_branch.index');
 
 
     }
@@ -113,10 +113,14 @@ class CompanyBranchController extends Controller
      */
     public function show($id)
     {
-        $company = CompanyBranch::find($id);
-       // $profile = CompanyBranch::all();
+        if (is_null($this->user) || !$this->user->can('company_branch.show')) {
+            abort(403, 'Sorry !! You are Unauthorized to edit any admin !');
+        }
+
+        $company = CompanyBranch::findOrFail($id);
+       $profile = CompanyBranch::all();
    //dd($company);
-        return view('backend.pages.comp_branch.show',compact('company')); 
+        return view('backend.pages.comp_branch.show',compact('company','profile')); 
     }
 
     /**
