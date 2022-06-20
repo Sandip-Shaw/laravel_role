@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('company_directors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('designation');
-            $table->string('member');
+            $table->string('member')->nullable();
             $table->string('director_name');
-            $table->string('din_no');
+            $table->string('din_no')->nullable();
             $table->string('appointment_date');
-            $table->string('resignation_date');
+            $table->string('resignation_date')->nullable();
             $table->string('image');
             $table->string('authorized_signatory');
 

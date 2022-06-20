@@ -132,6 +132,26 @@
                     </li>
                     @endif
 
+                    
+                    @if ($usr->can('hr_management.create') || $usr->can('hr_management.view') ||  $usr->can('hr_management.edit') ||  $usr->can('hr_management.delete'))
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
+                            HR MANAGEMENT
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.hr_management.create') || Route::is('admin.hr_management.index') || Route::is('admin.hr_management.edit') || Route::is('admin.hr_management.show') ? 'in' : '' }}">
+                            
+                            @if ($usr->can('hr_management.view'))
+                                <li class="{{ Route::is('admin.hr_management.index')  || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="">Employees</a></li>
+                            @endif
+
+                            @if ($usr->can('hr_management.create'))
+                                <li class="{{ Route::is('admin.hr_management.create')  ? 'active' : '' }}"><a href="{{ route('admin.hr_management.create') }}">Create Employees</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                   
+                    @endif
+
                 </ul>
             </nav>
         </div>

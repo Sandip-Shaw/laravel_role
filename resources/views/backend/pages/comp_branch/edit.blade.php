@@ -165,7 +165,7 @@ Branch Edit - Admin Panel
 
                                            
                         
-                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Save </button>
+                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Update </button>
                         <a class="btn btn-danger" href="{{route('admin.comp_branch.index')}}">Cancel </a>
                     </form>
                 </div>

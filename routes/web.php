@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('company', 'Backend\CompanyProfileController', ['names' => 'admin.company']);
     Route::resource('comp_branch', 'Backend\CompanyBranchController', ['names' => 'admin.comp_branch']);
     Route::resource('comp_director', 'Backend\CompanyDirectorController', ['names' => 'admin.comp_director']);
+    Route::resource('hr_management', 'Backend\Hr_Management\HrManagementController', ['names' => 'admin.hr_management']);
 
 
     // Login Routes
