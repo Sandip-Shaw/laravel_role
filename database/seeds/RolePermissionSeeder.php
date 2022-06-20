@@ -125,6 +125,21 @@ class RolePermissionSeeder extends Seeder
                    // 'profile.edit',
                 ]
             ],
+
+            [
+                'group_name' => 'hr_management',
+                'permissions' => [
+                    // profile Permissions
+                    'hr_management.create',
+                    'hr_management.view',
+                    'hr_management.edit',
+                    'hr_management.approve',
+                    'hr_management.show',
+                    'hr_management.delete',
+
+                    
+                ]
+            ],
         ];
 
 
