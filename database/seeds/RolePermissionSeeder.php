@@ -118,6 +118,36 @@ class RolePermissionSeeder extends Seeder
             ],
 
             [
+                'group_name' => 'members_management',
+                'permissions' => [
+                    // profile Permissions
+                    'members_management.create',
+                    'members_management.view',
+                    'members_management.edit',
+                    'members_management.approve',
+                    'members_management.show',
+                    'members_management.delete',
+
+                    
+                ]
+            ],
+
+            [
+                'group_name' => 'loan_application',
+                'permissions' => [
+                    // profile Permissions
+                    'loan_application.create',
+                    'loan_application.view',
+                    'loan_application.edit',
+                    'loan_application.approve',
+                    'loan_application.show',
+                    'loan_application.delete',
+
+                    
+                ]
+            ],
+
+            [
                 'group_name' => 'support',
                 'permissions' => [
                     // profile Permissions
