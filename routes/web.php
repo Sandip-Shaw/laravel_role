@@ -36,6 +36,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('comp_branch', 'Backend\CompanyBranchController', ['names' => 'admin.comp_branch']);
     Route::resource('comp_director', 'Backend\CompanyDirectorController', ['names' => 'admin.comp_director']);
     Route::resource('hr_management', 'Backend\Hr_Management\HrManagementController', ['names' => 'admin.hr_management']);
+    Route::resource('loan_application', 'Backend\Loan\LoanApplicationController', ['names' => 'admin.loan_application']);
+    Route::resource('members_management', 'Backend\MembersManagement\MembersManagementController', ['names' => 'admin.members_management']);
 
 
     // Login Routes

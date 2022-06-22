@@ -132,7 +132,49 @@
                     </li>
                     @endif
 
-                    
+
+        <!--------------- Members management    ------------>
+                     @if ($usr->can('members_management.create') || $usr->can('members_management.view') ||  $usr->can('members_management.edit') ||  $usr->can('members_management.delete'))
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
+                            MEMBERS MANAGEMENT
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.members_management.create') || Route::is('admin.members_management.index') || Route::is('admin.members_management.edit') || Route::is('admin.members_management.show') ? 'in' : '' }}">
+                            
+                            @if ($usr->can('members_management.view'))
+                                <li class="{{ Route::is('admin.members_management.index')  || Route::is('admin.members_management.edit') ? 'active' : '' }}"><a href="">Members</a></li>
+                            @endif
+
+                            @if ($usr->can('members_management.create'))
+                                <li class="{{ Route::is('admin.members_management.create')  ? 'active' : '' }}"><a href="{{ route('admin.members_management.create') }}">Create Member</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                   
+                    @endif
+            <!---------------end Members management    ------------>
+
+              <!--------------- loan management    ------------>
+                    @if ($usr->can('loan_application.create') || $usr->can('loan_application.view') ||  $usr->can('loan_application.edit') ||  $usr->can('loan_application.delete'))
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
+                            LOAN
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.hr_management.create') || Route::is('admin.hr_management.index') || Route::is('admin.hr_management.edit') || Route::is('admin.hr_management.show') ? 'in' : '' }}">
+                            
+                            @if ($usr->can('loan_application.view'))
+                                <li class="{{ Route::is('admin.hr_management.index')  || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="">Loan Application</a></li>
+                            @endif
+
+                            @if ($usr->can('loan_application.create'))
+                                <li class="{{ Route::is('admin.loan_application.create')  ? 'active' : '' }}"><a href="{{ route('admin.loan_application.create') }}">Create Application</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                   
+                    @endif
+            <!---------------end loan management    ------------>
+
                     @if ($usr->can('hr_management.create') || $usr->can('hr_management.view') ||  $usr->can('hr_management.edit') ||  $usr->can('hr_management.delete'))
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
