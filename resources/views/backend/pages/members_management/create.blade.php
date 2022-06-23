@@ -12,6 +12,111 @@ Members Create - Admin Panel
     .form-check-label {
         text-transform: capitalize;
     }
+
+    .switch {
+	position: relative;
+	display: block;
+	vertical-align: top;
+	width: 100px;
+	height: 30px;
+	padding: 3px;
+	margin: 0 10px 10px 0;
+	background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
+	border-radius: 18px;
+	box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	box-sizing:content-box;
+}
+.switch-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	box-sizing:content-box;
+}
+.switch-label {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 10px;
+	text-transform: uppercase;
+	background: #eceeef;
+	border-radius: inherit;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+	box-sizing:content-box;
+}
+.switch-label:before, .switch-label:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -.5em;
+	line-height: 1;
+	-webkit-transition: inherit;
+	-moz-transition: inherit;
+	-o-transition: inherit;
+	transition: inherit;
+	box-sizing:content-box;
+}
+.switch-label:before {
+	content: attr(data-off);
+	right: 11px;
+	color: #aaaaaa;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.switch-label:after {
+	content: attr(data-on);
+	left: 11px;
+	color: #FFFFFF;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label {
+	background: #E1B42B;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.switch-input:checked ~ .switch-label:before {
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+	opacity: 1;
+}
+.switch-handle {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 28px;
+	height: 28px;
+	background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+	border-radius: 100%;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.switch-handle:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -6px;
+	width: 12px;
+	height: 12px;
+	background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+	border-radius: 6px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+}
+.switch-input:checked ~ .switch-handle {
+	left: 74px;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+ 
+/* Transition
+========================== */
+.switch-label, .switch-handle {
+	transition: All 0.3s ease;
+	-webkit-transition: All 0.3s ease;
+	-moz-transition: All 0.3s ease;
+	-o-transition: All 0.3s ease;
+}
 </style>
 @endsection
 
@@ -56,7 +161,7 @@ Members Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label  for="associate">Associate/Advisor/Staff</label>
-                                <select name="state" id="state" class="form-control" >
+                                <select name="associate" id="associate" class="form-control" >
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                     <option value="Assam">Assam</option>
@@ -67,14 +172,8 @@ Members Create - Admin Panel
                             </div>
                             <div class="form-group col-md-6">
                                 <label  for="group">Group</label>
-                                <select name="state" id="state" class="form-control" >
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                   
-                               
-                                </select>
+                                <input type="text" class="form-control" id="group" name="group" placeholder="Enter Group Name">
+                           
                             </div>
                            
                            
@@ -82,8 +181,8 @@ Members Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="associate">Branch</label>
-                                <select name="state" id="state" class="form-control" >
+                                <label  for="branch">Branch</label>
+                                <select name="branch" id="branch" class="form-control" >
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                     <option value="Assam">Assam</option>
@@ -125,12 +224,12 @@ Members Create - Admin Panel
                              <div class="form-group col-md-6"> 
                                 <p> Gender</p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="authorized_signatory" value="male">
+                                    <input class="form-check-input" type="radio" name="gender" value="male">
                                     <label class="form-check-label" for="authorized_signatory">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="authorized_signatory" value="female">
-                                    <label class="form-check-label" for="authorized_signatory">Female</label>
+                                    <input class="form-check-input" type="radio" name="gender" value="female">
+                                    <label class="form-check-label" for="gender">Female</label>
                                 </div>
                             </div>
                         </div>
@@ -170,11 +269,11 @@ Members Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="father_name">Father Name</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter Father Name">
+                                <input type="text" class="form-control" id="father_name" name="father_name" placeholder="Enter Father Name">
                             </div>
                             <div class="form-group col-md-4 ">
                                 <label for="mother_name">Mother Name</label>
-                                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Enter Mother Name">
+                                <input type="text" class="form-control" id="mother_name" name="mother_name" placeholder="Enter Mother Name">
                             </div>
                             <div class="form-group col-md-4 ">
                                 <label for="husbandWife_name">Husband/Wife Name</label>
@@ -298,17 +397,17 @@ Members Create - Admin Panel
                    
                             <div class="form-group col-md-4 ">
                                 <label for="address">Address</label>
-                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address"></textarea> 
+                                <textarea id="summernote" name="p_address" class="form-control" placeholder="Enter Address"></textarea> 
                                
                             </div>
                             <div class="form-group col-md-4 ">
                                 <label for="dist">City/District</label>
-                                <input type="text" class="form-control" id="dist" name="dist" placeholder="Enter City/District">
+                                <input type="text" class="form-control" id="dist" name="p_dist" placeholder="Enter City/District">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="state">State</label> 
                                
-                                <select name="state" id="state" class="form-control" >
+                                <select name="p_state" id="state" class="form-control" >
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                     <option value="Assam">Assam</option>
@@ -348,11 +447,11 @@ Members Create - Admin Panel
 
                             <div class="form-group col-md-4">
                                 <label for="pincode">Pin Code</label>
-                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode">
+                                <input type="text" class="form-control" id="pincode" name="p_pincode" placeholder="Enter Pincode">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="country">Country</label>
-                                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country">
+                                <input type="text" class="form-control" id="country" name="p_country" placeholder="Enter Country">
                             </div>
 
                         </div>
@@ -371,11 +470,115 @@ Members Create - Admin Panel
                            
                         </div>
                         <h4 class="header-title">Member's KYC</h4>  
-                   
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-sm-3 control-label">Photo</label>
+                         
+                                <input type="file" name="image_photo" class="GalleryImage" id="image_photo" required />  
 
-                                           
+                             </div>
+                             <div class="form-group col-md-6">
+                                <label class="col-sm-3 control-label">Id Proof</label>
+                         
+                                <input type="file" name="image_idproof" class="GalleryImage" id="image_idproof" required />  
+
+                             </div>  
+                             
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-sm-3 control-label">Address Proof</label>
+                         
+                                <input type="file" name="image_address" class="GalleryImage" id="image_address" required />  
+
+                             </div>
+                             <div class="form-group col-md-6">
+                                <label class="col-sm-3 control-label">Pan Card</label>
+                         
+                                <input type="file" name="image_pan" class="GalleryImage" id="image_pan" required />  
+
+                             </div>  
+                             
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-sm-3 control-label">Signature</label>
+                         
+                                <input type="file" name="image_signature" class="GalleryImage" id="image_signature" required />  
+
+                             </div>
+                             
+                        </div>
+
+                        <h4 class="header-title">Nominee Information</h4>
                         
-                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save </button>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label  for="nominee_name">Nominee Name</label>
+                                <input type="text" class="form-control" id="nominee_name" name="nominee_name" placeholder="Enter Nominee Name">
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <label for="nominee_relation">Nominee Relation</label>
+                                <input type="text" class="form-control" id="nominee_relation" name="nominee_relation" placeholder="Enter Nominee Relation">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label  for="nominee_mobile">Nominee Mobile No.</label>
+                                <input type="text" class="form-control" id="nominee_mobile" name="nominee_mobile" placeholder="Enter Nominee Mobile Number">
+                            </div>
+                           
+                        </div>
+
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-4 ">
+                                <label for="nominee_dob">Nominee DOB</label>
+                                <input type="date" class="form-control" id="nominee_dob" name="nominee_dob">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label  for="branch_adhar">Nominee Aadhar No.</label>
+                                <input type="text" class="form-control" id="branch_adhar" name="branch_adhar" placeholder="Enter Nominee Aadhar No.">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label  for="nominee_voter">Nominee Voter ID No.</label>
+                                <input type="text" class="form-control" id="nominee_voter" name="nominee_voter" placeholder="Enter Nominee Voter ID No.">
+                            </div>
+                           
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label  for="nominee_pan">Nominee Pan No.</label>
+                                <input type="text" class="form-control" id="nominee_pan" name="nominee_pan" placeholder="Enter Nominee Pan No.">
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <label for="nominee_ration">Nominee Ration Card No.</label>
+                                <input type="text" class="form-control" id="nominee_ration" name="nominee_ration" placeholder="Enter Nominee Ration Card No.">
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <label for="nominee_address">Nominee Address</label>
+                                <textarea id="summernote" name="nominee_address" class="form-control" placeholder="Enter Nominee Address"></textarea> 
+                               
+                            </div>
+                           
+                        </div>
+
+                        <h4 class="header-title">Extra Settings</h4>
+                        <label  for="sms">SMS</label>
+                        <div class="form-group row">
+                      
+                            <label class="switch">
+                                <input class="switch-input" type="checkbox" />
+                                <span class="switch-label" data-on="On" data-off="Off"></span> 
+                                <span class="switch-handle"></span> 
+                            </label>  
+                        </div>
+
+                       
+                        
+                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Add Member </button>
+                        <a class="btn btn-danger" href="">Cancel </a>
                     </form>
                 </div>
             </div>
