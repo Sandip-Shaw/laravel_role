@@ -49,6 +49,17 @@ return new class extends Migration
             $table->string('p_country')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+
+            $table->string('adhar_no')->nullable();
+            $table->string('voter_no')->nullable();
+            $table->string('pan_no')->nullable();
+            $table->string('ration_no')->nullable();
+            $table->string('meter_no')->nullable();
+            $table->string('cl_no')->nullable();
+            $table->string('cl_relation')->nullable();
+            $table->string('dl_no')->nullable();
+            $table->string('passport_no')->nullable();
+
             $table->string('image_photo')->nullable();
             $table->string('image_idproof')->nullable();
             $table->string('image_address')->nullable();
@@ -68,7 +79,7 @@ return new class extends Migration
             $table->string('senior_citizen')->nullable();
 
             $table->enum('kyc_status', ['Full_KYC','Pending','Failed']);
-            $table->enum('status', ['A','I']);
+            $table->enum('status', ['Active','Inactive']);
 
             $table->timestamps();
         });

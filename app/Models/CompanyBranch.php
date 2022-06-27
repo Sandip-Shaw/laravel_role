@@ -11,5 +11,8 @@ class CompanyBranch extends Model
 {
     use HasFactory,HasRoles;
 
-   
+    public function branchs(){
+
+        return $this->hasMany(MemberManagement::class);
+    } 
 }
