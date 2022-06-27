@@ -142,7 +142,7 @@
                         <ul class="collapse {{ Route::is('admin.members_management.create') || Route::is('admin.members_management.index') || Route::is('admin.members_management.edit') || Route::is('admin.members_management.show') ? 'in' : '' }}">
                             
                             @if ($usr->can('members_management.view'))
-                                <li class="{{ Route::is('admin.members_management.index')  || Route::is('admin.members_management.edit') ? 'active' : '' }}"><a href="">Members</a></li>
+                                <li class="{{ Route::is('admin.members_management.index')  || Route::is('admin.members_management.edit') ? 'active' : '' }}"><a href="{{ route('admin.members_management.index') }}">Members</a></li>
                             @endif
 
                             @if ($usr->can('members_management.create'))

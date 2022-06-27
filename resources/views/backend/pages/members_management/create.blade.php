@@ -154,7 +154,7 @@ Members Create - Admin Panel
                     <h3 class="header-title"> Create Members </h3>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="" method="POST" id="form" enctype="multipart/form-data">
+                    <form action="{{ route('admin.members_management.store') }}" method="POST" id="form" enctype="multipart/form-data">
                         @csrf
 
 
@@ -162,10 +162,10 @@ Members Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label  for="associate">Associate/Advisor/Staff</label>
                                 <select name="associate" id="associate" class="form-control" >
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
+                                    <option value="raj">raj</option>
+                                    <option value="rahul">rahul</option>
+                                    <option value="rama">rama</option>
+                                    <option value="yoyo">yoyo</option>
                                    
                                
                                 </select>
@@ -182,18 +182,17 @@ Members Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label  for="branch">Branch</label>
-                                <select name="branch" id="branch" class="form-control" >
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
+                                <select name="branch" id="branch" class="form-control" required>
+                                    @foreach($branches as $key=>$branch)
+                                    <option value="{{$branch}}">{{$key}}</option>
                                    
-                               
+                                   @endforeach
+                             
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="emr_date">Enrollment Date</label>
-                                <input type="date" class="form-control" id="emr_date" name="emr_date" >
+                                <input type="date" class="form-control" id="emr_date" name="emr_date" required>
                             </div>
                            
                            
@@ -206,26 +205,26 @@ Members Create - Admin Panel
                                 <p> Title</p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="title" value="Mr.">
-                                    <label class="form-check-label" for="authorized_signatory">Mr.</label>
+                                    <label class="form-check-label" for="title">Mr.</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="title" value="Mrs.">
-                                    <label class="form-check-label" for="authorized_signatory">Mrs.</label>
+                                    <label class="form-check-label" for="title">Mrs.</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="title" value="Ms.">
-                                    <label class="form-check-label" for="authorized_signatory">Ms.</label>
+                                    <label class="form-check-label" for="title">Ms.</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="title" value="Md.">
-                                    <label class="form-check-label" for="authorized_signatory">Md.</label>
+                                    <label class="form-check-label" for="title">Md.</label>
                                 </div>
                             </div>
                              <div class="form-group col-md-6"> 
                                 <p> Gender</p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender" value="male">
-                                    <label class="form-check-label" for="authorized_signatory">Male</label>
+                                    <label class="form-check-label" for="gender">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender" value="female">
@@ -237,7 +236,7 @@ Members Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="first_name">First Name</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name">
+                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" required>
                             </div>
                             <div class="form-group col-md-4 ">
                                 <label for="middle_name">Middle Name</label>
@@ -285,7 +284,7 @@ Members Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="mobile">Mobile Number</label>
-                                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number">
+                                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
                             </div>
                             <div class="form-group col-md-4 ">
                                 <label for="email">Email</label>
@@ -306,12 +305,20 @@ Members Create - Admin Panel
                             </div>
                             
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="dob">Date Of Birth</label>
+                                <input type="date" class="form-control" id="dob" name="dob" required>
+                            </div>
+                            
+                            
+                        </div>
                      
                         <h4 class="header-title">Member's Correspondence Address</h4>     
 
                         <div class="form-row">
-                       
-                   
+
                             <div class="form-group col-md-4 ">
                                 <label for="address">Address</label>
                                 <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address"></textarea> 
@@ -341,7 +348,7 @@ Members Create - Admin Panel
                        <div class="form-group col-md-4">
                                 <label for="state">State</label> 
                                
-                                <select name="state" id="state" class="form-control" >
+                                <select name="state" id="state" class="form-control" required>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                     <option value="Assam">Assam</option>
@@ -386,7 +393,7 @@ Members Create - Admin Panel
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="country">Country</label>
-                                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country">
+                                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" required>
                             </div>
 
                         </div>
@@ -469,7 +476,60 @@ Members Create - Admin Panel
                             </div>
                            
                         </div>
-                        <h4 class="header-title">Member's KYC</h4>  
+                        <h4 class="header-title">Member's KYC </h4>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-4 ">
+                                <label for="adhar_no">Aadhar Number</label>
+                                <input type="text" class="form-control" id="adhar_no" name="adhar_no" placeholder="Enter Aadhar Number">
+                            </div>
+                            
+                            <div class="form-group col-md-4 ">
+                                <label for="voter_no">Voter Id No.</label>
+                                <input type="text" class="form-control" id="voter_no" name="voter_no" placeholder="Enter Voter Id No.">
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <label for="pan_no">Pan No.</label>
+                                <input type="text" class="form-control" id="pan_no" name="pan_no" placeholder="Enter Pan No.">
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4 ">
+                                <label for="ration_no">Ration Card Number</label>
+                                <input type="text" class="form-control" id="ration_no" name="ration_no" placeholder="Enter Ration Card Number">
+                            </div>
+                            
+                            <div class="form-group col-md-4 ">
+                                <label for="meter_no">Meter No.</label>
+                                <input type="text" class="form-control" id="meter_no" name="meter_no" placeholder="Enter Meter No.">
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <label for="cl_no">CL No.</label>
+                                <input type="text" class="form-control" id="cl_no" name="cl_no" placeholder="Enter CL No.">
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4 ">
+                                <label for="cl_relation">CL Relation</label>
+                                <input type="text" class="form-control" id="cl_relation" name="cl_relation" placeholder="Enter CL Relation">
+                            </div>
+                            
+                            <div class="form-group col-md-4 ">
+                                <label for="dl_no">DL No.</label>
+                                <input type="text" class="form-control" id="dl_no" name="dl_no" placeholder="Enter DL No.">
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <label for="passport_no">Passport No.</label>
+                                <input type="text" class="form-control" id="passport_no" name="passport_no" placeholder="Enter Password No.">
+                            </div>
+
+                        </div>
+                        
+                        <h4 class="header-title">Member's KYC Document</h4>  
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-sm-3 control-label">Photo</label>
@@ -537,8 +597,8 @@ Members Create - Admin Panel
                                 <input type="date" class="form-control" id="nominee_dob" name="nominee_dob">
                             </div>
                             <div class="form-group col-md-4">
-                                <label  for="branch_adhar">Nominee Aadhar No.</label>
-                                <input type="text" class="form-control" id="branch_adhar" name="branch_adhar" placeholder="Enter Nominee Aadhar No.">
+                                <label  for="nominee_adhar">Nominee Aadhar No.</label>
+                                <input type="text" class="form-control" id="nominee_adhar" name="nominee_adhar" placeholder="Enter Nominee Aadhar No.">
                             </div>
                             <div class="form-group col-md-4">
                                 <label  for="nominee_voter">Nominee Voter ID No.</label>
@@ -578,7 +638,7 @@ Members Create - Admin Panel
                        
                         
                         <button type="submit" class="btn btn-primary  pr-4 pl-4">Add Member </button>
-                        <a class="btn btn-danger" href="">Cancel </a>
+                        <a class="btn btn-danger" href="{{route('admin.members_management.index')}}">Cancel </a>
                     </form>
                 </div>
             </div>
@@ -598,10 +658,11 @@ Members Create - Admin Panel
 <script>
     $(document).ready(function() {
         $('.select2').select2();
+        $('#form').parsley();
     })
 </script>
 
 <script>
-  $('#form').parsley();
+ 
 </script>
 @endsection
