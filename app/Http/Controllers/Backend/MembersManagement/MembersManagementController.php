@@ -194,8 +194,9 @@ class MembersManagementController extends Controller
     public function edit($member_id)
     {
         $member = MemberManagement::find($member_id);
+        $branch= CompanyBranch::pluck('id','branch_name');
     
-        return view('backend.pages.members_management.edit')->withMember($member); 
+        return view('backend.pages.members_management.edit')->withMember($member)->withBranches($branch); 
     }
 
     /**

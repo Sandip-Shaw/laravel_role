@@ -162,13 +162,17 @@
                         </span></a>
                         <ul class="collapse {{ Route::is('admin.hr_management.create') || Route::is('admin.hr_management.index') || Route::is('admin.hr_management.edit') || Route::is('admin.hr_management.show') ? 'in' : '' }}">
                             
-                            @if ($usr->can('loan_application.view'))
-                                <li class="{{ Route::is('admin.hr_management.index')  || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="">Loan Application</a></li>
+                            @if ($usr->can('loan_application.view') || $usr->can('loan_application.create'))
+                                <li class="{{ Route::is('admin.hr_management.index') || Route::is('admin.loan_application.create') || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="{{ route('admin.loan_application.index') }}">Loan Application</a></li>
                             @endif
 
-                            @if ($usr->can('loan_application.create'))
+                            <!-- @if ($usr->can('loan_application.create'))
                                 <li class="{{ Route::is('admin.loan_application.create')  ? 'active' : '' }}"><a href="{{ route('admin.loan_application.create') }}">Create Application</a></li>
-                            @endif
+                            @endif -->
+
+                         
+                                <li class="{{ Route::is('admin.loan_schema.index')  || Route::is('admin.loan_schema.edit') || Route::is('admin.loan_schema.create')? 'active' : '' }}"><a href="{{ route('admin.loan_schema.index')}}">Schema</a></li>
+                           
                         </ul>
                     </li>
                    

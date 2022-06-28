@@ -73,7 +73,10 @@ Member Management - Admin Panel
                             @foreach ($member as $members)
                                <tr>
                                     <td>{{ $loop->index+1000 }}</td>
+
                                     <td>{{ $members->branch }}</td>
+                                   
+
                                     <td>{{ $members->first_name }}</td>
                                     <td>{{ $members->father_name }} </td>
                                     <td>{{ $members->senior_citizen }} </td>

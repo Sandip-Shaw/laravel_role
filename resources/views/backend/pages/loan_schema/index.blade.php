@@ -21,10 +21,10 @@ Loan Management - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Loan Application</h4>
+                <h4 class="page-title pull-left">Loan Schema</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li><span>Applications</span></li>
+                    <li><span>Schema's</span></li>
                 </ul>
             </div>
         </div>
@@ -41,9 +41,9 @@ Loan Management - Admin Panel
         <div class="col-12 mt-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title float-left">Applicant's List</h4>
+                    <h4 class="header-title float-left">Schema's List</h4>
                     <p class="float-right mb-2">
-                        <a class="btn btn-primary text-white" href="{{ route('admin.loan_application.create') }}">Create Loan Application</a>
+                        <a class="btn btn-primary text-white" href="{{ route('admin.loan_schema.create') }}">Create Schema</a>
                     </p>
                     <div class="clearfix"></div>
                     <div class="data-tables">
@@ -52,37 +52,39 @@ Loan Management - Admin Panel
                             <thead class="bg-light text-capitalize">
                                 <tr>
                                    
-                                    <th width="05%">Member No.</th>
-                                    <th width="10%">Branch</th>
-                                    <th width="10%">Name</th>
-                                    <th width="10%">F/H Name</th>
-                                    <th width="10%">Senior Citizen</th>
-                                    <th width="10%">Enroll Date</th>
-                                    <th width="10%">Aadhar No.</th>
-                                    <th width="10%">Pan No.</th>
-                                   
-                                    <th width="05%">KYC Status</th>
-                                    <th width="10%">Mobile No.</th>
-                                    <th width="05%">Status</th>
-                                    <th width="05%">Actions</th>
+                                    <th width="15%">Schema Code</th>
+                                    <th width="15%">Schema Name</th>
+                                    <th width="10%">Tenure</th>
+                                    <th width="20%">Max. Loan Ammount</th>
+                                    <th width="15%">Interest Type</th>
+                                    <th width="15%">A.Interest Rate(%)</th>
+                                    <th width="05%">Active</th>
+                                  
+                                    <th width="10%">Actions</th>
 
 
                                 </tr>
                             </thead>
                             <tbody>
-                         
- 
+                            @foreach ($schemas as $schema)
+                                    <td>{{ $schema->schema_code }}</td>
+                                    <td>{{ $schema->schema_name }}</td>
+                                    <td>{{ $schema->max_tanure }} </td>
+                                    <td>{{ $schema->max_loan_amt }} </td>
+                                    <td>{{ $schema->int_type }} </td>
+                                    <td>{{ $schema->ann_rate_int }} </td>
+                                    <td>{{ $schema->active }} </td>
                                     <td>
                                      
-                                            <a class="btn btn-success text-white" href="">Edit</a>
-                                            <a class="btn btn-primary text-white" href="">Show</a> 
+                                            <a class="btn btn-success text-white" href="{{ route('admin.loan_schema.edit',$schema->loanSchema_id) }}">Edit</a>
+                                            <a class="btn btn-primary text-white" href="{{ route('admin.loan_schema.show',$schema->loanSchema_id) }}">Show</a> 
                                         
                                      
                                       
                                      
                                     </td>
                                 </tr>
-
+                                @endforeach 
                             </tbody>
                         </table>
                     </div>

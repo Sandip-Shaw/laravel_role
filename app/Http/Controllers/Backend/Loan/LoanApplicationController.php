@@ -14,7 +14,7 @@ class LoanApplicationController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.pages.loan_application.index');
     }
 
     /**

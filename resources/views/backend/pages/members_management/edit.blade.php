@@ -184,7 +184,7 @@ Members Edit - Admin Panel
                             <div class="form-group col-md-6">
                                 <label  for="branch">Branch</label>
                                 <select name="branch" id="branch" class="form-control" required>
-                                    @foreach($member as $key=>$branch)
+                                    @foreach($branches as $key=>$branch)
                                     <option value="{{$branch}}">{{$key}}</option>
                                    
                                    @endforeach
