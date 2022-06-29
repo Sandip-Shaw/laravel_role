@@ -25,6 +25,8 @@ class MembersManagementController extends Controller
     public function index()
     {
         $member = MemberManagement::all();
+        //dd($member[0]->branchdet->branch_name);
+        
         return view('backend.pages.members_management.index')->withMember($member);
     }
 
@@ -36,7 +38,7 @@ class MembersManagementController extends Controller
     public function create()
     {
         $branch= CompanyBranch::pluck('id','branch_name');
-//dd($branch);
+        //dd($branch);
         return view('backend.pages.members_management.create')->withBranches($branch);
 
 

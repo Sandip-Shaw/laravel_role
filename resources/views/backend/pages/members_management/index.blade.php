@@ -74,10 +74,10 @@ Member Management - Admin Panel
                                <tr>
                                     <td>{{ $loop->index+1000 }}</td>
 
-                                    <td>{{ $members->branch }}</td>
+                                    <td>{{ $members->branchdet->branch_name }}</td>
                                    
 
-                                    <td>{{ $members->first_name }}</td>
+                                    <td>{{ $members->first_name }} {{ $members->middle_name }} {{ $members->last_name }}</td>
                                     <td>{{ $members->father_name }} </td>
                                     <td>{{ $members->senior_citizen }} </td>
                                     <td>{{ $members->emr_date }} </td>

@@ -47,7 +47,7 @@ class LoanSchemaController extends Controller
     {
         $request->validate([
             'schema_name' => 'required',
-            'schema_code' => 'required|max:6',
+            'schema_code' => 'required|max:8',
             'max_loan_amt' => 'required',
             'max_tanure' => 'required',
             'ann_rate_int' => 'required',

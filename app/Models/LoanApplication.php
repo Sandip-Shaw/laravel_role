@@ -7,14 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
 
 
-class LoanSchema extends Model
+class LoanApplication extends Model
 {
     use HasFactory,HasRoles;
-
-    protected $primaryKey = 'loanSchema_id';
-
-    public function loanApplication(){
-
-        return $this->hasMany(LoanApplication::class);
-    }
+    
 }
