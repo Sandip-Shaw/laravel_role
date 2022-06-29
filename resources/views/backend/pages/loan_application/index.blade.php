@@ -52,25 +52,31 @@ Loan Management - Admin Panel
                             <thead class="bg-light text-capitalize">
                                 <tr>
                                    
-                                    <th width="05%">Member No.</th>
+                                    <th width="15%">Associate</th>
+                                    <th width="10%">Application No.</th>
+                                    <th width="10%">Application Date</th>
+                                    <th width="20%">Member</th>
                                     <th width="10%">Branch</th>
-                                    <th width="10%">Name</th>
-                                    <th width="10%">F/H Name</th>
-                                    <th width="10%">Senior Citizen</th>
-                                    <th width="10%">Enroll Date</th>
-                                    <th width="10%">Aadhar No.</th>
-                                    <th width="10%">Pan No.</th>
+                                    <th width="10%">Scheme</th>
+                                    <th width="10%">Principal Amt.</th>
+                                    <th width="10%">Status</th>
                                    
-                                    <th width="05%">KYC Status</th>
-                                    <th width="10%">Mobile No.</th>
-                                    <th width="05%">Status</th>
                                     <th width="05%">Actions</th>
 
 
                                 </tr>
                             </thead>
                             <tbody>
-                         
+                                    @foreach ($applications as $application)
+                                    <td>{{ $application->associate }}</td>
+                                    <td>{{ $loop->index+00001 }}</td>
+                                    <td>{{ $application->application_date }} </td>
+                                    <td>{{ $application->member }} </td>
+                                    <td>{{ $application->branch }} </td>
+                                    <td>{{ $application->loan_schema }} </td>
+                                    <td>{{ $application->loan_requested }} </td>
+
+                                    <td>{{ $application->status }} </td>
  
                                     <td>
                                      
@@ -82,7 +88,7 @@ Loan Management - Admin Panel
                                      
                                     </td>
                                 </tr>
-
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
