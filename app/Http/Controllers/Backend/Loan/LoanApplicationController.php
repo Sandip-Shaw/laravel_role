@@ -91,10 +91,10 @@ class LoanApplicationController extends Controller
     public function show($loanApplication_id)
     {
         $application = LoanApplication::findOrFail($loanApplication_id);
-        dd($application);
-        $profile = LoanApplication::all();
+        //dd($application);
+        
  
-         return view('backend.pages.loan_application.show',compact('application','profile'));
+         return view('backend.pages.loan_application.show')->withApplications($application);
     }
 
     /**

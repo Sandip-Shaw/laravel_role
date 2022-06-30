@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Loan Management - Admin Panel
+Loan Schemes - Admin Panel
 @endsection
 
 @section('styles')
@@ -21,10 +21,10 @@ Loan Management - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Loan Schema</h4>
+                <h4 class="page-title pull-left">Loan Scheme</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li><span>Schema's</span></li>
+                    <li><span>Scheme's</span></li>
                 </ul>
             </div>
         </div>
@@ -41,9 +41,9 @@ Loan Management - Admin Panel
         <div class="col-12 mt-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title float-left">Schema's List</h4>
+                    <h4 class="header-title float-left">Scheme's List</h4>
                     <p class="float-right mb-2">
-                        <a class="btn btn-primary text-white" href="{{ route('admin.loan_schema.create') }}">Create Schema</a>
+                        <a class="btn btn-primary text-white" href="{{ route('admin.loan_schema.create') }}">Create Scheme</a>
                     </p>
                     <div class="clearfix"></div>
                     <div class="data-tables">
@@ -52,8 +52,8 @@ Loan Management - Admin Panel
                             <thead class="bg-light text-capitalize">
                                 <tr>
                                    
-                                    <th width="15%">Schema Code</th>
-                                    <th width="15%">Schema Name</th>
+                                    <th width="15%">Scheme Code</th>
+                                    <th width="15%">Scheme Name</th>
                                     <th width="10%">Tenure</th>
                                     <th width="20%">Max. Loan Ammount</th>
                                     <th width="15%">Interest Type</th>

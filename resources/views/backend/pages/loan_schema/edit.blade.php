@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Edit Loan Schema - Admin Panel
+Edit Loan Schemes - Admin Panel
 @endsection
 
 @section('styles')
@@ -25,11 +25,11 @@ Edit Loan Schema - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Edit Deposit Loan Schema</h4>
+                <h4 class="page-title pull-left">Edit Deposit Loan Scheme</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="">Dashboard</a></li>
                     <!-- <li><a href="">All Blogs</a></li> -->
-                    <li><span>Edit Schema</span></li>
+                    <li><span>Edit Scheme</span></li>
                 </ul>
             </div>
         </div>
@@ -46,7 +46,7 @@ Edit Loan Schema - Admin Panel
         <div class="col-12 mt-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title"> Edit Schema </h4>
+                    <h4 class="header-title"> Edit Schemes </h4>
                     @include('backend.layouts.partials.messages')
                     
                     <form action="{{ route('admin.loan_schema.update',$schemas->loanSchema_id) }}" method="POST" id="form">
@@ -54,12 +54,12 @@ Edit Loan Schema - Admin Panel
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="schema_name">Schema Name</label>
-                                <input type="text" class="form-control" id="schema_name" value="{{$schemas->schema_name}}" name="schema_name" placeholder="Enter Schema Name">
+                                <label  for="schema_name">Scheme Name</label>
+                                <input type="text" class="form-control" id="schema_name" value="{{$schemas->schema_name}}" name="schema_name" placeholder="Enter Scheme Name">
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="Schema_code">Schema Code</label>
-                                <input type="text" class="form-control" id="schema_code" name="schema_code" value="{{$schemas->schema_code}}" placeholder="Enter Schema Code">
+                                <label for="Schema_code">Scheme Code</label>
+                                <input type="text" class="form-control" id="schema_code" name="schema_code" value="{{$schemas->schema_code}}" placeholder="Enter Scheme Code">
                             </div>
                            
                         </div>
