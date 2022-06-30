@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Loan Schema - Admin Panel
+Loan Schemes - Admin Panel
 @endsection
 
 @section('styles')
@@ -21,10 +21,10 @@ Loan Schema - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Loan Schema</h4>
+                <h4 class="page-title pull-left">Loan Scheme</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li><a href="{{ route('admin.loan_schema.index') }}"> Loan Schema</a></li>
+                    <li><a href="{{ route('admin.loan_schema.index') }}"> Loan Scheme</a></li>
                     <li><span>   {{ $schema->schema_name }}</span></li>
                 </ul>
             </div>
@@ -62,14 +62,14 @@ Loan Schema - Admin Panel
                             <tbody>
                           
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">Schema Code </td>
+                                    <td class="ft-600" style="width: 250px;">Scheme Code </td>
                                     <td> 
                                     {{ $schema->schema_code }}
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;"> Schema Name</td>
+                                    <td class="ft-600" style="width: 250px;"> Scheme Name</td>
                                     <td> 
                                     {{ $schema->schema_name }}
                                     </td>

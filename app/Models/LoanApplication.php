@@ -10,7 +10,8 @@ use Spatie\Permission\Traits\HasRoles;
 class LoanApplication extends Model
 {
     use HasFactory,HasRoles;
-    protected $primaryKey = 'loanApplication_id ';
+    
+    protected $primaryKey = 'loanApplication_id';
 
     public function branchdetails(){
 
