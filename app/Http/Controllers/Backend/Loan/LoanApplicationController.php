@@ -88,9 +88,13 @@ class LoanApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($loanApplication_id)
     {
-        //
+        $application = LoanApplication::findOrFail($loanApplication_id);
+        dd($application);
+        $profile = LoanApplication::all();
+ 
+         return view('backend.pages.loan_application.show',compact('application','profile'));
     }
 
     /**
