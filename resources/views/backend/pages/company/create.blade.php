@@ -7,6 +7,7 @@ Profile Create - Admin Panel
 
 @section('styles')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link href="../../../../../public/backend/assets/css/issue.css" rel="stylesheet" />
 
 <style>
     .form-check-label {
@@ -53,7 +54,7 @@ Profile Create - Admin Panel
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Company Website</label>
+                                <label for="name">Company Website<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="company_website" name="company_website" placeholder="Enter Your Website">
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
@@ -94,7 +95,7 @@ Profile Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-9 col-sm-12">
                                 <label for="name">Address</label>
-                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address"></textarea> 
+                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address" style="resize:none;" rows="2"></textarea> 
                                 <!-- <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address"> -->
                             </div>
                             <div class="form-group col-md-3 col-sm-12">

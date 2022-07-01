@@ -60,26 +60,26 @@
                     @endif
 
 
-
+        <!----------------------- Advisor/Associate ----------------->
                     @if ($usr->can('blog.create') || $usr->can('blog.view') ||  $usr->can('blog.edit') ||  $usr->can('blog.delete'))
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
-                            BLOG
+                            Associate/Advisor
                         </span></a>
-                        <ul class="collapse {{ Route::is('admin.blogs.create') || Route::is('admin.blogs.index') || Route::is('admin.blogs.edit') || Route::is('admin.blogs.show') ? 'in' : '' }}">
+                        <ul class="collapse {{ Route::is('admin.advisor.create') || Route::is('admin.advisor.index') || Route::is('admin.advisor.edit') || Route::is('admin.advisor.show') ? 'in' : '' }}">
                             
-                            @if ($usr->can('blog.view'))
-                                <li class="{{ Route::is('admin.blogs.index')  || Route::is('admin.blogs.edit') ? 'active' : '' }}"><a href="{{ route('admin.blogs.index') }}">All Blogs</a></li>
-                            @endif
+                          
+                                <li class="{{ Route::is('admin.advisor.index')  || Route::is('admin.advisor.edit') ? 'active' : '' }}"><a href="">Associate</a></li>
+                         
 
-                            @if ($usr->can('blog.create'))
-                                <li class="{{ Route::is('admin.blogs.create')  ? 'active' : '' }}"><a href="{{ route('admin.blogs.create') }}">Create Blog</a></li>
-                            @endif
+                       
+                                <li class="{{ Route::is('admin.advisor.create')  ? 'active' : '' }}"><a href="{{ route('admin.advisor.create') }}">Create Associate</a></li>
+                          
                         </ul>
                     </li>
                     @endif
 
-
+        <!----------------------- end Advisor/Associate ----------------->
                     @if ($usr->can('support.view')) 
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>

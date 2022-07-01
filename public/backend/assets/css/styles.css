@@ -53,6 +53,9 @@
 
 
 /*------------------------- 1. Core Css -------------------*/
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 10px) !important;
+  }
 
 .page-container {
     width: 100%;

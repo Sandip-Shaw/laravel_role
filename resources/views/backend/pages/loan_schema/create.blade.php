@@ -53,11 +53,11 @@ Loan Schemes - Admin Panel
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="schema_name">Scheme Name</label>
+                                <label  for="schema_name">Scheme Name<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="schema_name" name="schema_name" placeholder="Enter Scheme Name">
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="Schema_code">Scheme Code</label>
+                                <label for="Schema_code">Scheme Code<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="schema_code" name="schema_code" placeholder="Enter Scheme Code">
                             </div>
                            
@@ -66,7 +66,7 @@ Loan Schemes - Admin Panel
                         <div class="form-row">
                             
                             <div class="form-group col-md-6 ">
-                                <label for="max_loan_amt">Maximum Loan Amount(INR)</label>
+                                <label for="max_loan_amt">Maximum Loan Amount(INR)<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="max_loan_amt" name="max_loan_amt" placeholder="Enter Maximum Loan Amount(INR)">
                             </div>
                             <div class="form-group col-md-6 ">
@@ -79,7 +79,7 @@ Loan Schemes - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="max_tanure">Max. Tenure</label> 
+                                <label for="max_tanure">Max. Tenure<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
                                 <select name="max_tanure" id="max_tanure" class="form-control" >
                                     <option value="1 Months">1 Month</option>
@@ -96,7 +96,7 @@ Loan Schemes - Admin Panel
                             </div>
                            
                             <div class="form-group col-md-6">
-                                <label for="ann_rate_int">Annual Interest Rate (%)</label>
+                                <label for="ann_rate_int">Annual Interest Rate (%)<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="ann_rate_int" name="ann_rate_int" placeholder="Enter Annual Interest Rate (%)">
                             </div>
 
@@ -119,7 +119,7 @@ Loan Schemes - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="sec_deposit">Security Deposit</label> 
+                                <label for="sec_deposit">Security Deposit<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
                                 <select name="sec_deposit" id="sec_deposit" class="form-control" >
                                     <option value="">Please Select</option>
@@ -142,7 +142,7 @@ Loan Schemes - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <p> Active</p>
+                                <p> Active<span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="active" value="yes">
                                     <label class="form-check-label" for="active">Yes</label>
@@ -153,7 +153,7 @@ Loan Schemes - Admin Panel
                                 </div>
                             </div>  
                             <div class="form-group col-md-6">
-                                <p> Interest Type</p>
+                                <p> Interest Type<span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="int_type" value="Reducing EMI">
                                     <label class="form-check-label" for="int_type">Reducing EMI</label>

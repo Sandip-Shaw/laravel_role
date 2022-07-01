@@ -58,7 +58,7 @@ Loan Application Create - Admin Panel
                         <div class="form-row">
                            
                             <div class="form-group col-md-6">
-                                <label  for="application_date">Application Date</label>
+                                <label  for="application_date">Application Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="date" class="form-control" id="application_date" name="application_date" >
                            
                             </div>
@@ -68,7 +68,7 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="member">Member</label>
+                                <label  for="member">Member<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="member" id="member" class="form-control" required>
                                     <option value="">Select Member</option>
                                     @foreach($members as $key=>$member)
@@ -89,7 +89,7 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                         <div class="form-group col-md-6">
-                                <label  for="branch">Branch</label>
+                                <label  for="branch">Branch<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="branch" id="branch" class="form-control" required>
                                     <option value="">Select Branch</option>
                                     @foreach($branches as $key=>$branch)
@@ -181,7 +181,7 @@ Loan Application Create - Admin Panel
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="loan_schema">Loan Scheme</label>
+                                <label for="loan_schema">Loan Scheme<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="loan_schema" id="loan_schema" class="form-control" required>
                                 <option value="">Select Loan Scheme</option>
                                 @foreach($schemas as $key=>$schema)
@@ -196,7 +196,7 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="sec_value">Security Value (INR) </label>
+                                <label for="sec_value">Security Value (INR)<span style="color:red; font-size: 18px;line-height:1">*</span> </label>
                                 <input type="text" class="form-control" id="sec_value" name="sec_value" placeholder="Security Value (INR)" required>
                             </div>
     
@@ -204,7 +204,7 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                         <div class="form-group col-md-6">
-                                <p> Tenure Type</p>
+                                <p> Tenure Type<span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="tenure_type" value="weeks">
                                     <label class="form-check-label" for="tenure_type">Weeks</label>
@@ -222,7 +222,7 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="tenure_months">Tenure (MONTHS) </label>
+                                <label for="tenure_months">Tenure (MONTHS)<span style="color:red; font-size: 18px;line-height:1">*</span> </label>
                                 <input type="text" class="form-control" id="tenure_months" name="tenure_months" placeholder="Tenure (MONTHS)" required>
                             </div>
     
@@ -230,7 +230,7 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                         <div class="form-group col-md-6 ">
-                                <label for="emi_collection">EMI Collection</label>
+                                <label for="emi_collection">EMI Collection<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="emi_collection" id="emi_collection" class="form-control" required>
                                     <option value="">Please Select </option>
                                     <option value="Monthly">Monthly</option>
@@ -244,7 +244,7 @@ Loan Application Create - Admin Panel
 
                          <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="credit_period">Credit Period (EMI Grace Period) (Days) </label>
+                                <label for="credit_period">Credit Period (EMI Grace Period) (Days) <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="credit_period" name="credit_period" placeholder="Enter Credit Period (EMI Grace Period) (Days)" required>
                             </div>
     
@@ -252,7 +252,7 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="loan_requested">Amount of Loan Requested </label>
+                                <label for="loan_requested">Amount of Loan Requested <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="loan_requested" name="loan_requested" placeholder="Amount of Loan Requested" required>
                             </div>
     
