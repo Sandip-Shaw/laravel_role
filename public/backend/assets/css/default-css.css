@@ -9,6 +9,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Poppins:100,300,400,500,600,700,800,900');
 /* Your default CSS. */
 
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 10px) !important;
+  }
+
 * {
     margin: 0;
     padding: 0;

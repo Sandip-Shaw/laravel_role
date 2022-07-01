@@ -148,6 +148,20 @@ class RolePermissionSeeder extends Seeder
             ],
 
             [
+                'group_name' => 'loan_schema',
+                'permissions' => [
+                    // profile Permissions
+                    'loan_schema.create',
+                    'loan_schema.view',
+                    'loan_schema.edit',
+                    'loan_schema.approve',
+                    'loan_schema.show',
+                 
+                    
+                ]
+            ],
+
+            [
                 'group_name' => 'support',
                 'permissions' => [
                     // profile Permissions

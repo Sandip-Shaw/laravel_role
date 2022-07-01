@@ -167,7 +167,7 @@ class MembersManagementController extends Controller
         $member->save();        
       
         session()->flash('success', 'The Members Profile Has Been Added Successfully!');
-        return redirect()->route('admin.members_management.create');
+        return redirect()->route('admin.members_management.index');
 
 
 

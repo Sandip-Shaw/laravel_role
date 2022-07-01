@@ -39,6 +39,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('loan_application', 'Backend\Loan\LoanApplicationController', ['names' => 'admin.loan_application']);
     Route::resource('members_management', 'Backend\MembersManagement\MembersManagementController', ['names' => 'admin.members_management']);
     Route::resource('loan_schema', 'Backend\Loan\LoanSchemaController', ['names' => 'admin.loan_schema']);
+    Route::resource('advisor', 'Backend\AdvisorController', ['names' => 'admin.advisor']);
+
 
 
     // Login Routes
