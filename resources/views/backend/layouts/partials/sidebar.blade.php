@@ -61,7 +61,7 @@
 
 
         <!----------------------- Advisor/Associate ----------------->
-                    @if ($usr->can('blog.create') || $usr->can('blog.view') ||  $usr->can('blog.edit') ||  $usr->can('blog.delete'))
+                    <!-- @if ($usr->can('blog.create') || $usr->can('blog.view') ||  $usr->can('blog.edit') ||  $usr->can('blog.delete'))
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
                             Associate/Advisor
@@ -77,10 +77,10 @@
                           
                         </ul>
                     </li>
-                    @endif
+                    @endif -->
 
         <!----------------------- end Advisor/Associate ----------------->
-                    @if ($usr->can('support.view')) 
+                    <!-- @if ($usr->can('support.view')) 
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
                             SUPPORT
@@ -94,8 +94,9 @@
                            
                         </ul>
                     </li>
-                    @endif
+                    @endif -->
 
+            <!-- -------------company profile ---------------------->
                     @if ($usr->can('company_profile.create') || $usr->can('company_profile.view') ||  $usr->can('company_profile.edit') ||  $usr->can('company_branch.create')  ||  $usr->can('company_branch.view')  ||  $usr->can('company_branch.edit')
                             ||  $usr->can('company_director.create')  ||  $usr->can('company_director.view')  ||  $usr->can('company_director.edit'))
                     <li>
@@ -131,7 +132,7 @@
                         </ul>
                     </li>
                     @endif
-
+        <!-- -------------end company profile ---------------------->
 
         <!--------------- Members management    ------------>
                      @if ($usr->can('members_management.create') || $usr->can('members_management.view') ||  $usr->can('members_management.edit') ||  $usr->can('members_management.delete'))

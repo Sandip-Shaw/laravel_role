@@ -49,24 +49,24 @@ Branch Create - Admin Panel
                     <h4 class="header-title"> Create Company's Branch </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{ route('admin.comp_branch.store') }}" method="POST" id="form">
+                    <form action="{{ route('admin.comp_branch.store') }}" method="POST" id="form"  data-parsley-validate>
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="branch_name">Branch Name</label>
-                                <input type="text" class="form-control" id="branch_name" name="branch_name" placeholder="Enter Branch Name">
+                                <label  for="branch_name">Branch Name<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="branch_name" name="branch_name" placeholder="Enter Branch Name" required>
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="branch_code">Branch Code</label>
-                                <input type="text" class="form-control" id="branch_code" name="branch_code" placeholder="Enter Branch Code">
+                                <label for="branch_code">Branch Code<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="branch_code" name="branch_code" placeholder="Enter Branch Code" required>
                             </div>
                            
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="open_date">Opening Date</label>
-                                <input type="date" class="form-control" id="open_date" name="open_date" >
+                                <label for="open_date">Opening Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="date" class="form-control" id="open_date" name="open_date" required>
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="ifsc_code">IFSC Code</label>
@@ -78,13 +78,13 @@ Branch Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6 ">
-                                <label for="address">Address</label>
-                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address"></textarea> 
+                                <label for="address">Address<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address"required></textarea> 
                                
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="name">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
+                                <label for="name">City<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" required>
                             </div>
                         
                         </div>
@@ -92,9 +92,11 @@ Branch Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="state">State</label> 
+                                <label for="state">State<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
-                                <select name="state" id="state" class="form-control" >
+                                <select name="state" id="state" class="form-control" required>
+                                    <option value="">Choose your state</option>
+
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                     <option value="Assam">Assam</option>
@@ -129,8 +131,8 @@ Branch Create - Admin Panel
                             </div>
                            
                             <div class="form-group col-md-6">
-                                <label for="pincode">Pin Code</label>
-                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode">
+                                <label for="pincode">Pin Code<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" required>
                             </div>
 
                         </div>
@@ -139,8 +141,8 @@ Branch Create - Admin Panel
                         <div class="form-row">
                             
                             <div class="form-group col-md-6">
-                                <label for="country">Country</label>
-                                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country">
+                                <label for="country">Country<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="members">Total Member</label>
