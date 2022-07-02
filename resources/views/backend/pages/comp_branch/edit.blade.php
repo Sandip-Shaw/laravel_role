@@ -49,25 +49,25 @@ Branch Edit - Admin Panel
                     <h4 class="header-title"> Edit Company's Branch </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{route('admin.comp_branch.update', $branch->id)}}" method="POST" id="form">
+                    <form action="{{route('admin.comp_branch.update', $branch->id)}}" method="POST" id="form" data-parsley-validate>
                         @method('PUT')
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="branch_name">Branch Name</label>
-                                <input type="text" class="form-control" id="branch_name" name="branch_name"  value="{{ $branch->branch_name }}" >
+                                <label  for="branch_name">Branch Name <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="branch_name" name="branch_name"  value="{{ $branch->branch_name }}" required>
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="branch_code">Branch Code</label>
-                                <input type="text" class="form-control" id="branch_code" name="branch_code" value="{{ $branch->branch_code }}" >
+                                <label for="branch_code">Branch Code <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="branch_code" name="branch_code" value="{{ $branch->branch_code }}" required>
                             </div>
                            
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="open_date">Opening Date</label>
-                                <input type="date" class="form-control" id="open_date" name="open_date" value="{{ $branch->open_date }}">
+                                <label for="open_date">Opening Date <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="date" class="form-control" id="open_date" name="open_date" value="{{ $branch->open_date }}" required>
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="ifsc_code">IFSC Code</label>
@@ -79,13 +79,13 @@ Branch Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6 ">
-                                <label for="address">Address</label>
-                                <textarea id="summernote" name="address" class="form-control" >{{ $branch->address }}</textarea> 
+                                <label for="address">Address <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <textarea id="summernote" name="address" class="form-control" required>{{ $branch->address }}</textarea> 
                                
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="name">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" value="{{ $branch->city }}">
+                                <label for="name">City <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" value="{{ $branch->city }}" required>
                             </div>
                         
                         </div>
@@ -93,9 +93,9 @@ Branch Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="state">State</label> 
+                                <label for="state">State <span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
-                                <select name="state" id="state" class="form-control" >
+                                <select name="state" id="state" class="form-control" required>
                                     <option value="Andhra Pradesh" {{$branch->state=='Andhra Pradesh'?'selected':''}}>Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh" {{$branch->state=='Arunachal Pradesh'?'selected':''}} >Arunachal Pradesh</option>
                                     <option value="Assam" {{$branch->state=='Assam'?'selected':''}} >Assam</option>
@@ -130,8 +130,8 @@ Branch Edit - Admin Panel
                             </div>
                            
                             <div class="form-group col-md-6">
-                                <label for="pincode">Pin Code</label>
-                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" value="{{ $branch->pincode }}">
+                                <label for="pincode">Pin Code <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" value="{{ $branch->pincode }}" required>
                             </div>
 
                         </div>
@@ -140,8 +140,8 @@ Branch Edit - Admin Panel
                         <div class="form-row">
                             
                             <div class="form-group col-md-6">
-                                <label for="country">Country</label>
-                                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" value="{{ $branch->country }}">
+                                <label for="country">Country <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" value="{{ $branch->country }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="members">Total Member</label>

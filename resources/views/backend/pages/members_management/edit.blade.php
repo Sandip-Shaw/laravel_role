@@ -161,7 +161,7 @@ Members Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="associate">Associate/Advisor/Staff</label>
+                                <label  for="associate">Associate/Advisor/Staff <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="associate" id="associate" class="form-control" >
                                     <option value="raj"{{$member->associate=='raj'?'selected':''}}>raj</option>
                                     <option value="rahul"{{$member->associate=='rahul'?'selected':''}}>rahul</option>
@@ -182,7 +182,7 @@ Members Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="branch">Branch</label>
+                                <label  for="branch">Branch <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="branch" id="branch" class="form-control" required>
                                     @foreach($branches as $key=>$branch)
                                     <option value="{{$branch}}">{{$key}}</option>
@@ -192,18 +192,18 @@ Members Edit - Admin Panel
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="emr_date">Enrollment Date</label>
+                                <label for="emr_date">Enrollment Date <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="date" class="form-control" id="emr_date" name="emr_date" value="{{ $member->emr_date }}" required>
                             </div>
                            
                            
                         </div>
-
-                        <h4 class="header-title">Member's Information</h4>
+                        <hr>
+                        <h4 class="header-title" style="text-align:center;">Member's Information</h4>
 
                         <div class="form-row">
-                        <div class="form-group col-md-6"> 
-                                <p> Title</p>
+                        <div class="form-group col-md-6" style="display:flex"> 
+                                <p style="padding-right: 10px;line-height: 3;"> Title <span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="title" value="Mr." <?php if($member->title=="Mr.") {echo "checked";} ?>>
                                     <label class="form-check-label" for="title">Mr.</label>
@@ -221,8 +221,8 @@ Members Edit - Admin Panel
                                     <label class="form-check-label" for="title">Md.</label>
                                 </div>
                             </div>
-                             <div class="form-group col-md-6"> 
-                                <p> Gender</p>
+                             <div class="form-group col-md-6" style="display:flex"> 
+                                <p style="padding-right: 10px;line-height: 3;"> Gender <span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender" value="male" <?php if($member->gender=="male") {echo "checked";} ?>>
                                     <label class="form-check-label" for="gender">Male</label>
@@ -236,7 +236,7 @@ Members Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="first_name">First Name</label>
+                                <label for="first_name">First Name <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="first_name" value="{{ $member->first_name }}" name="first_name" placeholder="Enter First Name" required>
                             </div>
                             <div class="form-group col-md-4 ">
@@ -284,7 +284,7 @@ Members Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="mobile">Mobile Number</label>
+                                <label for="mobile">Mobile Number <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="mobile" value="{{ $member->mobile }}" name="mobile" placeholder="Enter Mobile Number" required>
                             </div>
                             <div class="form-group col-md-4 ">
@@ -309,19 +309,19 @@ Members Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="dob">Date Of Birth</label>
+                                <label for="dob">Date Of Birth <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="date" class="form-control" id="dob" value="{{ $member->dob }}" name="dob" required>
                             </div>
                             
                             
                         </div>
-                     
-                        <h4 class="header-title">Member's Correspondence Address</h4>     
+                     <hr>
+                        <h4 class="header-title" style="text-align:center;">Member's Correspondence Address</h4>     
 
                         <div class="form-row">
 
                             <div class="form-group col-md-4 ">
-                                <label for="address">Address</label>
+                                <label for="address">Address <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address">{{ $member->address }}</textarea> 
                                
                             </div>
@@ -347,7 +347,7 @@ Members Edit - Admin Panel
                            <input type="text" class="form-control" id="dist" name="dist" value="{{ $member->dist }}" placeholder="Enter City/District">
                        </div>
                        <div class="form-group col-md-4">
-                                <label for="state">State</label> 
+                                <label for="state">State <span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
                                 <select name="state" id="state" class="form-control" required>
                                     <option value="Andhra Pradesh"{{$member->state=='Andhra Pradesh'?'selected':''}}>Andhra Pradesh</option>
@@ -393,13 +393,13 @@ Members Edit - Admin Panel
                                 <input type="text" class="form-control" id="pincode" value="{{ $member->pincode }}" name="pincode" placeholder="Enter Pincode">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="country">Country</label>
+                                <label for="country">Country <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="country" value="{{ $member->country }}" name="country" placeholder="Enter Country" required>
                             </div>
 
                         </div>
-
-                        <h4 class="header-title">Member's Permanent Address</h4>  
+                    <hr>
+                        <h4 class="header-title" style="text-align:center;">Member's Permanent Address</h4>  
                         <div class="form-row">
                        
                    
@@ -463,7 +463,8 @@ Members Edit - Admin Panel
                             </div>
 
                         </div>
-                        <h4 class="header-title">Member's Address GPS Location - 
+                        <hr>
+                        <h4 class="header-title" style="text-align:center;">Member's Address GPS Location - 
                         <a href="" class="btn btn-primary pr-4 pl-4">Get Current Location </a></h4>
 
                         <div class="form-row">
@@ -477,7 +478,8 @@ Members Edit - Admin Panel
                             </div>
                            
                         </div>
-                        <h4 class="header-title">Member's KYC </h4>
+                        <hr>
+                        <h4 class="header-title" style="text-align:center;">Member's KYC </h4>
                         
                         <div class="form-row">
                             <div class="form-group col-md-4 ">
@@ -529,8 +531,8 @@ Members Edit - Admin Panel
                             </div>
 
                         </div>
-                        
-                        <h4 class="header-title">Member's KYC Document</h4>  
+                        <hr>
+                        <h4 class="header-title" style="text-align:center;">Member's KYC Document</h4>  
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-sm-3 control-label">Photo</label>
@@ -582,8 +584,8 @@ Members Edit - Admin Panel
                              </div>
                              
                         </div>
-
-                        <h4 class="header-title">Nominee Information</h4>
+<hr>
+                        <h4 class="header-title" style="text-align:center;">Nominee Information</h4>
                         
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -634,8 +636,8 @@ Members Edit - Admin Panel
                             </div>
                            
                         </div>
-
-                        <h4 class="header-title">Extra Settings</h4>
+<hr>
+                        <h4 class="header-title" style="text-align:center;">Extra Settings</h4>
                         <label  for="sms">SMS</label>
                         <div class="form-group row">
                       

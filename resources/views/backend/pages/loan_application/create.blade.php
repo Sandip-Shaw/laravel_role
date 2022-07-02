@@ -51,7 +51,7 @@ Loan Application Create - Admin Panel
                     <h3 class="header-title"> Create New Applicants </h3>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{ route('admin.loan_application.store') }}" method="POST" id="form" enctype="multipart/form-data">
+                    <form action="{{ route('admin.loan_application.store') }}" method="POST" id="form" enctype="multipart/form-data" data-parsley-validate>
                         @csrf
 
 
@@ -59,8 +59,8 @@ Loan Application Create - Admin Panel
                            
                             <div class="form-group col-md-6">
                                 <label  for="application_date">Application Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
-                                <input type="date" class="form-control" id="application_date" name="application_date" >
-                           
+                                <input type="date" class="form-control" id="application_date" name="application_date" required>
+                               
                             </div>
                            
                            
@@ -75,7 +75,7 @@ Loan Application Create - Admin Panel
                                     <option value="{{$member}}">{{$key}}</option>
                                    
                                    @endforeach
-                             
+                                   
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -96,7 +96,7 @@ Loan Application Create - Admin Panel
                                     <option value="{{$branch}}">{{$key}}</option>
                                    
                                    @endforeach
-                             
+                                  
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -188,7 +188,7 @@ Loan Application Create - Admin Panel
                                     <option value="{{$schema}}">{{$key}}</option>
                                    
                                 @endforeach
-                             
+                              
                                 </select>
                             </div>
     
@@ -198,13 +198,14 @@ Loan Application Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label for="sec_value">Security Value (INR)<span style="color:red; font-size: 18px;line-height:1">*</span> </label>
                                 <input type="text" class="form-control" id="sec_value" name="sec_value" placeholder="Security Value (INR)" required>
+                              
                             </div>
     
                         </div>
 
                         <div class="form-row">
                         <div class="form-group col-md-6">
-                                <p> Tenure Type<span style="color:red; font-size: 18px;line-height:1">*</span></p>
+                                <p > Tenure Type<span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="tenure_type" value="weeks">
                                     <label class="form-check-label" for="tenure_type">Weeks</label>
@@ -217,13 +218,15 @@ Loan Application Create - Admin Panel
                                     <input class="form-check-input" type="radio" name="tenure_type" value="months">
                                     <label class="form-check-label" for="tenure_type">Months</label>
                                 </div>
+                           
                             </div>  
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="tenure_months">Tenure (MONTHS)<span style="color:red; font-size: 18px;line-height:1">*</span> </label>
-                                <input type="text" class="form-control" id="tenure_months" name="tenure_months" placeholder="Tenure (MONTHS)" required>
+                                <input type="text" class="form-control" id="tenure_months" name="tenure_months" placeholder="Tenure (MONTHS)" data-parsley-max="12" required>
+                              
                             </div>
     
                         </div>
@@ -239,6 +242,7 @@ Loan Application Create - Admin Panel
                                     <option value="Yearly">Yearly</option>
                                    
                                 </select>
+                             
                             </div>
                          </div>
 
@@ -246,6 +250,7 @@ Loan Application Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label for="credit_period">Credit Period (EMI Grace Period) (Days) <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="credit_period" name="credit_period" placeholder="Enter Credit Period (EMI Grace Period) (Days)" required>
+                              
                             </div>
     
                         </div>
@@ -254,6 +259,7 @@ Loan Application Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label for="loan_requested">Amount of Loan Requested <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="loan_requested" name="loan_requested" placeholder="Amount of Loan Requested" required>
+                              
                             </div>
     
                         </div>
@@ -277,17 +283,140 @@ Loan Application Create - Admin Panel
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
-<script src="jquery.js"></script>
-<script src="parsley.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('.select2').select2();
-        $('#form').parsley();
+         $('.select2').select2();
+//  $('#form').parsley();
     })
 </script>
-
 <script>
- 
+  $('#form').parsley();
 </script>
+
+<!-- <script type="text/javascript">
+        function form_validation(){
+            console.log('checked');
+            var application_date = document.getElementById('application_date').value;
+            var member   = document.getElementById('member').value;
+            var branch = document.getElementById('branch').value;
+            var loan_schema = document.getElementById('loan_schema').value;
+            var sec_value = document.getElementById('sec_value').value;
+            var tenure_type = document.getElementById('tenure_type').checked;
+            var tenure_months = document.getElementById('tenure_months').value;
+            var emi_collection = document.getElementById('emi_collection').value;
+            var credit_period = document.getElementById('credit_period').value;
+            var loan_requested = document.getElementById('loan_requested').value;
+            var error=0;
+
+            if(application_date == ""){ 
+            document.getElementById('error_app_date').innerHTML ="Please fill the Application Date";
+                  error=1;
+                  console.log('checked');
+            }
+             else {
+            document.getElementById('error_app_date').innerHTML ="";
+            }
+// for member
+            if(member == ""){ 
+            document.getElementById('error_member').innerHTML ="Please fill the Member";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_member').innerHTML ="";
+            }
+       
+// for branch
+            if(branch == ""){ 
+            document.getElementById('error_branch').innerHTML ="Please fill the Branch";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_branch').innerHTML ="";
+            }
+
+            // for loan_schema
+            if(loan_schema == ""){ 
+            document.getElementById('error_loan_schema').innerHTML ="Please fill the Loan Schemes";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_loan_schema').innerHTML ="";
+            }
+
+             // for sec_value
+             if(sec_value == ""){ 
+            document.getElementById('error_sec_value').innerHTML ="Please fill the Security Value";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_sec_value').innerHTML ="";
+            }
+
+             // for tenure_type
+             if(tenure_type == ""){ 
+            document.getElementById('error_tenure_type').innerHTML ="Please fill the Tenure type";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_tenure_type').innerHTML ="";
+            }
+
+             // for tenure_months
+             if(tenure_months == ""){ 
+            document.getElementById('error_tenure_months').innerHTML ="Please fill the Tenure months";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_tenure_months').innerHTML ="";
+            }
+
+          // for emi_collection
+          if(emi_collection == ""){ 
+            document.getElementById('error_emi_collection').innerHTML ="Please fill the EMI collection";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_emi_collection').innerHTML ="";
+            }
+            
+             // for credit_period
+          if(credit_period == ""){ 
+            document.getElementById('error_credit_period').innerHTML ="Please fill the Credit period";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_credit_period').innerHTML ="";
+            }
+
+              // for loan_requested
+          if(loan_requested == ""){ 
+            document.getElementById('error_loan_requested').innerHTML ="Please fill the requested loan";
+                  error=1;
+                 
+            }
+             else {
+            document.getElementById('error_loan_requested').innerHTML ="";
+            }
+
+
+            if(error==1){
+
+                return false;
+
+                } else{
+                return true;
+            } 
+
+        }
+</script> -->
 @endsection
