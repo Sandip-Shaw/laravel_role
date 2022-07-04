@@ -189,13 +189,13 @@
                         </span></a>
                         <ul class="collapse {{ Route::is('admin.hr_management.create') || Route::is('admin.hr_management.index') || Route::is('admin.hr_management.edit') || Route::is('admin.hr_management.show') ? 'in' : '' }}">
                             
-                            @if ($usr->can('hr_management.view'))
-                                <li class="{{ Route::is('admin.hr_management.index')  || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="">Employees</a></li>
+                            @if ($usr->can('hr_management.view') || $usr->can('hr_management.create'))
+                                <li class="{{ Route::is('admin.hr_management.index') || Route::is('admin.hr_management.create') || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="{{ route('admin.hr_management.index') }}">Employees</a></li>
                             @endif
 
-                            @if ($usr->can('hr_management.create'))
+                            <!-- @if ($usr->can('hr_management.create'))
                                 <li class="{{ Route::is('admin.hr_management.create')  ? 'active' : '' }}"><a href="{{ route('admin.hr_management.create') }}">Create Employees</a></li>
-                            @endif
+                            @endif -->
                         </ul>
                     </li>
                    
