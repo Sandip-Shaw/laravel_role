@@ -20,4 +20,9 @@ class CompanyBranch extends Model
         return $this->hasMany(LoanApplication::class);
     } 
 
+    public function hrmanagement(){
+
+        return $this->hasMany(HrManagement::class);
+    }
+
 }

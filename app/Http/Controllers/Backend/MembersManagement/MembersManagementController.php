@@ -17,6 +17,16 @@ use App\Models\CompanyBranch;
 
 class MembersManagementController extends Controller
 {
+    public $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::guard('admin')->user();
+            return $next($request);
+        });
+    }
+    
     /**
      * Display a listing of the resource.
      *

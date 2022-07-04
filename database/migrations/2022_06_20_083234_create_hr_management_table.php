@@ -31,6 +31,8 @@ return new class extends Migration
             $table->string('adhar_no')->nullable();
             $table->string('blood_group')->nullable();
             $table->string('monthlysalary')->nullable();
+            $table->string('image')->nullable();
+
            
 
             $table->timestamps();

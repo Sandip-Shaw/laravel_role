@@ -49,27 +49,27 @@ HR Management Create - Admin Panel
                     <h4 class="header-title"> Create Employees </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="" method="POST" id="form" enctype="multipart/form-data">
+                    <form action="{{ route('admin.hr_management.store') }}" method="POST" id="form" enctype="multipart/form-data" data-parsley-validate>
                         @csrf
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="branch">Branch</label> 
+                                <label for="branch">Branch <span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
-                                <select name="branch" id="branch" class="form-control" >
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                  
+                                <select name="branch" id="branch" class="form-control" required>
+                                    <option value="">Choose Branch</option>
+                                    @foreach($branches as $key=>$branch)
+                                    <option value="{{$branch}}">{{$key}}</option>
+                                   
+                                   @endforeach
                                    
                                    
                                 </select>
                             </div>
                            
                             <div class="form-group col-md-6">
-                                <label for="dateofjoining">Joining Date</label>
-                                <input type="date" class="form-control" id="dateofjoining" name="dateofjoining" >
+                                <label for="dateofjoining">Joining Date <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="date" class="form-control" id="dateofjoining" name="dateofjoining" required>
                             </div>
 
                         </div>
@@ -81,20 +81,20 @@ HR Management Create - Admin Panel
                                 <input type="text" class="form-control" id="designation" name="designation" placeholder="Enter Employee Designation">
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="dob">Date Of Birth</label>
-                                <input type="date" class="form-control" id="dob" name="dob" >
+                                <label for="dob">Date Of Birth <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="date" class="form-control" id="dob" name="dob" required>
                             </div>
                            
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="name">Employee Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Employee Name">
+                                <label for="name">Employee Name <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Employee Name" required>
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="emp_code">Employee Code</label>
-                                <input type="text" class="form-control" id="emp_code" name="emp_code" placeholder="Enter Employee Code">
+                                <label for="emp_code">Employee Code <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="emp_code" name="emp_code" placeholder="Enter Employee Code" required>
                             </div>
                             
                         </div>
@@ -107,16 +107,16 @@ HR Management Create - Admin Panel
                                 <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="mobile">Mobile Number</label>
-                                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile no.">
+                                <label for="mobile">Mobile Number <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile no." data-parsley-maxlength="10" required>
                             </div>
                            
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6 ">
-                                <label for="address">Address</label>
-                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address"></textarea> 
+                                <label for="address">Address <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address" required></textarea> 
                                
                             </div>
                             <div class="form-group col-md-6 ">
@@ -130,11 +130,11 @@ HR Management Create - Admin Panel
                             
                             <div class="form-group col-md-6 ">
                                 <label for="pan_no">PAN Number</label>
-                                <input type="text" class="form-control" id="pan_no" name="pan_no" placeholder="Enter PAN No.">
+                                <input type="text" class="form-control" id="pan_no" name="pan_no" placeholder="Enter PAN No." >
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="adhar_no">Adhar Number</label>
-                                <input type="text" class="form-control" id="adhar_no" name="adhar_no" placeholder="Enter Adhar No.">
+                                <input type="text" class="form-control" id="adhar_no" name="adhar_no" placeholder="Enter Adhar No." data-parsley-maxlength="10">
                             </div>
                         </div>
 
@@ -162,8 +162,11 @@ HR Management Create - Admin Panel
                    
 
                                            
-                        
-                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save </button>
+                        <div style="text-align:center;">
+                        <button type="submit"  class="btn btn-primary  pr-4 pl-4">Save </button>
+                        <a class="btn btn-danger" href="{{route('admin.hr_management.index')}}">Cancel </a>
+                        <button type="reset" class="btn btn-warning  pr-4 pl-4">Clear </button>
+                        </div>
                     </form>
                 </div>
             </div>
