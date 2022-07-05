@@ -15,33 +15,33 @@ return new class extends Migration
     {
         Schema::create('member_management', function (Blueprint $table) {
             $table->bigIncrements('member_id');
-            $table->string('associate');
+            $table->string('associate')->nullable();
             $table->string('group')->nullable();
-            $table->string('branch');
-            $table->date('emr_date');
-            $table->string('title');
-            $table->string('gender');
-            $table->string('first_name');
+            $table->string('branch')->nullable();
+            $table->date('emr_date')->nullable();
+            $table->string('title')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('dob');
+            $table->string('dob')->nullable();
             $table->string('qualification')->nullable();
             $table->string('occupation')->nullable();
             $table->string('monthly_income')->nullable();
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('husbandWife_name')->nullable();
-            $table->string('mobile');
+            $table->string('mobile')->nullable();
             $table->string('email')->nullable();
             $table->string('marital_status')->nullable();
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('ward')->nullable();
             $table->string('area')->nullable();
             $table->string('landmark')->nullable();
             $table->string('dist')->nullable();
-            $table->string('state');
+            $table->string('state')->nullable();
             $table->string('pincode')->nullable();
-            $table->string('country');
+            $table->string('country')->nullable();
             $table->string('p_address')->nullable();
             $table->string('p_dist')->nullable();
             $table->string('p_state')->nullable();
@@ -77,8 +77,9 @@ return new class extends Migration
           
           
             $table->string('senior_citizen')->nullable();
+            $table->tinyInteger('kyc_status')->nullable();
 
-            $table->enum('kyc_status', ['Full_KYC','Pending','Failed']);
+           
             $table->enum('status', ['Active','Inactive']);
 
             $table->timestamps();
