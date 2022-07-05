@@ -340,12 +340,30 @@ Member - Admin Panel
                 <div class="card">
                 <div class="card-header">
                     <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                   Documents
+                   Member KYC Status
                     </a>
                 </div>
                 <div id="collapseThree" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                  
+                    <table id="dataTable" class="table table-details">
+                    <tbody>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">KYC Status</td>
+                            <td> 
+                            {{$member->kyc_status}}
+                            
+                            </td>
+                        </tr>
+                    
+                        </tbody>
+                    </table>
+                    <form action="{{route('admin.members_management.update', $member->member_id)}}" method="POST">
+                    @csrf
+                    @method('PUT')
+                            <label for="kyc_status">KYC Status:</label><br>
+                            {!!Form::select('kyc_status', array('1' => 'Full KYC', '0' => 'Pending', '-1'=>'Failed'),$member->kyc_status)!!}
+                            <input type="submit" value="Submit">
+                    </form>
                     </div>
                 </div>
                 </div>
