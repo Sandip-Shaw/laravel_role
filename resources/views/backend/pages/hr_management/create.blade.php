@@ -134,7 +134,7 @@ HR Management Create - Admin Panel
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="adhar_no">Adhar Number</label>
-                                <input type="text" class="form-control" id="adhar_no" name="adhar_no" placeholder="Enter Adhar No." data-parsley-maxlength="10">
+                                <input type="text" class="form-control" id="adhar_no" name="adhar_no" placeholder="Enter Adhar No." data-parsley-maxlength="12">
                             </div>
                         </div>
 

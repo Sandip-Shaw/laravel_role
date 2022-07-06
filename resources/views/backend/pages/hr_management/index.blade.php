@@ -74,7 +74,7 @@ Hr Management - Admin Panel
                                    
                                     <td>
                                      
-                                            <a class="btn btn-success text-white" href="">Edit</a>
+                                            <a class="btn btn-success text-white" href="{{ route('admin.hr_management.edit',$hrmanagement->hrmanagement_id) }}">Edit</a>
                                             <a class="btn btn-primary text-white" href="{{ route('admin.hr_management.show',$hrmanagement->hrmanagement_id) }}">Show</a> 
                                         
                                      
