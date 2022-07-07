@@ -26,4 +26,9 @@ class LoanApplication extends Model
         return $this->belongsTo(LoanSchema::class,'loan_schema');
     } 
 
+    public function hrmanagements(){
+
+        return $this->belongsTo(HrManagement::class,'associate');
+    } 
+
 }

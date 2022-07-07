@@ -102,7 +102,12 @@ Loan Application Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label for="associate">Associate/Advisor/Staff</label>
                                 <select name="associate" id="associate" class="form-control" >
+                                <option value="">Select Associate</option>
+
+                                @foreach($hrmanagements as $key=>$associate)
+                                    <option value="{{$key}}">{{$associate}}</option>
                                    
+                                   @endforeach
                              
                                 </select>
                             </div>

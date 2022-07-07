@@ -44,6 +44,7 @@ class HrManagementController extends Controller
     public function create()
     {
         $branch= CompanyBranch::pluck('id','branch_name');
+      
         return view('backend.pages.hr_management.create')->withBranches($branch);
     }
 

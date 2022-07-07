@@ -13,6 +13,8 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\MemberManagement;
 use App\Models\CompanyBranch;
+use App\Models\HrManagement;
+
 
 
 class MembersManagementController extends Controller
@@ -48,8 +50,10 @@ class MembersManagementController extends Controller
     public function create()
     {
         $branch= CompanyBranch::pluck('id','branch_name');
+        $hrmanagement = HrManagement::pluck('hrmanagement_id','name');
+       // dd($hrmanagement);
         //dd($branch);
-        return view('backend.pages.members_management.create')->withBranches($branch);
+        return view('backend.pages.members_management.create')->withBranches($branch)->withHrmanagements($hrmanagement);
 
 
     }
@@ -207,8 +211,9 @@ class MembersManagementController extends Controller
     {
         $member = MemberManagement::find($member_id);
         $branch= CompanyBranch::pluck('id','branch_name');
+        $hrmanagement = HrManagement::pluck('hrmanagement_id','name');
     
-        return view('backend.pages.members_management.edit')->withMember($member)->withBranches($branch); 
+        return view('backend.pages.members_management.edit')->withMember($member)->withBranches($branch)->withHrmanagements($hrmanagement); 
     }
 
     /**

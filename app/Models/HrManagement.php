@@ -17,4 +17,14 @@ class HrManagement extends Model
 
         return $this->belongsTo(CompanyBranch::class,'branch');
     }
+
+    public function loanapplications(){
+
+        return $this->hasMany(LoanApplication::class);
+    }
+
+    public function members(){
+
+        return $this->hasMany(MemberManagement::class);
+    }
 }

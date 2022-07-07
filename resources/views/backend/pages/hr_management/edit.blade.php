@@ -60,7 +60,7 @@ HR Management Edit - Admin Panel
                                 <select name="branch" id="branch" class="form-control" required>
                                     <option value="">Choose Branch</option>
                                     @foreach($branches as $key=>$branch)
-                                    <option value="{{$branch}}">{{$key}}</option>
+                                    <option value="{{$branch}}" @php if($hrmanagements->branch==$branch) echo "selected";  @endphp>{{$key}}</option>
                                     
                                    @endforeach
                                    

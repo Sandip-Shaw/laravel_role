@@ -15,6 +15,8 @@ use App\Models\MemberManagement;
 use App\Models\CompanyBranch;
 use App\Models\LoanSchema;
 use App\Models\LoanApplication;
+use App\Models\HrManagement;
+
 
 
 
@@ -49,10 +51,13 @@ class LoanApplicationController extends Controller
     public function create()
     {
         $branch= CompanyBranch::pluck('id','branch_name');
+        //dd($branch);
         $member= MemberManagement::pluck('member_id','first_name','last_name');
         $schema= LoanSchema::pluck('loanSchema_id','schema_name');
-        //dd($member);
-        return view('backend.pages.loan_application.create')->withBranches($branch)->withMembers($member)->withSchemas($schema);
+        $hrmanagement= HrManagement::pluck('name','hrmanagement_id');
+       // dd($hrmanagement);
+       
+        return view('backend.pages.loan_application.create')->withBranches($branch)->withMembers($member)->withSchemas($schema)->withHrmanagements($hrmanagement);
     }
 
     /**
