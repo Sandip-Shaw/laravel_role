@@ -22,4 +22,9 @@ class MemberManagement extends Model
 
         return $this->hasMany(LoanApplication::class);
     } 
+
+    public function associatedet(){
+
+        return $this->belongsTo(HrManagement::class,'associate');
+    }
 }

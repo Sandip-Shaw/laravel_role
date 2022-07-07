@@ -162,10 +162,12 @@ Members Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label  for="associate">Associate/Advisor/Staff <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="associate" id="associate" class="form-control" >
-                                    <option value="raj">raj</option>
-                                    <option value="rahul">rahul</option>
-                                    <option value="rama">rama</option>
-                                    <option value="yoyo">yoyo</option>
+                                <option value="">Select Associate</option>
+
+                                    @foreach($hrmanagements as $key=>$associate)
+                                        <option value="{{$associate}}">{{$key}}</option>
+                                    
+                                    @endforeach
                                    
                                
                                 </select>

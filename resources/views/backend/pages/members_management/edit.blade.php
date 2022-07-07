@@ -162,11 +162,13 @@ Members Edit - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label  for="associate">Associate/Advisor/Staff <span style="color:red; font-size: 18px;line-height:1">*</span></label>
-                                <select name="associate" id="associate" class="form-control" >
-                                    <option value="raj"{{$member->associate=='raj'?'selected':''}}>raj</option>
-                                    <option value="rahul"{{$member->associate=='rahul'?'selected':''}}>rahul</option>
-                                    <option value="rama"{{$member->associate=='rama'?'selected':''}}>rama</option>
-                                    <option value="yoyo"{{$member->associate=='yoyo'?'selected':''}}>yoyo</option>
+                                <select name="associate" id="associate" class="form-control">
+                                    <option value="">Select Associate</option>
+
+                                    @foreach($hrmanagements as $key=>$associate)
+                                        <option value="{{$associate}}">{{$key}}</option>
+
+                                    @endforeach
                                    
                                
                                 </select>
