@@ -80,7 +80,7 @@ Loan Management - Admin Panel
  
                                     <td>
                                      
-                                            <a class="btn btn-success text-white" href="">Edit</a>
+                                            <!-- <a class="btn btn-success text-white" href="">Edit</a> -->
                                             <a class="btn btn-primary text-white" href="{{ route('admin.loan_application.show',$application->loanApplication_id) }}">Show</a> 
                                         
                                      

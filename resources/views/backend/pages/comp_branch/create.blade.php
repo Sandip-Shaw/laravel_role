@@ -165,8 +165,10 @@ Branch Create - Admin Panel
                         </div>
 
                                            
-                        
-                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save </button>
+                        <div style="text-align:center;">
+                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Save </button>
+                        <a class="btn btn-danger" href="{{route('admin.comp_branch.index')}}">Cancel </a>
+                        </div>
                     </form>
                 </div>
             </div>

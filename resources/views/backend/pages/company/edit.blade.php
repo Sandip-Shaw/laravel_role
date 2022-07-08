@@ -49,17 +49,17 @@ Profile Edit - Admin Panel
                     <h4 class="header-title">Company's Profile </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{route('admin.company.update', $profile->id)}}" method="POST" id="form">
+                    <form action="{{route('admin.company.update', $profile->id)}}" method="POST" id="form" data-parsley-validate>
                          @method('PUT')
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Company Website</label>
-                                <input type="text" class="form-control" id="company_website" name="company_website" placeholder="Enter Your Website" value="{{ $profile->company_website }}">
+                                <label for="name">Company Website<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="company_website" name="company_website" placeholder="Enter Your Website" value="{{ $profile->company_website }}" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Company name</label>
-                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter Company Name" value="{{ $profile->company_name }}">
+                                <label for="name">Company name<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter Company Name" value="{{ $profile->company_name }}" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
                                 <label for="name">Short Name</label>
@@ -69,12 +69,12 @@ Profile Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Company Email</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{ $profile->email }}">
+                                <label for="name">Company Email<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{ $profile->email }}" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Mobile Number</label>
-                                <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Enter Mobile No." value="{{ $profile->mobile_no }}">
+                                <label for="name">Mobile Number<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Enter Mobile No." value="{{ $profile->mobile_no }}" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
                                 <label for="name">Landline Number</label>
@@ -94,13 +94,13 @@ Profile Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-9 col-sm-12">
-                                <label for="name">Address</label>
-                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address">{{ $profile->address }}</textarea> 
+                                <label for="name">Address<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address" required>{{ $profile->address }}</textarea> 
                                 <!-- <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address"> -->
                             </div>
                             <div class="form-group col-md-3 col-sm-12">
-                                <label for="name">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" value="{{ $profile->city }}">
+                                <label for="name">City<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" value="{{ $profile->city }}" required>
                             </div>
                             
                            
@@ -109,16 +109,16 @@ Profile Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">State</label>
-                                <input type="text" class="form-control" id="state" name="state" placeholder="Enter State" value="{{ $profile->state }}">
+                                <label for="name">State<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="state" name="state" placeholder="Enter State" value="{{ $profile->state }}" required>
                             </div>
                         <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Pin code</label>
-                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" value="{{ $profile->pincode}}">
+                                <label for="name">Pin code<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" value="{{ $profile->pincode}}" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Country</label>
-                                <input type="text" class="form-control" id="contry" name="contry" placeholder="Enter Country" value="{{ $profile->contry }}">
+                                <label for="name">Country<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="contry" name="contry" placeholder="Enter Country" value="{{ $profile->contry }}" required>
                             </div>
                         </div>
 
@@ -136,9 +136,9 @@ Profile Edit - Admin Panel
                                 </select>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="category">Company Class</label> 
+                                <label for="category">Company Class<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                 <!-- <input type="text" class="form-control" id="state" name="state" placeholder="Enter State"> -->
-                                <select name="company_class" id="company_class" class="form-control">
+                                <select name="company_class" id="company_class" class="form-control" required>
                                    
                                     <option value="Public Limited Company" {{$profile->company_class=='Public Limited Company'?'selected':''}}>Public Limited Company</option>
                                     <option value="Association of Persons" {{$profile->company_class=='Association of Persons'?'selected':''}}>Association of Persons</option>
@@ -175,16 +175,16 @@ Profile Edit - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Incorporation Date</label>
-                                <input type="date" class="form-control" id="incorporation_date" name="incorporation_date" value="{{ $profile->incorporation_date }}">
+                                <label for="name">Incorporation Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="date" class="form-control" id="incorporation_date" name="incorporation_date" value="{{ $profile->incorporation_date }}" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Incorporation State</label>
-                                <input type="text" class="form-control" id="incorporation_state" name="incorporation_state" placeholder="Enter Incorporation State" value="{{ $profile->incorporation_state }}">
+                                <label for="name">Incorporation State<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="incorporation_state" name="incorporation_state" placeholder="Enter Incorporation State" value="{{ $profile->incorporation_state }}" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Incorporation Country</label>
-                                <input type="text" class="form-control" id="incorporation_country" name="incorporation_country" placeholder="Enter Incorporation Country" value="{{ $profile->incorporation_country }}">
+                                <label for="name">Incorporation Country<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="incorporation_country" name="incorporation_country" placeholder="Enter Incorporation Country" value="{{ $profile->incorporation_country }}" required>
                             </div>
                         </div>
 
@@ -200,7 +200,7 @@ Profile Edit - Admin Panel
                            
                         </div>
                        
-                        <div class="col-sm-offset-4 col-sm-8"> 
+                        <div  style="text-align:center;"> 
                             <button type="submit" class="btn btn-primary  pr-4 pl-4">Update </button>
                             <a class="btn btn-danger" href="{{route('admin.company.index')}}">Cancel </a>
                         </div>
