@@ -40,7 +40,7 @@ Loan Application - Admin Panel
     <div class="row">
         <!-- data table start -->
         
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="box">
                 <div class="box-body">
                     <!-- <h4 class="header-title float-left">Blogs List</h4> -->
@@ -71,7 +71,7 @@ Loan Application - Admin Panel
                                 <tr>
                                     <td class="ft-600" style="width: 250px;"> Application No.</td>
                                     <td> 
-                                   
+                                    {{$applications->loanApplication_id}}
                                     </td>
                                 </tr>
 
@@ -134,7 +134,7 @@ Loan Application - Admin Panel
         <div class="container">
           
           <div id="accordion">
-              <div class="card">
+              <div class="card" style="width:50%">
               <div class="card-header">
                   <a class="card-link" data-toggle="collapse" href="#collapseOne">
                Deposit Loan Scheme Info
@@ -195,6 +195,113 @@ Loan Application - Admin Panel
                           <td class="ft-200" style="width: 250px;">Processing Fee</td>
                           <td> 
                           {{ $applications->loanSchema->process_fee }}
+                      
+                          </td>
+                      </tr>
+                     
+                  </tbody>
+                  </table>
+                  </div>
+              </div>
+              </div>
+            </div>
+      
+            <div class="card" style="width:50%">
+              <div class="card-header">
+                  <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                  Deposit Loan Application Info
+                  </a>
+              </div>
+              <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                  <div class="card-body">
+                  <table id="dataTable" class="table table-details">
+                  <tbody>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Branch</td>
+                          <td> 
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Amount Requested</td>
+                          <td> 
+                     
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Amount can be Approved</td>
+                          <td> 
+                       
+                         
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Loan Amount</td>
+                          <td> 
+                        
+                   
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Amount Approved</td>
+                          <td> 
+                       
+                       
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Interest Amount</td>
+                          <td> 
+                       
+                       
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Annual Interest Rate</td>
+                          <td> 
+                        
+                       
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Credit Period</td>
+                          <td> 
+                     
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Total Amount to Recover</td>
+                          <td> 
+                     
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">EMI Payout</td>
+                          <td> 
+                     
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">EMI Amount</td>
+                          <td> 
+                     
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">No. of EMIs</td>
+                          <td> 
+                     
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Processing Fee</td>
+                          <td> 
+                     
                       
                           </td>
                       </tr>

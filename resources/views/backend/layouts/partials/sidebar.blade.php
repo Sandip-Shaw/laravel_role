@@ -60,26 +60,7 @@
                     @endif
 
 
-        <!----------------------- Advisor/Associate ----------------->
-                    <!-- @if ($usr->can('blog.create') || $usr->can('blog.view') ||  $usr->can('blog.edit') ||  $usr->can('blog.delete'))
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
-                            Associate/Advisor
-                        </span></a>
-                        <ul class="collapse {{ Route::is('admin.advisor.create') || Route::is('admin.advisor.index') || Route::is('admin.advisor.edit') || Route::is('admin.advisor.show') ? 'in' : '' }}">
-                            
-                          
-                                <li class="{{ Route::is('admin.advisor.index')  || Route::is('admin.advisor.edit') ? 'active' : '' }}"><a href="">Associate</a></li>
-                         
-
-                       
-                                <li class="{{ Route::is('admin.advisor.create')  ? 'active' : '' }}"><a href="{{ route('admin.advisor.create') }}">Create Associate</a></li>
-                          
-                        </ul>
-                    </li>
-                    @endif -->
-
-        <!----------------------- end Advisor/Associate ----------------->
+        
                     <!-- @if ($usr->can('support.view')) 
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
@@ -163,11 +144,14 @@
                         </span></a>
                         <ul class="collapse {{ Route::is('admin.hr_management.create') || Route::is('admin.hr_management.index') || Route::is('admin.hr_management.edit') || Route::is('admin.hr_management.show') ? 'in' : '' }}">
 
-                        <li class="{{ Route::is('admin.loan_schema.index')  || Route::is('admin.loan_schema.edit') || Route::is('admin.loan_schema.create')? 'active' : '' }}"><a href="{{ route('admin.loan_schema.index')}}">Schemes</a></li>
+                             <li class="{{ Route::is('admin.loan_schema.index')  || Route::is('admin.loan_schema.edit') || Route::is('admin.loan_schema.create')? 'active' : '' }}"><a href="{{ route('admin.loan_schema.index')}}">Schemes</a></li>
 
                             @if ($usr->can('loan_application.view') || $usr->can('loan_application.create'))
                                 <li class="{{ Route::is('admin.loan_application.index') || Route::is('admin.loan_application.create') || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="{{ route('admin.loan_application.index') }}">Loan Application</a></li>
                             @endif
+
+                            <li class="{{ Route::is('admin.loan_disbursements.index')  || Route::is('admin.loan_disbursements.edit') || Route::is('admin.loan_disbursements.create')? 'active' : '' }}"><a href="{{ route('admin.loan_disbursements.index')}}">Disbursements</a></li>
+
 
                             <!-- @if ($usr->can('loan_application.create'))
                                 <li class="{{ Route::is('admin.loan_application.create')  ? 'active' : '' }}"><a href="{{ route('admin.loan_application.create') }}">Create Application</a></li>

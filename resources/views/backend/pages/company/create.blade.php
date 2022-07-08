@@ -50,16 +50,16 @@ Profile Create - Admin Panel
                     <h4 class="header-title">Company's Profile </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{ route('admin.company.store') }}" method="POST" id="form">
+                    <form action="{{ route('admin.company.store') }}" method="POST" id="form" data-parsley-validate>
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
                                 <label for="name">Company Website<span style="color:red; font-size: 18px;line-height:1">*</span></label>
-                                <input type="text" class="form-control" id="company_website" name="company_website" placeholder="Enter Your Website">
+                                <input type="text" class="form-control" id="company_website" name="company_website" placeholder="Enter Your Website" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Company name</label>
-                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter Company Name">
+                                <label for="name">Company name <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter Company Name" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
                                 <label for="name">Short Name</label>
@@ -69,12 +69,12 @@ Profile Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Company Email</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+                                <label for="name">Company Email <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Mobile Number</label>
-                                <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Enter Mobile No.">
+                                <label for="name">Mobile Number<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Enter Mobile No." required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
                                 <label for="name">Landline Number</label>
@@ -94,13 +94,13 @@ Profile Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-9 col-sm-12">
-                                <label for="name">Address</label>
-                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address" style="resize:none;" rows="2"></textarea> 
+                                <label for="name">Address <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <textarea id="summernote" name="address" class="form-control" placeholder="Enter Address" style="resize:none;" rows="2" required></textarea> 
                                 <!-- <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address"> -->
                             </div>
                             <div class="form-group col-md-3 col-sm-12">
-                                <label for="name">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
+                                <label for="name">City <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" required>
                             </div>
                             
                            
@@ -109,16 +109,16 @@ Profile Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">State</label>
-                                <input type="text" class="form-control" id="state" name="state" placeholder="Enter State">
+                                <label for="name">State<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="state" name="state" placeholder="Enter State" required>
                             </div>
                         <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Pin code</label>
-                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode">
+                                <label for="name">Pin code<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Country</label>
-                                <input type="text" class="form-control" id="contry" name="contry" placeholder="Enter Country">
+                                <label for="name">Country<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="contry" name="contry" placeholder="Enter Country" required>
                             </div>
                         </div>
 
@@ -136,9 +136,11 @@ Profile Create - Admin Panel
                                 </select>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="category">Company Class</label> 
+                                <label for="category">Company Class<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                 <!-- <input type="text" class="form-control" id="state" name="state" placeholder="Enter State"> -->
-                                <select name="company_class" id="company_class" class="form-control">
+                                <select name="company_class" id="company_class" class="form-control" required>
+                                <option value="">Choose company class</option>
+
                                     <option value="Public Limited Company">Public Limited Company</option>
                                     <option value="Association of Persons">Association of Persons</option>
                                     <option value="Partnership Firm">Partnership Firm</option>
@@ -172,16 +174,16 @@ Profile Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Incorporation Date</label>
-                                <input type="date" class="form-control" id="incorporation_date" name="incorporation_date">
+                                <label for="name">Incorporation Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="date" class="form-control" id="incorporation_date" name="incorporation_date" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Incorporation State</label>
-                                <input type="text" class="form-control" id="incorporation_state" name="incorporation_state" placeholder="Enter Incorporation State">
+                                <label for="name">Incorporation State<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="incorporation_state" name="incorporation_state" placeholder="Enter Incorporation State" required>
                             </div>
                             <div class="form-group col-md-4 col-sm-12">
-                                <label for="name">Incorporation Country</label>
-                                <input type="text" class="form-control" id="incorporation_country" name="incorporation_country" placeholder="Enter Incorporation Country">
+                                <label for="name">Incorporation Country<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="incorporation_country" name="incorporation_country" placeholder="Enter Incorporation Country" required>
                             </div>
                         </div>
 
@@ -197,8 +199,10 @@ Profile Create - Admin Panel
                            
                         </div>
                        
-                        
-                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save </button>
+                        <div style="text-align:center;">
+                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Save </button>
+                        <a class="btn btn-danger" href="{{route('admin.company.index')}}">Cancel </a>
+                        </div>
                     </form>
                 </div>
             </div>

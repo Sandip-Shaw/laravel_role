@@ -148,6 +148,8 @@ class HrManagementController extends Controller
             $destinationPath = public_path('images/employeeImage');
             $file->move($destinationPath,$filename);
             $hrmanagement->image=$filename;
+
+            
             $hrmanagement->save();        
         
         session()->flash('success', 'The Employee Profile Has Been Updated Successfully!');

@@ -49,7 +49,7 @@ Director Create - Admin Panel
                     <h4 class="header-title"> Create Director </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{ route('admin.comp_director.store') }}" method="POST" id="form" enctype="multipart/form-data">
+                    <form action="{{ route('admin.comp_director.store') }}" method="POST" id="form" enctype="multipart/form-data" data-parsley-validate>
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -65,12 +65,12 @@ Director Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="director_name">Director Name</label>
-                                <input type="text" class="form-control" id="director_name" name="director_name" placeholder="Enter Directors Name">
+                                <label for="director_name">Director Name<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="director_name" name="director_name" placeholder="Enter Directors Name" required>
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="din_no">DIN No.</label>
-                                <input type="text" class="form-control" id="din_no" name="din_no" placeholder="Enter DIN No.">
+                                <label for="din_no">DIN No.<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="din_no" name="din_no" placeholder="Enter DIN No." required>
                             </div>
                             
                         </div>
@@ -78,8 +78,8 @@ Director Create - Admin Panel
                         <div class="form-row">
                             
                             <div class="form-group col-md-6">
-                                <label for="Appointment_Date">Appointment Date</label>
-                                <input type="date" class="form-control" id="appointment_date" name="appointment_date" >
+                                <label for="Appointment_Date">Appointment Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="date" class="form-control" id="appointment_date" name="appointment_date" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="Resignation Date">Resignation Date</label>
@@ -92,11 +92,11 @@ Director Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label class="col-sm-3 control-label">Select An Image</label>
                          
-                                <input type="file" name="image" class="GalleryImage" id="image" required />  
+                                <input type="file" name="image" class="GalleryImage" id="image"  />  
 
                              </div>  
                              <div class="form-group col-md-6"> 
-                                <p> Authorized Signatory</p>
+                                <p> Authorized Signatory<span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="authorized_signatory" value="Yes">
                                     <label class="form-check-label" for="authorized_signatory">Yes</label>
@@ -110,8 +110,10 @@ Director Create - Admin Panel
                    
 
                                            
-                        
-                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save </button>
+                        <div style="text-align:center;">
+                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Save </button>
+                        <a class="btn btn-danger" href="{{route('admin.comp_director.index')}}">Cancel </a>
+                        </div>
                     </form>
                 </div>
             </div>
