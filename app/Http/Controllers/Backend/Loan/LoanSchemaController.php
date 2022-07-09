@@ -101,6 +101,24 @@ class LoanSchemaController extends Controller
          return view('backend.pages.loan_schema.show',compact('schema','profile'));
     }
 
+    public function loan_details($loanSchema_id)
+    {
+        $schema = LoanSchema::findOrFail($loanSchema_id);
+        return $schema->toJson();
+ 
+       // return $schema->toJson(JSON_PRETTY_PRINT);
+        // return response()->json([
+        //     'name' => 'Abigail',
+        //     'state' => 'CA',
+        // ]);
+       // $application = LoanApplication::findOrFail($loanApplication_id);
+        //dd($application);
+        
+ 
+        // return view('backend.pages.loan_application.show')->withApplications($application);
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *

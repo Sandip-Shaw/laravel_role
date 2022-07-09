@@ -187,7 +187,7 @@ Loan Application Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="loan_schema">Loan Scheme<span style="color:red; font-size: 18px;line-height:1">*</span></label>
-                                <select name="loan_schema" id="loan_schema" class="form-control" required>
+                                <select name="loan_schema" id="loan_scheme" class="form-control"  required>
                                 <option value="">Select Loan Scheme</option>
                                 @foreach($schemas as $key=>$schema)
                                     <option value="{{$schema}}">{{$key}}</option>
@@ -196,6 +196,9 @@ Loan Application Create - Admin Panel
                               
                                 </select>
                             </div>
+                           <div id="schema_details">
+
+                        </div>
     
                         </div>
 
@@ -271,7 +274,7 @@ Loan Application Create - Admin Panel
 
                        
                         
-                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Calculate </button>
+                        <button type="button" class="btn btn-primary  pr-4 pl-4">Calculate </button>
                         <a class="btn btn-danger" href="{{route('admin.loan_application.index')}}">Cancel </a>
                         <button type="reset" class="btn btn-warning  pr-4 pl-4">Clear </button>
 
@@ -283,6 +286,10 @@ Loan Application Create - Admin Panel
         
     </div>
 </div>
+
+
+
+
 @endsection
 
 @section('scripts')
@@ -299,6 +306,37 @@ Loan Application Create - Admin Panel
 <script>
   $('#form').parsley();
 </script>
+
+<script>
+    $(document).ready(function(){
+        $("#loan_scheme").change(function(){
+            var id=$(this).find(":selected").val();
+
+            $.ajax({
+                type:"GET",
+                url:"../scheme_details/"+id,
+                success:function(res){        
+                if(res){
+                    const obj = JSON.parse(res);
+                    //document.getElementById("schema_details").innerHTML = obj.schema_name;
+                    //document.getElementById("schema_details").innerHTML = obj.schema_code;
+                    trHTML = '<table><tr><td>' + 'Scheme Name' + '</td><td>' + obj.schema_name + '</td></tr> <tr><td>' + 'Scheme Code' + '</td><td>' + obj.schema_code + '</td></tr><tr><td>' +
+                             'Maximum Loan Amount' + '</td><td>' + obj.max_loan_amt + '</td></tr><tr><td>' + 'Maximum Loan Limit' + '</td><td>' + obj.max_loan_lim + 
+                            '</td></tr><tr><td>' + 'Maximum Tenure' + '</td><td>' + obj.max_tanure + '</td></tr><tr><td>' + 'Annual Rate Interest' + '</td><td>' + obj.ann_rate_int + 
+                            '</td></tr><tr><td>' + 'Fore Closure Charge' + '</td><td>' + obj.fore_closure_charge + '</td></tr> <tr><td>' + 'Processing Fee' + '</td><td>' + obj.process_fee + 
+                            '</td></tr> <tr><td>' + 'Security Deposit' + '</td><td>' + obj.sec_deposit + '</td></tr></table>';
+                    // obj.schema_name;
+                    $('#schema_details').append(trHTML);
+                    //console.log(obj.schema_name);
+                }
+            }
+            })
+        })
+    })
+
+</script>
+
+
 
 <!-- <script type="text/javascript">
         function form_validation(){

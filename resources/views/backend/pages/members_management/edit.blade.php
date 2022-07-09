@@ -166,7 +166,7 @@ Members Edit - Admin Panel
                                     <option value="">Select Associate</option>
 
                                     @foreach($hrmanagements as $key=>$associate)
-                                        <option value="{{$associate}}">{{$key}}</option>
+                                        <option value="{{$associate}}" @php if($member->associate==$associate) echo "selected";  @endphp >{{$key}}</option>
 
                                     @endforeach
                                    
@@ -187,7 +187,7 @@ Members Edit - Admin Panel
                                 <label  for="branch">Branch <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="branch" id="branch" class="form-control" required>
                                     @foreach($branches as $key=>$branch)
-                                    <option value="{{$branch}}">{{$key}}</option>
+                                    <option value="{{$branch}}"@php if($member->branch==$branch) echo "selected";  @endphp>{{$key}}</option>
                                    
                                    @endforeach
                              
@@ -301,8 +301,8 @@ Members Edit - Admin Panel
                                     <option value="Seperated"{{$member->marital_status=='Seperated'?'selected':''}}>Seperated</option>
                                     <option value="Divorced"{{$member->marital_status=='Divorced'?'selected':''}}>Divorced</option>
                                     <option value="Widowed"{{$member->marital_status=='Widowed'?'selected':''}}>Widowed</option>
-                                    <option value="Unmarried"{{$member->marital_status=='Married'?'Unmarried':''}}>Unmarried</option>
-                                    <option value="Untagged"{{$member->marital_status=='Married'?'Untagged':''}}>Untagged</option>
+                                    <option value="Unmarried"{{$member->marital_status=='Married'?'selected':''}}>Unmarried</option>
+                                    <option value="Untagged"{{$member->marital_status=='Married'?'selected':''}}>Untagged</option>
                                   
                                 </select>
                             </div>

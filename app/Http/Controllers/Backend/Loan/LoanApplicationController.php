@@ -111,7 +111,7 @@ class LoanApplicationController extends Controller
  
          return view('backend.pages.loan_application.show')->withApplications($application);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
