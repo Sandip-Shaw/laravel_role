@@ -141,6 +141,36 @@ Loan Schemes - Admin Panel
                                     {{ $schema->int_type }}
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="ft-600" style="width: 250px;">Sms Charges %(if any)</td>
+                                    <td> 
+                                    {{ $schema->sms_charges }}%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ft-600" style="width: 250px;">Fuel Charges %(if any)</td>
+                                    <td> 
+                                    {{ $schema->fuel_charge }}%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ft-600" style="width: 250px;">Stationary Charges %(if any)</td>
+                                    <td> 
+                                    {{ $schema->stationary_charges }}%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ft-600" style="width: 250px;">Maintenance Charges %(if any)</td>
+                                    <td> 
+                                    {{ $schema->maintenance_charge }}%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ft-600" style="width: 250px;">Collection Charges %(if any)</td>
+                                    <td> 
+                                    {{ $schema->collection_charge }}%
+                                    </td>
+                                </tr>
 
                       
                             </tbody>

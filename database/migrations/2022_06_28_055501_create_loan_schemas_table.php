@@ -24,6 +24,12 @@ return new class extends Migration
             $table->string('fore_closure_charge')->nullable();
             $table->string('process_fee')->nullable();
             $table->string('sec_deposit');
+            $table->string('sms_charges')->nullable();
+            $table->string('fuel_charge')->nullable();
+            $table->string('stationary_charges')->nullable();
+            $table->string('maintenance_charge')->nullable();
+            $table->string('collection_charge')->nullable();
+
             $table->string('active');
             $table->string('int_type');
 

@@ -78,6 +78,13 @@ class LoanSchemaController extends Controller
         $schema->fore_closure_charge    =       $request->fore_closure_charge;
         $schema->process_fee            =       $request->process_fee;
         $schema->sec_deposit            =       $request->sec_deposit;
+
+        $schema->sms_charges            =       $request->sms_charges;
+        $schema->fuel_charge            =       $request->fuel_charge;
+        $schema->stationary_charges     =       $request->stationary_charges;
+        $schema->maintenance_charge     =       $request->maintenance_charge;
+        $schema->collection_charge      =       $request->collection_charge;
+
         $schema->active                 =       $request->active;
         $schema->int_type               =       $request->int_type;
         $schema->save();
@@ -111,11 +118,7 @@ class LoanSchemaController extends Controller
         //     'name' => 'Abigail',
         //     'state' => 'CA',
         // ]);
-       // $application = LoanApplication::findOrFail($loanApplication_id);
-        //dd($application);
-        
- 
-        // return view('backend.pages.loan_application.show')->withApplications($application);
+       
     }
 
 
@@ -163,9 +166,14 @@ class LoanSchemaController extends Controller
         $schema->fore_closure_charge    =       $request->fore_closure_charge;
         $schema->process_fee            =       $request->process_fee;
         $schema->sec_deposit            =       $request->sec_deposit;
+        $schema->sms_charges            =       $request->sms_charges;
+        $schema->fuel_charge            =       $request->fuel_charge;
+        $schema->stationary_charges     =       $request->stationary_charges;
+        $schema->maintenance_charge     =       $request->maintenance_charge;
+        $schema->collection_charge      =       $request->collection_charge;
         $schema->active                 =       $request->active;
         $schema->int_type               =       $request->int_type;
-        $schema->save();
+        $schema->update();
 
         session()->flash('success', 'Loan Schema has been Updated !!');
         return redirect()->route('admin.loan_schema.index');
