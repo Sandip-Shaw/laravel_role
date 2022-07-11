@@ -170,15 +170,14 @@ Loan Application Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label for="sec_type">Security Type</label>
                                 <select name="sec_type" id="sec_type" class="form-control" >
-                                    <option value="">Please Select</option>
-                                    <option value="FD of Self">FD of Self</option>
-                                    <option value="RD of Self">RD of Self</option>
-                                    <option value="DD of Self">DD of Self</option>
-                                    <option value="FD of Bank">FD of Bank</option>
-                                    <option value="RD of Bank">RD of Bank</option>
-                                    <option value="LIC">LIC</option>
-                                    <option value="NSC">NSC</option>
-                                    <option value="others">Others Govt. Security</option>
+                                    <option value="">Please select security type</option>
+                                    <option value="Loan against cheque">Loan against cheque</option>
+                                    <option value="Loan against gold">Loan against gold</option>
+                                    <option value="Loan against silver">Loan against silver</option>
+                                    <option value="Loan against deposit">Loan against deposit</option>
+                                    <option value="Loan against vehical">Loan against vehical</option>
+                                   
+                                    <option value="Any other">Any other</option>
                              
                                 </select>
                             </div>
@@ -202,14 +201,14 @@ Loan Application Create - Admin Panel
     
                         </div>
 
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="sec_value">Security Value (INR)<span style="color:red; font-size: 18px;line-height:1">*</span> </label>
                                 <input type="text" class="form-control" id="sec_value" name="sec_value" placeholder="Security Value (INR)" required>
                               
                             </div>
     
-                        </div>
+                        </div> -->
 
                         <div class="form-row">
                         <div class="form-group col-md-6">
@@ -274,7 +273,7 @@ Loan Application Create - Admin Panel
 
                        
                         
-                        <button type="button" class="btn btn-primary  pr-4 pl-4">Calculate </button>
+                        <button type="submit" id="calculate" class="btn btn-primary  pr-4 pl-4">Calculate </button>
                         <a class="btn btn-danger" href="{{route('admin.loan_application.index')}}">Cancel </a>
                         <button type="reset" class="btn btn-warning  pr-4 pl-4">Clear </button>
 
@@ -287,7 +286,11 @@ Loan Application Create - Admin Panel
     </div>
 </div>
 
-
+<div id="application_value">
+    <!-- <tr>
+        <td>hello</td>
+    </tr> -->
+</div>
 
 
 @endsection
@@ -320,6 +323,8 @@ Loan Application Create - Admin Panel
                     const obj = JSON.parse(res);
                     //document.getElementById("schema_details").innerHTML = obj.schema_name;
                     //document.getElementById("schema_details").innerHTML = obj.schema_code;
+                    $('#schema_details').empty();
+
                     trHTML = '<table><tr><td>' + 'Scheme Name' + '</td><td>' + obj.schema_name + '</td></tr> <tr><td>' + 'Scheme Code' + '</td><td>' + obj.schema_code + '</td></tr><tr><td>' +
                              'Maximum Loan Amount' + '</td><td>' + obj.max_loan_amt + '</td></tr><tr><td>' + 'Maximum Loan Limit' + '</td><td>' + obj.max_loan_lim + 
                             '</td></tr><tr><td>' + 'Maximum Tenure' + '</td><td>' + obj.max_tanure + '</td></tr><tr><td>' + 'Annual Rate Interest' + '</td><td>' + obj.ann_rate_int + 
@@ -333,6 +338,30 @@ Loan Application Create - Admin Panel
             })
         })
     })
+
+</script>
+
+<script>
+
+
+$(document).ready(function(){
+        $("#calculate").click(function(){
+            var loan_requested =  $('#loan_requested').val();
+          //console.log(loan_requested);
+            $('#application_value').empty();
+
+                trHTML = '<table><tr><td>' + 'Amount of loan requested' + '</td><td>' + loan_requested + '</td></tr><tr><td>' + 
+                'Amount of Loan can be Approved' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'Loan Amount Approved (Principal Amount)' + '</td><td>' + loan_requested + 
+                '</td></tr><tr><td>' + 'Interest Amount' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'Other Charges' + '</td><td>' + '' + 
+                '</td></tr><tr><td>' + 'Total Amount Recovered' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'Loan Tenure' + '</td><td>' + '' + 
+                '</td></tr> <tr><td>' + 'EMI Amount' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'No. of EMIs' + '</td><td>' + '' +
+                 '</td></tr> <tr><td>' + 'Processing Charges' + '</td><td>' + '' + '</td></tr></table>';
+                
+                $('#application_value').append(trHTML);
+          
+            })
+        })
+  
 
 </script>
 

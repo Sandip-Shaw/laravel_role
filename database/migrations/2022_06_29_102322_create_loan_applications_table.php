@@ -26,13 +26,13 @@ return new class extends Migration
             $table->string('guarantor_member2')->nullable();
             $table->string('sec_type')->nullable();
             $table->string('loan_schema');
-            $table->string('sec_value');
+           
             $table->string('tenure_type');
             $table->string('tenure_months');
             $table->string('emi_collection');
             $table->string('credit_period');
             $table->string('loan_requested');
-            $table->enum('status', ['Approved','Disbursed','Cancelled']);
+            $table->enum('status', ['Approved','Disbursed','Cancelled','Applied']);
             $table->timestamps();
         });
     }

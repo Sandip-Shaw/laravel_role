@@ -81,13 +81,13 @@ class LoanApplicationController extends Controller
         $application->guarantor_member2           =       $request->guarantor_member2;
         $application->sec_type                    =       $request->sec_type;
         $application->loan_schema                 =       $request->loan_schema;
-        $application->sec_value                   =       $request->sec_value;
+                    
         $application->tenure_type                 =       $request->tenure_type;
         $application->tenure_months               =       $request->tenure_months;
         $application->emi_collection              =       $request->emi_collection;
         $application->credit_period               =       $request->credit_period;
         $application->loan_requested              =       $request->loan_requested;
-        $application->status                      =       'Disbursed';
+        $application->status                      =       'Applied';
 
 
         $application->save();
