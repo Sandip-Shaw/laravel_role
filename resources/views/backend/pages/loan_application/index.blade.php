@@ -68,12 +68,13 @@ Loan Management - Admin Panel
                             </thead>
                             <tbody>
                                     @foreach ($applications as $application)
+                                <tr>  
                                     <td>{{ $application->hrmanagements->name }}</td>
                                     <td>{{ $loop->index+00001 }}</td>
                                     <td>{{ $application->application_date }} </td>
                                     <td>{{ $application->memberdetails->first_name }} {{ $application->memberdetails->middle_name }}{{ $application->memberdetails->last_name }}</td>
                                     <td>{{ $application->branchdetails->branch_name }} </td>
-                                    <td>{{ $application->loanSchema->schema_name }} </td>
+                                
                                     <td>{{ $application->loan_requested }} </td>
 
                                     <td>{{ $application->status }} </td>
