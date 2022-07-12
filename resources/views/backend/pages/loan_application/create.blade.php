@@ -243,10 +243,10 @@ Loan Application Create - Admin Panel
                                 <label for="emi_collection">EMI Collection<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="emi_collection" id="emi_collection" class="form-control" required>
                                     <option value="">Please Select </option>
-                                    <option value="Monthly">Monthly</option>
-                                    <option value="Qaurterly">Qaurterly</option>
-                                    <option value="Half Yearly">Half Yearly</option>
-                                    <option value="Yearly">Yearly</option>
+                                    <option value="12">Monthly</option>
+                                    <option value="4">Qaurterly</option>
+                                    <option value="6">Half Yearly</option>
+                                    <option value="1">Yearly</option>
                                    
                                 </select>
                              
@@ -287,9 +287,9 @@ Loan Application Create - Admin Panel
 </div>
 
 <div id="application_value">
-    <!-- <tr>
-        <td>hello</td>
-    </tr> -->
+    
+      
+       
 </div>
 
 
@@ -311,6 +311,16 @@ Loan Application Create - Admin Panel
 </script>
 
 <script>
+    var max_tanure=0;
+    var max_loan_amt=0;
+    var ann_rate_int=0;
+    var sms_charges=0;
+    var fuel_charge=0;
+    var stationary_charges=0;
+    var maintenance_charge=0;
+    var collection_charge=0;
+    var process_fee=0;
+
     $(document).ready(function(){
         $("#loan_scheme").change(function(){
             var id=$(this).find(":selected").val();
@@ -325,11 +335,23 @@ Loan Application Create - Admin Panel
                     //document.getElementById("schema_details").innerHTML = obj.schema_code;
                     $('#schema_details').empty();
 
+                    max_tanure=obj.max_tanure;
+                    max_loan_amt=obj.max_loan_amt;
+                    ann_rate_int=obj.ann_rate_int;
+                    sms_charges=obj.sms_charges;
+                    fuel_charge=obj.fuel_charge;
+                    stationary_charges=obj.stationary_charges;
+                    maintenance_charge=obj.maintenance_charge;
+                    collection_charge=obj.collection_charge;
+                    process_fee=obj.process_fee;
+
                     trHTML = '<table><tr><td>' + 'Scheme Name' + '</td><td>' + obj.schema_name + '</td></tr> <tr><td>' + 'Scheme Code' + '</td><td>' + obj.schema_code + '</td></tr><tr><td>' +
                              'Maximum Loan Amount' + '</td><td>' + obj.max_loan_amt + '</td></tr><tr><td>' + 'Maximum Loan Limit' + '</td><td>' + obj.max_loan_lim + 
                             '</td></tr><tr><td>' + 'Maximum Tenure' + '</td><td>' + obj.max_tanure + '</td></tr><tr><td>' + 'Annual Rate Interest' + '</td><td>' + obj.ann_rate_int + 
                             '</td></tr><tr><td>' + 'Fore Closure Charge' + '</td><td>' + obj.fore_closure_charge + '</td></tr> <tr><td>' + 'Processing Fee' + '</td><td>' + obj.process_fee + 
-                            '</td></tr> <tr><td>' + 'Security Deposit' + '</td><td>' + obj.sec_deposit + '</td></tr></table>';
+                            '</td></tr> <tr><td>' + ' SMS Charges ' + '</td><td>' + obj.sms_charges + '</td></tr> <tr><td>' + 'Fuel Charges ' + '</td><td>' + obj.fuel_charge + 
+                            '</td></tr> <tr><td>' + 'Stationary Charges ' + '</td><td>' + obj.stationary_charges + '</td></tr> <tr><td>' + 'Maintenance Charges ' + '</td><td>' + obj.maintenance_charge + 
+                            '</td></tr><tr><td>' + 'Collection Charges' + '</td><td>' + obj.collection_charge + '</td></tr> </table>';
                     // obj.schema_name;
                     $('#schema_details').append(trHTML);
                     //console.log(obj.schema_name);
@@ -347,15 +369,24 @@ Loan Application Create - Admin Panel
 $(document).ready(function(){
         $("#calculate").click(function(){
             var loan_requested =  $('#loan_requested').val();
-          //console.log(loan_requested);
+   // console.log(ann_rate_int);       
+            var interest= (ann_rate_int/100)*loan_requested;
+           
+            var total_other_charges = Number(sms_charges)+Number(fuel_charge)+Number(stationary_charges)+Number(maintenance_charge)+Number(collection_charge);
+            var total_amount_recovered = Number(loan_requested)+Number(interest)+Number(total_other_charges);
+            var emi_collection =  $('#emi_collection').val();
+            var emi_ammount = parseInt(total_amount_recovered/emi_collection);
+            var processing_fee = (process_fee/100)*loan_requested;
+           console.log(processing_fee);
             $('#application_value').empty();
+            
 
                 trHTML = '<table><tr><td>' + 'Amount of loan requested' + '</td><td>' + loan_requested + '</td></tr><tr><td>' + 
-                'Amount of Loan can be Approved' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'Loan Amount Approved (Principal Amount)' + '</td><td>' + loan_requested + 
-                '</td></tr><tr><td>' + 'Interest Amount' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'Other Charges' + '</td><td>' + '' + 
-                '</td></tr><tr><td>' + 'Total Amount Recovered' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'Loan Tenure' + '</td><td>' + '' + 
-                '</td></tr> <tr><td>' + 'EMI Amount' + '</td><td>' + '' + '</td></tr> <tr><td>' + 'No. of EMIs' + '</td><td>' + '' +
-                 '</td></tr> <tr><td>' + 'Processing Charges' + '</td><td>' + '' + '</td></tr></table>';
+                'Amount of Loan can be Approved' + '</td><td>' + max_loan_amt + '</td></tr> <tr><td>' + 'Loan Amount Approved (Principal Amount)' + '</td><td>' + loan_requested + 
+                '</td></tr><tr><td>' + 'Interest Amount' + '</td><td>' + interest + '</td></tr> <tr><td>' + 'Other Charges' + '</td><td>' + total_other_charges + 
+                '</td></tr><tr><td>' + 'Total Amount Recovered' + '</td><td>' + total_amount_recovered + '</td></tr> <tr><td>' + 'Loan Tenure' + '</td><td>' + max_tanure + 
+                '</td></tr> <tr><td>' + 'EMI Amount' + '</td><td>' + emi_ammount + '</td></tr> <tr><td>' + 'No. of EMIs' + '</td><td>' + emi_collection +
+                 '</td></tr> <tr><td>' + 'Processing Charges' + '</td><td>' + processing_fee + '</td></tr></table>';
                 
                 $('#application_value').append(trHTML);
           
@@ -364,6 +395,16 @@ $(document).ready(function(){
   
 
 </script>
+
+<script>
+    $(function(){
+        $("#member").change(function(){
+            var displaymember= $("#member option:selected").text();
+            $("#member_name").val(displaymember);
+        })
+    })
+</script>
+
 
 
 

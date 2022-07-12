@@ -172,11 +172,11 @@ Edit Loan Schemes - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="sms_charges">Sms Charges %(if any)</label>
+                                <label for="sms_charges">Sms Charges (if any)</label>
                                 <input type="text" class="form-control" id="sms_charges" name="sms_charges" value="{{$schemas->sms_charges}}" placeholder="Enter Sms Charges">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="fuel_charge">Fuel Charges %(if any)</label>
+                                <label for="fuel_charge">Fuel Charges (if any)</label>
                                 <input type="text" class="form-control" id="fuel_charge" name="fuel_charge" value="{{$schemas->fuel_charge}}" placeholder="Enter Fuel Charge">
                             </div>
                            
@@ -185,11 +185,11 @@ Edit Loan Schemes - Admin Panel
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="stationary_charges">Stationary Charges %(if any)</label>
+                                <label for="stationary_charges">Stationary Charges (if any)</label>
                                 <input type="text" class="form-control" id="stationary_charges" name="stationary_charges" value="{{$schemas->stationary_charges}}" placeholder="Enter Stationary Charges">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="maintenance_charge">Maintenance Charges %(if any)</label>
+                                <label for="maintenance_charge">Maintenance Charges (if any)</label>
                                 <input type="text" class="form-control" id="maintenance_charge" name="maintenance_charge" value="{{$schemas->maintenance_charge}}" placeholder="Enter Maintenance Charges">
                             </div>
                            
@@ -197,7 +197,7 @@ Edit Loan Schemes - Admin Panel
                         </div> 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="collection_charge">Collection Charges %(if any)</label>
+                                <label for="collection_charge">Collection Charges (if any)</label>
                                 <input type="text" class="form-control" id="collection_charge" name="collection_charge" value="{{$schemas->collection_charge}}" placeholder="Enter Collection Charges">
                             </div>
    
