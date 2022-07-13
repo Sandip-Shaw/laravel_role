@@ -214,15 +214,16 @@ Loan Application Create - Admin Panel
                         <div class="form-group col-md-6">
                                 <p > Tenure Type<span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tenure_type" value="weeks">
-                                    <label class="form-check-label" for="tenure_type">Weeks</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tenure_type" value="days">
+                                    <input class="form-check-input" type="radio" name="tenure_type" id="days" value="days">
                                     <label class="form-check-label" for="tenure_type">Days</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tenure_type" value="months">
+                                    <input class="form-check-input" type="radio" name="tenure_type" id="weeks" value="weeks">
+                                    <label class="form-check-label" for="tenure_type">Weeks</label>
+                                </div>
+                                
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tenure_type" id="months" value="months" checked>
                                     <label class="form-check-label" for="tenure_type">Months</label>
                                 </div>
                            
@@ -231,8 +232,8 @@ Loan Application Create - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="tenure_months">Tenure (MONTHS)<span style="color:red; font-size: 18px;line-height:1">*</span> </label>
-                                <input type="text" class="form-control" id="tenure_months" name="tenure_months" placeholder="Tenure (MONTHS)" data-parsley-max="12" required>
+                                <label for="tenure_months" id="tenure_months_label">Tenure (Months)<span style="color:red; font-size: 18px;line-height:1">*</span> </label>
+                                <input type="text" class="form-control" id="tenure_months" name="tenure_months" placeholder="Enter Tenure (Months)" data-parsley-max="12" required>
                               
                             </div>
     
@@ -245,12 +246,16 @@ Loan Application Create - Admin Panel
                                     <option value="">Please Select </option>
                                     <option value="12">Monthly</option>
                                     <option value="4">Qaurterly</option>
-                                    <option value="6">Half Yearly</option>
+                                    <option value="2">Half Yearly</option>
                                     <option value="1">Yearly</option>
                                    
                                 </select>
                              
                             </div>
+                         </div>
+
+                         <div class="form-row" id="radio_btn">
+                            
                          </div>
 
                          <div class="form-row">
@@ -273,7 +278,7 @@ Loan Application Create - Admin Panel
 
                        
                         
-                        <button type="submit" id="calculate" class="btn btn-primary  pr-4 pl-4">Calculate </button>
+                        <button type="button" id="calculate" class="btn btn-primary  pr-4 pl-4">Calculate </button>
                         <a class="btn btn-danger" href="{{route('admin.loan_application.index')}}">Cancel </a>
                         <button type="reset" class="btn btn-warning  pr-4 pl-4">Clear </button>
 
@@ -301,13 +306,115 @@ Loan Application Create - Admin Panel
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function() {
-         $('.select2').select2();
-//  $('#form').parsley();
-    })
+//     $(document).ready(function() {
+//          $('.select2').select2();
+// //  $('#form').parsley();
+//     })
+$(document).ready(function() {
+    let result = document.querySelector('#radio_btn');
+        document.body.addEventListener('change', function (e) {
+            let target = e.target;
+            let message;
+            const select=document.querySelector("#emi_collection");
+            const emiCollects={
+                days:[
+                        {
+                            label:"Please select",value:''
+                        },
+                        {
+                            label:"Daily",value:1
+                        }
+                ],
+                weeks:[
+                        {
+                            label:"Please select",value:''
+                        },
+                        {
+                            label:"Weekly",value:7
+
+                        },
+                        {
+                            label:"BI_weekly",value:14
+                            
+                        },
+                        {
+                            label:"4_weekly",value:28
+                            
+                        }
+                ],
+                months:[
+                        {
+                            label:"Please select",value:''
+                        },
+                        {
+                            label:"Monthly",value:12
+
+                        },
+                        {
+                            label:"Quaterly",value:4
+                            
+                        },
+                        {
+                            label:"Half_annualy",value:2
+                            
+                        },
+                        {
+                            label:"Annualy",value:1
+                            
+                        }
+
+                ],
+
+        
+            }
+                const options=[];
+            switch (target.id) {
+                case 'days':
+                   document.querySelector('#tenure_months_label').textContent= "Tenure (Days)";
+                   document.querySelector('#tenure_months').placeholder= "Enter Tenure (Days)";
+                   select.innerHTML='';
+                   emiCollects.days.forEach(element => {
+                    const option= document.createElement("option")
+                    option.setAttribute("value",element.value)
+                    option.textContent= element.label
+                    select.appendChild(option)
+                   });
+                    break;
+                case 'weeks':
+                    document.querySelector('#tenure_months_label').textContent= "Tenure (Weeks)";
+                   document.querySelector('#tenure_months').placeholder= "Enter Tenure (Weeks)";
+                   select.innerHTML='';
+                   emiCollects.weeks.forEach(element => {
+                    const option= document.createElement("option")
+                    option.setAttribute("value",element.value)
+                    option.textContent= element.label
+                    select.appendChild(option)
+                   });
+                    break;
+                case 'months':
+                    document.querySelector('#tenure_months_label').textContent= "Tenure (Months)";
+                    document.querySelector('#tenure_months').placeholder= "Enter Tenure (Months)";
+                    select.innerHTML='';
+                    emiCollects.months.forEach(element => {
+                    const option= document.createElement("option")
+                    option.setAttribute("value",element.value)
+                    option.textContent= element.label
+                    select.appendChild(option)
+                   });
+                    break;
+            }
+            result.textContent = message;
+
+        });
+    });
+
 </script>
 <script>
-  $('#form').parsley();
+    $(document).ready(function(){
+       
+            $('#form').parsley();
+        })
+  
 </script>
 
 <script>
@@ -369,24 +476,29 @@ Loan Application Create - Admin Panel
 $(document).ready(function(){
         $("#calculate").click(function(){
             var loan_requested =  $('#loan_requested').val();
-   // console.log(ann_rate_int);       
-            var interest= (ann_rate_int/100)*loan_requested;
            
-            var total_other_charges = Number(sms_charges)+Number(fuel_charge)+Number(stationary_charges)+Number(maintenance_charge)+Number(collection_charge);
-            var total_amount_recovered = Number(loan_requested)+Number(interest)+Number(total_other_charges);
+            var amt_approved= Number(max_loan_amt) > Number(loan_requested) ? loan_requested : max_loan_amt;
+  
+            var interest= (ann_rate_int/100)*loan_requested;
             var emi_collection =  $('#emi_collection').val();
+           
+            var total_other_charges = (Number(sms_charges)+Number(fuel_charge)+Number(stationary_charges)+Number(maintenance_charge)+Number(collection_charge))*Number(emi_collection);
+            var total_amount_recovered = Number(loan_requested)+Number(interest)+Number(total_other_charges);
+           //console.log(total_other_charges);
+            
             var emi_ammount = parseInt(total_amount_recovered/emi_collection);
             var processing_fee = (process_fee/100)*loan_requested;
-           console.log(processing_fee);
+          // console.log(processing_fee);
             $('#application_value').empty();
             
 
                 trHTML = '<table><tr><td>' + 'Amount of loan requested' + '</td><td>' + loan_requested + '</td></tr><tr><td>' + 
-                'Amount of Loan can be Approved' + '</td><td>' + max_loan_amt + '</td></tr> <tr><td>' + 'Loan Amount Approved (Principal Amount)' + '</td><td>' + loan_requested + 
+                'Amount of Loan can be Approved' + '</td><td>' + max_loan_amt + '</td></tr> <tr><td>' + 'Loan Amount Approved (Principal Amount)' + '</td><td>' + amt_approved + 
                 '</td></tr><tr><td>' + 'Interest Amount' + '</td><td>' + interest + '</td></tr> <tr><td>' + 'Other Charges' + '</td><td>' + total_other_charges + 
                 '</td></tr><tr><td>' + 'Total Amount Recovered' + '</td><td>' + total_amount_recovered + '</td></tr> <tr><td>' + 'Loan Tenure' + '</td><td>' + max_tanure + 
                 '</td></tr> <tr><td>' + 'EMI Amount' + '</td><td>' + emi_ammount + '</td></tr> <tr><td>' + 'No. of EMIs' + '</td><td>' + emi_collection +
-                 '</td></tr> <tr><td>' + 'Processing Charges' + '</td><td>' + processing_fee + '</td></tr></table>';
+                 '</td></tr> <tr><td>' + 'Processing Charges' + '</td><td>' + processing_fee + '</td></tr></table>' +
+                 '<button type="submit" class="btn btn-primary">Apply for Loan</button>'+'<a href="" class="btn btn-danger">Cancel</a>';
                 
                 $('#application_value').append(trHTML);
           
