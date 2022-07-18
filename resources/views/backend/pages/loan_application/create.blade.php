@@ -27,7 +27,7 @@ Loan Application Create - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">New Deposit Loan Application</h4>
+                <h4 class="page-title pull-left"> Business Loan Application</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="">Dashboard</a></li>
                     <!-- <li><a href="">All Blogs</a></li> -->
@@ -52,6 +52,7 @@ Loan Application Create - Admin Panel
                     @include('backend.layouts.partials.messages')
                     
                     <form action="{{ route('admin.loan_application.store') }}" method="POST" id="form" enctype="multipart/form-data" data-parsley-validate>
+                   
                         @csrf
 
 
@@ -59,7 +60,7 @@ Loan Application Create - Admin Panel
                            
                             <div class="form-group col-md-6">
                                 <label  for="application_date">Application Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
-                                <input type="date" class="form-control" id="application_date" name="application_date" required>
+                                <input type="date" class="form-control" id="application_date" name="application_date"  required>
                                
                             </div>
                            
@@ -165,6 +166,7 @@ Loan Application Create - Admin Panel
                             </div>
        
                         </div>
+                        <hr>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -214,16 +216,16 @@ Loan Application Create - Admin Panel
                         <div class="form-group col-md-6">
                                 <p > Tenure Type<span style="color:red; font-size: 18px;line-height:1">*</span></p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tenure_type" id="days" value="days">
+                                    <input class="form-check-input radio-tenure"  type="radio" name="tenure_type" id="days" value="days">
                                     <label class="form-check-label" for="tenure_type">Days</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tenure_type" id="weeks" value="weeks">
+                                    <input class="form-check-input radio-tenure" type="radio"  name="tenure_type" id="weeks" value="weeks">
                                     <label class="form-check-label" for="tenure_type">Weeks</label>
                                 </div>
                                 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tenure_type" id="months" value="months" checked>
+                                    <input class="form-check-input radio-tenure" type="radio"  name="tenure_type" id="months" value="months" >
                                     <label class="form-check-label" for="tenure_type">Months</label>
                                 </div>
                            
@@ -244,10 +246,10 @@ Loan Application Create - Admin Panel
                                 <label for="emi_collection">EMI Collection<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="emi_collection" id="emi_collection" class="form-control" required>
                                     <option value="">Please Select </option>
-                                    <option value="12">Monthly</option>
-                                    <option value="4">Qaurterly</option>
-                                    <option value="2">Half Yearly</option>
-                                    <option value="1">Yearly</option>
+                                    <option value="1">Monthly</option>
+                                    <option value="3">Qaurterly</option>
+                                    <option value="6">Half Yearly</option>
+                                    <option value="12">Yearly</option>
                                    
                                 </select>
                              
@@ -258,7 +260,7 @@ Loan Application Create - Admin Panel
                             
                          </div>
 
-                         <div class="form-row">
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="credit_period">Credit Period (EMI Grace Period) (Days) <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <input type="text" class="form-control" id="credit_period" name="credit_period" placeholder="Enter Credit Period (EMI Grace Period) (Days)" required>
@@ -277,19 +279,62 @@ Loan Application Create - Admin Panel
                         </div>
 
                        
+                        <input type="hidden" class="form-control" id="principal_amount" name="amt_approved"  >
+
+                        <input type="hidden" class="form-control" id="interest_amount" name="interest_amount"  >
                         
+                        <input type="hidden" class="form-control" id="other_charges" name="other_charges"  >
+                        
+                        <input type="hidden" class="form-control" id="total_amount_coll" name="total_amount_coll"  >
+
+                        <input type="hidden" class="form-control" id="emi_amount_total" name="emi_amount_total"  >
+
+                        <input type="hidden" class="form-control" id="no_of_emis" name="no_of_emis"  >
+
+                        <input type="hidden" class="form-control" id="processing_charges" name="processing_charges"  >
+                              
+                       
+    
                         <button type="button" id="calculate" class="btn btn-primary  pr-4 pl-4">Calculate </button>
                         <a class="btn btn-danger" href="{{route('admin.loan_application.index')}}">Cancel </a>
                         <button type="reset" class="btn btn-warning  pr-4 pl-4">Clear </button>
 
-                    </form>
+                  
                 </div>
             </div>
         </div>
         <!-- data table end -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+            Are you sure to continue?
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+        <!-- end modal -->
         
     </div>
 </div>
+
+
+
 
 <div id="application_value">
     
@@ -310,10 +355,31 @@ Loan Application Create - Admin Panel
 //          $('.select2').select2();
 // //  $('#form').parsley();
 //     })
+//var target='';
+var tenure='';
+let radio_event='';
+const radioTenure = [...document.getElementsByClassName("radio-tenure")]
+
+for(let i=0;i<radioTenure.length;i++){
+    
+    radioTenure[i].addEventListener("change",(e)=>{
+        radio_event=e.target.value
+        // console.log(e.target.value)
+    })
+}
+
+
 $(document).ready(function() {
+
+    
+
     let result = document.querySelector('#radio_btn');
         document.body.addEventListener('change', function (e) {
             let target = e.target;
+            tenure=target.id;
+        
+           // console.log(e);
+
             let message;
             const select=document.querySelector("#emi_collection");
             const emiCollects={
@@ -330,15 +396,15 @@ $(document).ready(function() {
                             label:"Please select",value:''
                         },
                         {
-                            label:"Weekly",value:7
+                            label:"Weekly",value:1
 
                         },
                         {
-                            label:"BI_weekly",value:14
+                            label:"BI_weekly",value:2
                             
                         },
                         {
-                            label:"4_weekly",value:28
+                            label:"4_weekly",value:4
                             
                         }
                 ],
@@ -347,19 +413,19 @@ $(document).ready(function() {
                             label:"Please select",value:''
                         },
                         {
-                            label:"Monthly",value:12
+                            label:"Monthly",value:1
 
                         },
                         {
-                            label:"Quaterly",value:4
+                            label:"Quaterly",value:3
                             
                         },
                         {
-                            label:"Half_annualy",value:2
+                            label:"Half_annualy",value:6
                             
                         },
                         {
-                            label:"Annualy",value:1
+                            label:"Annualy",value:12
                             
                         }
 
@@ -412,7 +478,7 @@ $(document).ready(function() {
 <script>
     $(document).ready(function(){
        
-            $('#form').parsley();
+          
         })
   
 </script>
@@ -475,38 +541,87 @@ $(document).ready(function() {
 
 $(document).ready(function(){
         $("#calculate").click(function(){
+            // $('#form').parsley();
             var loan_requested =  $('#loan_requested').val();
-           
+
+            var tenure_months=$('#tenure_months').val();
             var amt_approved= Number(max_loan_amt) > Number(loan_requested) ? loan_requested : max_loan_amt;
-  
-            var interest= (ann_rate_int/100)*loan_requested;
             var emi_collection =  $('#emi_collection').val();
-           
-            var total_other_charges = (Number(sms_charges)+Number(fuel_charge)+Number(stationary_charges)+Number(maintenance_charge)+Number(collection_charge))*Number(emi_collection);
-            var total_amount_recovered = Number(loan_requested)+Number(interest)+Number(total_other_charges);
-           //console.log(total_other_charges);
+            var total_other_charges = Number(sms_charges)+Number(fuel_charge)+Number(stationary_charges)+Number(maintenance_charge)+Number(collection_charge);
+            var processing_fee = (process_fee/100)*amt_approved;
+
+            var eff_int_perc=0;
+           var eff_int=0;
+           var no_emi_collection=0;
+           var total_emi_charge=0;
+           var total_collection=0;
+           var emi_amount=0;
+          // console.log(radio_event);
+           if (radio_event=='days'){
             
-            var emi_ammount = parseInt(total_amount_recovered/emi_collection);
-            var processing_fee = (process_fee/100)*loan_requested;
-          // console.log(processing_fee);
+            //set the divisor for days
+             eff_int_perc=(ann_rate_int/365)*tenure_months;
+             eff_int=Math.ceil(amt_approved*(eff_int_perc/100));
+             no_emi_collection=tenure_months/emi_collection;
+             total_emi_charge=total_other_charges*no_emi_collection;
+             total_collection=Number(amt_approved)+Number(eff_int)+Number(total_emi_charge);
+             emi_amount=Math.ceil(total_collection/no_emi_collection);
+            // console.log(eff_int);
+            //end divisor for days
+           }else if(radio_event=='weeks'){
+            //set the divisor for weeks
+             eff_int_perc=(ann_rate_int/52)*tenure_months;
+             eff_int=Math.ceil(amt_approved*(eff_int_perc/100));
+             no_emi_collection=tenure_months/emi_collection;
+             total_emi_charge=total_other_charges*no_emi_collection;
+             total_collection=Number(amt_approved)+Number(eff_int)+Number(total_emi_charge);
+             emi_amount=Math.ceil(total_collection/no_emi_collection);
+            //end divisor for weeks
+           }else if(radio_event=='months'){
+            //set the divisor for months
+             eff_int_perc=(ann_rate_int/12)*tenure_months;
+             eff_int=Math.ceil(amt_approved*(eff_int_perc/100));
+             no_emi_collection=tenure_months/emi_collection;
+             total_emi_charge=total_other_charges*no_emi_collection;
+             total_collection=Number(amt_approved)+Number(eff_int)+Number(total_emi_charge);
+             emi_amount=Math.ceil(total_collection/no_emi_collection);
+            //end divisor for months
+        }
+
             $('#application_value').empty();
             
 
                 trHTML = '<table><tr><td>' + 'Amount of loan requested' + '</td><td>' + loan_requested + '</td></tr><tr><td>' + 
                 'Amount of Loan can be Approved' + '</td><td>' + max_loan_amt + '</td></tr> <tr><td>' + 'Loan Amount Approved (Principal Amount)' + '</td><td>' + amt_approved + 
-                '</td></tr><tr><td>' + 'Interest Amount' + '</td><td>' + interest + '</td></tr> <tr><td>' + 'Other Charges' + '</td><td>' + total_other_charges + 
-                '</td></tr><tr><td>' + 'Total Amount Recovered' + '</td><td>' + total_amount_recovered + '</td></tr> <tr><td>' + 'Loan Tenure' + '</td><td>' + max_tanure + 
-                '</td></tr> <tr><td>' + 'EMI Amount' + '</td><td>' + emi_ammount + '</td></tr> <tr><td>' + 'No. of EMIs' + '</td><td>' + emi_collection +
+                '</td></tr><tr><td>' + 'Interest Amount' + '</td><td>' + eff_int + '</td></tr> <tr><td>' + 'Other Charges' + '</td><td>' + total_emi_charge + 
+                '</td></tr><tr><td>' + 'Total Amount Recovered' + '</td><td>' + total_collection + '</td></tr> <tr><td>' + 'Loan Tenure' + '</td><td>' + tenure_months + " "+radio_event+" "+
+                '</td></tr> <tr><td>' + 'EMI Amount' + '</td><td>' + emi_amount + '</td></tr> <tr><td>' + 'No. of EMIs' + '</td><td>' + no_emi_collection +
                  '</td></tr> <tr><td>' + 'Processing Charges' + '</td><td>' + processing_fee + '</td></tr></table>' +
-                 '<button type="submit" class="btn btn-primary">Apply for Loan</button>'+'<a href="" class="btn btn-danger">Cancel</a>';
+                 '<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Apply for Loan</button>'+'<a href="" class="btn btn-danger">Cancel</a>';
                 
                 $('#application_value').append(trHTML);
-          
+
+                document.getElementById("principal_amount").value = amt_approved;
+                document.getElementById("interest_amount").value = eff_int;
+                document.getElementById("other_charges").value = total_emi_charge;
+                document.getElementById("total_amount_coll").value = total_collection;
+                document.getElementById("emi_amount_total").value = emi_amount;
+                document.getElementById("no_of_emis").value = no_emi_collection;
+                document.getElementById("processing_charges").value = processing_fee;
+                    
             })
+
         })
   
 
 </script>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+
 
 <script>
     $(function(){

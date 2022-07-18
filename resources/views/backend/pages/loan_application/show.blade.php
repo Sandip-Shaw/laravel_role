@@ -40,20 +40,10 @@ Loan Application - Admin Panel
     <div class="row">
         <!-- data table start -->
         
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="box">
                 <div class="box-body">
-                    <!-- <h4 class="header-title float-left">Blogs List</h4> -->
-                    <!-- <p class="float-right mb-2">
-                        <a class="btn btn-primary text-white" href="{{ route('admin.company.create') }}">Create New Profile</a>
-                    </p> -->
-                 
                    
-
-                    <!-- <div class="pull-right"> -->
-                    <!-- <a class="btn btn-default btn-xs" onclick="block_ui()" href="">
-                        <i class="fa fa-pencil"></i></a>
-                    </div> -->
                     <div class="clearfix"></div>
                     <div class="row">
                         <div class=col-md-11>
@@ -82,17 +72,8 @@ Loan Application - Admin Panel
                                     </td>
                                 </tr>
 
-                              
-
                                 <tr>
-                                    <td class="ft-600" style="width: 250px;">Loan Account No.</td>
-                                    <td> 
-                                 
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="ft-600" style="width: 250px;">Deposit Loan Scheme</td>
+                                    <td class="ft-600" style="width: 250px;">Other Loan Scheme</td>
                                     <td> 
                                     {{ $applications->loanSchema->schema_name }}
                                     </td>
@@ -103,17 +84,11 @@ Loan Application - Admin Panel
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">Amount Approved</td>
                                     <td> 
-                                  
+                                    {{$applications->amt_approved}}
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td class="ft-600" style="width: 250px;">Security Value</td>
-                                    <td> 
-                                  {{$applications->sec_value}}
-                                    </td>
-                                </tr>
-
+                               
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">Status</td>
                                     <td> 
@@ -130,6 +105,37 @@ Loan Application - Admin Panel
             </div>
         </div>
         <!-- data table end -->
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class=col-md-12>
+                            <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Remark</th>
+                                    <th scope="col">Updated At</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                
+                                    <td>{{$applications->status}}</td>
+                                    <td></td>
+                                    <td>{{$applications->updated_at}}</td>
+                                </tr>
+                                
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="container">
           
@@ -137,7 +143,7 @@ Loan Application - Admin Panel
               <div class="card" style="width:50%">
               <div class="card-header">
                   <a class="card-link" data-toggle="collapse" href="#collapseOne">
-               Deposit Loan Scheme Info
+                  Other Loan Scheme Info
                   </a>
               </div>
               <div id="collapseOne" class="collapse show" data-parent="#accordion">
@@ -163,27 +169,15 @@ Loan Application - Admin Panel
                          
                           </td>
                       </tr>
-                      <tr>
-                          <td class="ft-200" style="width: 250px;">Max. Loan Limit</td>
-                          <td> 
-                          {{ $applications->loanSchema->max_loan_lim }}
-                   
-                          </td>
-                      </tr>
+                      
                       <tr>
                           <td class="ft-200" style="width: 250px;">Interest Rate</td>
                           <td> 
-                          {{ $applications->loanSchema->ann_rate_int }}
-                       
+                         
+                          {{ $applications->loanSchema->ann_rate_int }}%
                           </td>
                       </tr>
-                      <tr>
-                          <td class="ft-200" style="width: 250px;">Interest Type</td>
-                          <td> 
-                          {{ $applications->loanSchema->int_type }}
-                       
-                          </td>
-                      </tr>
+                     
                       <tr>
                           <td class="ft-200" style="width: 250px;">Fore Closure Charges</td>
                           <td> 
@@ -194,10 +188,47 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">Processing Fee</td>
                           <td> 
-                          {{ $applications->loanSchema->process_fee }}
+                          {{ $applications->loanSchema->process_fee }}%
                       
                           </td>
                       </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Sms Charges per EMI</td>
+                          <td> 
+                         
+                          INR {{ $applications->loanSchema->sms_charges }}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Fuel Charges per EMI</td>
+                          <td> 
+                         
+                          INR{{ $applications->loanSchema->fuel_charge }}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Stationary Charges per EMI</td>
+                          <td> 
+                          INR {{ $applications->loanSchema->stationary_charges }}
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Maintenance Charges per EMI</td>
+                          <td> 
+                          INR {{ $applications->loanSchema->maintenance_charge }}
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Collection Charges per EMI</td>
+                          <td> 
+                          INR  {{ $applications->loanSchema->collection_charge }}
+                      
+                          </td>
+                      </tr>
+                      
+                     
                      
                   </tbody>
                   </table>
@@ -209,7 +240,7 @@ Loan Application - Admin Panel
             <div class="card" style="width:50%">
               <div class="card-header">
                   <a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                  Deposit Loan Application Info
+                  Other Loan Application Info
                   </a>
               </div>
               <div id="collapseTwo" class="collapse show" data-parent="#accordion">
@@ -219,40 +250,47 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">Branch</td>
                           <td> 
-                      
+                          {{$applications->branchdetails->branch_name}}
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Amount Requested</td>
                           <td> 
-                     
+                          {{$applications->loan_requested}}
                           </td>
                       </tr>
                       <tr>
-                          <td class="ft-200" style="width: 250px;">Amount can be Approved</td>
+                          <td class="ft-200" style="width: 250px;">Max. Amount can be Approved</td>
                           <td> 
                        
-                         
+                          {{ $applications->loanSchema->max_loan_amt }}
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Loan Amount</td>
                           <td> 
-                        
+                          {{$applications->amt_approved}}
                    
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Amount Approved</td>
                           <td> 
-                       
+                          {{$applications->amt_approved}}
                        
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Interest Amount</td>
                           <td> 
+                          {{$applications->interest_amount}}
                        
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Other Charges</td>
+                          <td> 
+                          {{$applications->other_charges}}
                        
                           </td>
                       </tr>
@@ -260,19 +298,34 @@ Loan Application - Admin Panel
                           <td class="ft-200" style="width: 250px;">Annual Interest Rate</td>
                           <td> 
                         
-                       
+                          {{ $applications->loanSchema->ann_rate_int }}%
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Interest Type</td>
+                          <td> 
+                          {{ $applications->loanSchema->int_type }}
+                      
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Credit Period</td>
                           <td> 
                      
+                          {{$applications->credit_period}}Days
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Security Type</td>
+                          <td> 
+                          {{$applications->sec_type}}
                       
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Total Amount to Recover</td>
                           <td> 
+                          {{$applications->total_amount_coll}}
                      
                       
                           </td>
@@ -287,6 +340,7 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">EMI Amount</td>
                           <td> 
+                          {{$applications->emi_amount_total}}
                      
                       
                           </td>
@@ -294,6 +348,7 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">No. of EMIs</td>
                           <td> 
+                          {{$applications->no_of_emis}}
                      
                       
                           </td>
@@ -301,7 +356,16 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">Processing Fee</td>
                           <td> 
+                          {{$applications->processing_charges}}
                      
+                      
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;">Tenure of Loan</td>
+                          <td> 
+                     
+                          {{$applications->tenure_months}}
                       
                           </td>
                       </tr>
@@ -311,7 +375,7 @@ Loan Application - Admin Panel
                   </div>
               </div>
               </div>
-</div>
+        </div>
         
     </div>
 </div>

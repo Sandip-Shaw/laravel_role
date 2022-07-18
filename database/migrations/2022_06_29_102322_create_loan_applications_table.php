@@ -32,7 +32,15 @@ return new class extends Migration
             $table->string('emi_collection');
             $table->string('credit_period');
             $table->string('loan_requested');
-            $table->enum('status', ['Approved','Disbursed','Cancelled','Applied']);
+            $table->enum('status', ['Approved','Disbursed','NotApproved','RequestForApproval']);
+            $table->string('amt_approved');
+            $table->string('interest_amount');
+            $table->string('other_charges');
+            $table->string('total_amount_coll');
+            $table->string('emi_amount_total');
+            $table->string('no_of_emis');
+            $table->string('processing_charges');
+
             $table->timestamps();
         });
     }

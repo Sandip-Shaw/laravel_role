@@ -162,6 +162,16 @@ class RolePermissionSeeder extends Seeder
             ],
 
             [
+                'group_name' => 'loan_application_approval',
+                'permissions' => [
+                    // profile Permissions
+                    'loan_application_approval.view',                
+                    'loan_application_approval.approve',
+
+                ]
+            ],
+
+            [
                 'group_name' => 'support',
                 'permissions' => [
                     // profile Permissions
