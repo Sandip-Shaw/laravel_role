@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Loan Management - Admin Panel
+Loan Approval - Admin Panel
 @endsection
 
 @section('styles')
@@ -21,10 +21,10 @@ Loan Management - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Loan Application</h4>
+                <h4 class="page-title pull-left">Approval - Loan Application </h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li><span>Applications</span></li>
+                    <li><span>Approval's List</span></li>
                 </ul>
             </div>
         </div>
@@ -41,10 +41,10 @@ Loan Management - Admin Panel
         <div class="col-12 mt-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title float-left">Applicant's List</h4>
-                    <p class="float-right mb-2">
+                    <h4 class="header-title float-left">Approval's List</h4>
+                    <!-- <p class="float-right mb-2">
                         <a class="btn btn-primary text-white" href="{{ route('admin.loan_application.create') }}">Create Loan Application</a>
-                    </p>
+                    </p> -->
                     <div class="clearfix"></div>
                     <div class="data-tables">
                         @include('backend.layouts.partials.messages')
@@ -52,14 +52,15 @@ Loan Management - Admin Panel
                             <thead class="bg-light text-capitalize">
                                 <tr>
                                    
-                                    <th width="15%">Associate</th>
-                                    <th width="10%">Application No.</th>
-                                    <th width="10%">Application Date</th>
-                                    <th width="20%">Member</th>
-                                    <th width="10%">Branch</th>
-                                    <th width="10%">Scheme</th>
-                                    <th width="10%">Principal Amt.</th>
-                                    <th width="10%">Status</th>
+                                    <th width="15%">BRANCH</th>
+                                    <th width="10%">MEMBER</th>
+                                    <th width="10%">A/C TYPE</th>
+                                    <th width="10%">APPLICATION NO.</th>
+                                    <th width="10%">AMT. REQUESTED</th>
+                                    <th width="10%">CALULATED APPROVAL</th>
+                                    <th width="10%">APPROVED AMT.</th>
+                                    <th width="10%">STATUS</th>
+                                    <th width="10%">REMARKS</th>
                                    
                                     <th width="05%">Actions</th>
 
@@ -67,30 +68,29 @@ Loan Management - Admin Panel
                                 </tr>
                             </thead>
                             <tbody>
-                                    @foreach ($applications as $application)
+                                  
                                 <tr>  
-                                    <td>{{ $application->hrmanagements->name }}</td>
-                                    <td>{{ $loop->index+00001 }}</td>
-                                    <td>{{ $application->application_date }} </td>
-                                    <td>{{ $application->memberdetails->first_name }} </td>
-                                    <td>{{ $application->branchdetails->branch_name }} </td>
-                                    <td>{{ $application->loanSchema->schema_name }} </td>
-                                
-                                    <td>{{ $application->loan_requested }} </td>
+                                  <td></td> 
+                                  <td></td>
+                                  <td></td> 
+                                  <td></td>  
+                                  <td></td> 
+                                  <td></td> 
+                                  <td><input type="text" class="form-control" id="" name="" ></td> 
+                                  <td>
+                                    <select name="" id="" class="form-control" >
+                                        <option value="">Select Status</option>
+                                        <option value="">Approve</option>
+                                        <option value="">Not Approve</option>
 
-                                    <td>{{ $application->status }} </td>
- 
-                                    <td>
-                                     
-                                            <!-- <a class="btn btn-success text-white" href="">Edit</a> -->
-                                            <a class="btn btn-primary text-white" href="{{ route('admin.loan_application.show',$application->loanApplication_id) }}">Show</a> 
-                                        
-                                     
-                                      
-                                     
-                                    </td>
+                                    </select>
+                                 </td> 
+                                  <td><textarea id="summernote" name="" class="form-control" >Enter Remarks</textarea></td> 
+
+                                    <td> <a class="btn btn-primary text-white" href="">Done</a> </td>
+   
                                 </tr>
-                            @endforeach
+                         
                             </tbody>
                         </table>
                     </div>

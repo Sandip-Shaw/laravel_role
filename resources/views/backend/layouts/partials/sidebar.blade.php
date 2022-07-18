@@ -147,7 +147,7 @@
                              <li class="{{ Route::is('admin.loan_schema.index')  || Route::is('admin.loan_schema.edit') || Route::is('admin.loan_schema.create')? 'active' : '' }}"><a href="{{ route('admin.loan_schema.index')}}">Schemes</a></li>
 
                             @if ($usr->can('loan_application.view') || $usr->can('loan_application.create'))
-                                <li class="{{ Route::is('admin.loan_application.index') || Route::is('admin.loan_application.create') || Route::is('admin.hr_management.edit') ? 'active' : '' }}"><a href="{{ route('admin.loan_application.index') }}">Loan Application</a></li>
+                                <li class="{{ Route::is('admin.loan_application.index') || Route::is('admin.loan_application.create') || Route::is('admin.loan_application.edit') || Route::is('admin.loan_application.show') ? 'active' : '' }}"><a href="{{ route('admin.loan_application.index') }}">Loan Application</a></li>
                             @endif
 
                             <li class="{{ Route::is('admin.loan_disbursements.index')  || Route::is('admin.loan_disbursements.edit') || Route::is('admin.loan_disbursements.create')? 'active' : '' }}"><a href="{{ route('admin.loan_disbursements.index')}}">Disbursements</a></li>
@@ -156,15 +156,30 @@
                             <!-- @if ($usr->can('loan_application.create'))
                                 <li class="{{ Route::is('admin.loan_application.create')  ? 'active' : '' }}"><a href="{{ route('admin.loan_application.create') }}">Create Application</a></li>
                             @endif -->
-
-                         
-                            
-                           
+                   
                         </ul>
                     </li>
                    
                     @endif
             <!---------------end loan management    ------------>
+
+
+ <!---------------approval   ------------>
+             
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
+                           APPROVALS
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.approval_loan_application.create') || Route::is('admin.approval_loan_application.index') || Route::is('admin.approval_loan_application.edit') || Route::is('admin.approval_loan_application.show') ? 'in' : '' }}">
+
+                             <li class="{{ Route::is('admin.approval_loan_application.index') ? 'active' : '' }}"><a href="{{ route('admin.approval_loan_application.index') }}">Loan Applications</a></li>
+
+                           
+                        </ul>
+                    </li>
+                   
+         
+ <!---------------end approval    ------------>
 
                     @if ($usr->can('hr_management.create') || $usr->can('hr_management.view') ||  $usr->can('hr_management.edit') ||  $usr->can('hr_management.delete'))
                     <li>

@@ -40,7 +40,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('members_management', 'Backend\MembersManagement\MembersManagementController', ['names' => 'admin.members_management']);
     Route::resource('loan_schema', 'Backend\Loan\LoanSchemaController', ['names' => 'admin.loan_schema']);
     Route::resource('loan_disbursements', 'Backend\Loan\LoanDisbursementController', ['names' => 'admin.loan_disbursements']);
-   Route::get('scheme_details/{id}', 'Backend\Loan\LoanSchemaController@loan_details', ['names' => 'admin.scheme_details']);
+    Route::get('scheme_details/{id}', 'Backend\Loan\LoanSchemaController@loan_details', ['names' => 'admin.scheme_details']);
+    Route::resource('approval_loan_application', 'Backend\Loan\LoanApplicationApproval', ['names' => 'admin.approval_loan_application']);
 
    
 

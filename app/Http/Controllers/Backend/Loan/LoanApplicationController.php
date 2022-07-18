@@ -87,12 +87,19 @@ class LoanApplicationController extends Controller
         $application->emi_collection              =       $request->emi_collection;
         $application->credit_period               =       $request->credit_period;
         $application->loan_requested              =       $request->loan_requested;
-        $application->status                      =       'Applied';
-
+        $application->status                      =       'RequestForApproval';
+        $application->amt_approved                =        $request->amt_approved;
+        $application->interest_amount             =        $request->interest_amount;
+        $application->other_charges               =        $request->other_charges;
+        $application->total_amount_coll           =        $request->total_amount_coll;
+        $application->emi_amount_total            =        $request->emi_amount_total;
+        $application->no_of_emis                  =        $request->no_of_emis;
+        $application->processing_charges          =        $request->processing_charges;
+      
 
         $application->save();
 
-        session()->flash('success', 'Loan Application has been created !!');
+        session()->flash('success', 'Approval request has been made for business loan application and is pending for approval !!');
         return redirect()->route('admin.loan_application.index');
 
     }
