@@ -40,6 +40,9 @@ return new class extends Migration
             $table->string('emi_amount_total');
             $table->string('no_of_emis');
             $table->string('processing_charges');
+            $table->string('remarks')->nullable();
+
+
 
             $table->timestamps();
         });

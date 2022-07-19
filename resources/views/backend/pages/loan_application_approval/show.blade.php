@@ -68,29 +68,36 @@ Loan Approval - Admin Panel
                                 </tr>
                             </thead>
                             <tbody>
-                                  
+                                 
                                 <tr>  
+                                  <td>{{$applications->branchdetails->branch_name}}</td> 
+                                  <td>{{$applications->memberdetails->first_name}}</td>
                                   <td></td> 
-                                  <td></td>
-                                  <td></td> 
-                                  <td></td>  
-                                  <td></td> 
-                                  <td></td> 
-                                  <td><input type="text" class="form-control" id="" name="" ></td> 
+                                  <td>{{$applications->loanApplication_id}}</td>  
+                                  <td>{{$applications->loan_requested}}</td> 
+                                  <td>{{$applications->loanSchema->max_loan_amt}}</td> 
+                                  <form action="{{url('admin/loan_approvalUpdate/'.$applications->loanApplication_id)}}" method="POST">
+                                  @method('PUT')
+                                     @csrf
+
+                                  <td><input type="text" class="form-control" id="" name="amt_approved" value="{{$applications->amt_approved}}"></td> 
                                   <td>
-                                    <select name="" id="" class="form-control" >
+                                    <select name="status" id="" class="form-control" >
                                         <option value="">Select Status</option>
-                                        <option value="">Approve</option>
-                                        <option value="">Not Approve</option>
+                                        <option value="Approved">Approve</option>
+                                        <option value="NotApproved">Not Approve</option>
 
                                     </select>
                                  </td> 
-                                  <td><textarea id="summernote" name="" class="form-control" >Enter Remarks</textarea></td> 
+                                  <td><textarea id="summernote" name="remarks" class="form-control" >{{$applications->remarks}}</textarea></td> 
 
-                                    <td> <a class="btn btn-primary text-white" href="">Done</a> </td>
-   
+                                    <td> <button type="submit" class="btn btn-primary text-white">Done</button> </td>
+                                </form>
                                 </tr>
-                         
+                                <tr>
+                                    <td> No other data found for approval </td>
+                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
