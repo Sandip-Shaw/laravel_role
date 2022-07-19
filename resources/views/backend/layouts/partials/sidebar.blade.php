@@ -172,7 +172,7 @@
                         </span></a>
                         <ul class="collapse {{ Route::is('admin.approval_loan_application.create') || Route::is('admin.approval_loan_application.index') || Route::is('admin.approval_loan_application.edit') || Route::is('admin.approval_loan_application.show') ? 'in' : '' }}">
 
-                             <li class="{{ Route::is('admin.approval_loan_application.index') ? 'active' : '' }}"><a href="{{ route('admin.approval_loan_application.index') }}">Loan Applications</a></li>
+                             <li class=""><a href="{{ route('admin.loan_approval',['id'=>27])}}">Loan Applications</a></li>
 
                            
                         </ul>

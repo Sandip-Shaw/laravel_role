@@ -100,7 +100,7 @@ class LoanApplicationController extends Controller
         $application->save();
 
         session()->flash('success', 'Approval request has been made for business loan application and is pending for approval !!');
-        return redirect()->route('admin.loan_application.index');
+        return redirect()->route('admin.loan_approval'.$id);
 
     }
 
@@ -125,6 +125,27 @@ class LoanApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function approval($loanApplication_id)
+     {
+        $application = LoanApplication::findOrFail($loanApplication_id);
+//dd($application);
+        return view('backend.pages.loan_application_approval.show')->withApplications($application);
+     }
+
+     public function updateStatus(Request $request, $loanApplication_id)
+     {
+        $loan_application=LoanApplication::find($loanApplication_id);
+        //dd($loan_application);
+        $loan_application->amt_approved = $request->amt_approved;
+        $loan_application->status = $request->status;
+        $loan_application->remarks = $request->remarks;
+        $loan_application->update();
+
+        return redirect()->route('admin.loan_application.index');
+     }
+
+
     public function edit($id)
     {
         //
@@ -139,7 +160,8 @@ class LoanApplicationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        
     }
 
     /**

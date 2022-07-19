@@ -4,6 +4,15 @@ namespace App\Http\Controllers\Backend\Loan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Admin;
+
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+use App\Models\LoanApplication;
+
+
 
 class LoanApplicationApproval extends Controller
 {
@@ -14,7 +23,7 @@ class LoanApplicationApproval extends Controller
      */
     public function index()
     {
-        return view('backend.pages.loan_application_approval.index');
+       //
     }
 
     /**
@@ -46,7 +55,9 @@ class LoanApplicationApproval extends Controller
      */
     public function show($id)
     {
-        //
+        // $application = LoanApplication::findOrFail($loanApplication_id);
+        // dd($application);
+        // return view('backend.pages.loan_application_approval.show');
     }
 
     /**

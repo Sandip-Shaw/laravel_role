@@ -123,7 +123,7 @@ Loan Application - Admin Panel
                                 <tr>
                                 
                                     <td>{{$applications->status}}</td>
-                                    <td></td>
+                                    <td>{{$applications->remarks}}</td>
                                     <td>{{$applications->updated_at}}</td>
                                 </tr>
                                 
