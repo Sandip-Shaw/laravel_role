@@ -70,7 +70,7 @@ Loan Management - Admin Panel
                                     @foreach ($applications as $application)
                                 <tr>  
                                     <td>{{ $application->hrmanagements->name }}</td>
-                                    <td>{{ $loop->index+00001 }}</td>
+                                    <td>{{ $application->loanApplication_id  }}</td>
                                     <td>{{ $application->application_date }} </td>
                                     <td>{{ $application->memberdetails->first_name }} </td>
                                     <td>{{ $application->branchdetails->branch_name }} </td>
