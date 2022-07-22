@@ -152,6 +152,7 @@
 
                             <li class="{{ Route::is('admin.loan_disbursements.index')  || Route::is('admin.loan_disbursements.edit') || Route::is('admin.loan_disbursements.create')? 'active' : '' }}"><a href="{{ route('admin.loan_disbursements.index')}}">Disbursements</a></li>
 
+                            <li class="{{ Route::is('admin.loan_appli_accnt.index')  || Route::is('admin.loan_appli_accnt.edit') || Route::is('admin.loan_appli_accnt.create')? 'active' : '' }}"><a href="{{ route('admin.loan_appli_accnt.index')}}">Accounts</a></li>
 
                             <!-- @if ($usr->can('loan_application.create'))
                                 <li class="{{ Route::is('admin.loan_application.create')  ? 'active' : '' }}"><a href="{{ route('admin.loan_application.create') }}">Create Application</a></li>
@@ -172,7 +173,7 @@
                         </span></a>
                         <ul class="collapse {{ Route::is('admin.approval_loan_application.create') || Route::is('admin.approval_loan_application.index') || Route::is('admin.approval_loan_application.edit') || Route::is('admin.approval_loan_application.show') ? 'in' : '' }}">
 
-                             <li class=""><a href="{{ route('admin.loan_approval',['id'=>27])}}">Loan Applications</a></li>
+                             <li class=""><a href="{{ route('admin.loan_approval')}}">Loan Applications</a></li>
 
                            
                         </ul>

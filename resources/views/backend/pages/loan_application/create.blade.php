@@ -101,7 +101,7 @@ Loan Application Create - Admin Panel
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="associate">Associate/Advisor/Staff</label>
+                                <label for="associate">Associate/Advisor/Staff <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="associate" id="associate" class="form-control" >
                                 <option value="">Select Associate</option>
 

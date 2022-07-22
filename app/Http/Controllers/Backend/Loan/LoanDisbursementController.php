@@ -24,8 +24,8 @@ class LoanDisbursementController extends Controller
      */
     public function index()
     {
-        $application = LoanApplication::all();
-       // dd($application);
+        $application = LoanApplication::where('status','Approved')->get();
+        //dd($application);
         return view('backend.pages.loan_disbursements.index')->withApplications($application);
     }
 
@@ -56,9 +56,11 @@ class LoanDisbursementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($loanApplication_id)
     {
-        //
+        $application = LoanApplication::findOrFail($loanApplication_id);
+        //dd($application);
+        return view('backend.pages.loan_disbursements.show')->withApplications($application);   
     }
 
     /**
