@@ -55,7 +55,15 @@ Loan Application - Admin Panel
                                 <label class="col-sm-4 col-form-label" for="" >Loan Amount (A)</label>
                             
                                 <div class="col-sm-6">
-                                <input type="text" name="" id="" value="" class="form-control" readonly>
+                                <input type="text" name="" id="principal_amount" value="{{$applications->amt_approved}}" class="form-control" readonly>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label" for="" >Processing Fee(B)</label>
+                            
+                                <div class="col-sm-6">
+                                <input type="text" name="" id="" value="{{$applications->processing_charges}}" class="form-control" readonly>
 
                                 </div>
                             </div>
@@ -63,7 +71,7 @@ Loan Application - Admin Panel
                                 <label class="col-sm-4 col-form-label" for="" >Final Amount To Disburse (D = A - B - C - I) (if any)</label>
                             
                                 <div class="col-sm-6">
-                                <input type="text" name="" id="" value="" class="form-control" readonly>
+                                <input type="text" name="" id="" value="{{($applications->amt_approved)-($applications->processing_charges)}}" class="form-control" readonly>
 
                                 </div>
                             </div>
@@ -72,7 +80,7 @@ Loan Application - Admin Panel
                                 <label class="col-sm-4 col-form-label" for="" >Loan Disbursement Date <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                             
                                 <div class="col-sm-6">
-                                <input type="date" name="" id="" value="" class="form-control" >
+                                <input type="date" name="" id="" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" >
 
                                 </div>
                             </div>
@@ -118,7 +126,7 @@ Loan Application - Admin Panel
                                 <label class="col-sm-4 col-form-label" for="" >Net Amount to Release <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                             
                                 <div class="col-sm-6">
-                                <input type="text" name="" id="" value="" class="form-control" readonly>
+                                <input type="text" name="" id="" value="{{($applications->amt_approved)-($applications->processing_charges)}}" class="form-control" readonly>
 
                                 </div>
                             </div>
@@ -144,6 +152,10 @@ Loan Application - Admin Panel
 
                             <div class="form-row" id="radio_btn">
                             
+                            </div>
+
+                            <div id="application_details">
+
                             </div>
 
                             <div style="text-align:center;">
@@ -257,14 +269,24 @@ Loan Application - Admin Panel
                     <div id="collapseTwo" class="collapse show" data-parent="#accordion">
                         <div class="card-body">
                             <table id="dataTable" class="table table-details">
-                                <tbody>
+                                <thead class="bg-light text-capitalize">
                                     <tr>
-                                        <td class="ft-200" style="width: 250px;">Branch</td>
-                                        <td> 
-                                    
-                                        </td>
+                                    <th>Emi No.</th>
+                                    <th>PRINCIPAL</th>
+                                    <th>INTEREST</th>
+                                    <th>OTHER CHRG.</th>
+                                    <th>EMI</th>
+                                    <th>EMI DATE</th>
+                                    <th>DUE DATE</th>
+                                    <th>BAL. PRINCIPAL</th>
                                     </tr>
 
+                                </thead>
+                                <tbody>
+                                    <div id="total_interest">
+
+                                    </div>
+                                    <td></td>
                                 </tbody>
                             </table>
                         </div>
@@ -296,16 +318,16 @@ Loan Application - Admin Panel
      <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
      <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
      <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
-     
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      <script>
          /*================================
         datatable active
         ==================================*/
-        if ($('#dataTable').length) {
-            $('#dataTable').DataTable({
-                responsive: true
-            });
-        }
+        // if ($('#dataTable').length) {
+        //     $('#dataTable').DataTable({
+        //         responsive: true
+        //     });
+        // }
 
      </script>
 <script>
@@ -422,5 +444,60 @@ let result = document.querySelector('#radio_btn');
     });
 });
 
+</script>
+<script>
+    var tenure_months=0;
+
+      $(document).ready(function(){
+    
+         
+          var id = {!! json_encode($applications->loanApplication_id) !!}; 
+            $.ajax({
+                type:"GET",
+                url:"../application_details/"+id,
+                success:function(res){  
+                       
+                if(res){
+                  
+                     const obj = JSON.parse(res);
+                    // console.log(obj);   
+                    document.getElementById("total_interest").innerHTML = "TOTAL INTEREST RECOVERABLE -"+ obj.interest_amount + "<br>"+"TOTAL OTHER CHARGES RECOVERABLE - "+ obj.other_charges;
+
+                    tenure_months=obj.tenure_months;
+                    interest_amount=obj.interest_amount;
+                    other_charges=obj.other_charges;
+                    var principal =  $('#principal_amount').val();
+                    var principal_per_emi = Number(principal)/Number(tenure_months);
+                    var interest_per_emi= Number(interest_amount)/Number(tenure_months);
+                    var other_charges_per_emi =Number(other_charges)/Number(tenure_months); 
+                    var per_emi=Number(principal_per_emi)+Number(interest_per_emi)+Number(other_charges_per_emi); 
+                   console.log(principal_per_emi);   
+                   console.log(interest_amount);   
+                   console.log(interest_per_emi);   
+                   console.log(other_charges_per_emi);   
+                   console.log(per_emi);   
+
+
+                //    trHTML=
+
+                }
+            }
+            })
+
+           
+           // var no_emi_collection = $('#no_emi_collection').val();
+         
+                // console.log(principal);
+                // console.log(principal_per_emi);
+        })
+  
+</script>
+<script>
+    $(document).ready(function(){
+        
+        //console.log(tenure_months);
+           
+
+    })
 </script>
 @endsection

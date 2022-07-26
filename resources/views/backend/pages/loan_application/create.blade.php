@@ -102,7 +102,7 @@ Loan Application Create - Admin Panel
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="associate">Associate/Advisor/Staff <span style="color:red; font-size: 18px;line-height:1">*</span></label>
-                                <select name="associate" id="associate" class="form-control" >
+                                <select name="associate" id="associate" class="form-control" required>
                                 <option value="">Select Associate</option>
 
                                 @foreach($hrmanagements as $key=>$associate)
@@ -348,7 +348,7 @@ Loan Application Create - Admin Panel
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
-
+<script src="http://parsleyjs.org/dist/parsley.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 //     $(document).ready(function() {
@@ -478,7 +478,7 @@ $(document).ready(function() {
 <script>
     $(document).ready(function(){
        
-          
+        $('#form').parsley();      
         })
   
 </script>
@@ -535,13 +535,20 @@ $(document).ready(function() {
     })
 
 </script>
+<!-- <script>
+    $(document).ready(function(){
+        $("#calculate").click(function(){
+            var formInstance = $('#form').parsley();
+        })
+    })
+</script> -->
 
 <script>
 
 
 $(document).ready(function(){
         $("#calculate").click(function(){
-            // $('#form').parsley();
+        // $('#form').parsley();
             var loan_requested =  $('#loan_requested').val();
 
             var tenure_months=$('#tenure_months').val();
