@@ -118,6 +118,20 @@ class LoanApplicationController extends Controller
  
          return view('backend.pages.loan_application.show')->withApplications($application);
     }
+
+    public function loan_appli_details($loanApplication_id)
+    {
+        $application = LoanApplication::findOrFail($loanApplication_id);
+        //dd($application);
+       return $application->toJson();
+ 
+       // return $schema->toJson(JSON_PRETTY_PRINT);
+        // return response()->json([
+        //     'name' => 'Abigail',
+        //     'state' => 'CA',
+        // ]);
+       
+    }
     
     /**
      * Show the form for editing the specified resource.

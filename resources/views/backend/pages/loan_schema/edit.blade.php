@@ -49,17 +49,17 @@ Edit Loan Schemes - Admin Panel
                     <h4 class="header-title"> Edit Schemes </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{ route('admin.loan_schema.update',$schemas->loanSchema_id) }}" method="POST" id="form">
+                    <form action="{{ route('admin.loan_schema.update',$schemas->loanSchema_id) }}" method="POST" id="form" data-parsley-validate>
                     @method('PUT')
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label  for="schema_name">Scheme Name</label>
-                                <input type="text" class="form-control" id="schema_name" value="{{$schemas->schema_name}}" name="schema_name" placeholder="Enter Scheme Name">
+                                <label  for="schema_name">Scheme Name<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="schema_name" value="{{$schemas->schema_name}}" name="schema_name" placeholder="Enter Scheme Name" required>
                             </div>
                             <div class="form-group col-md-6 ">
-                                <label for="Schema_code">Scheme Code</label>
-                                <input type="text" class="form-control" id="schema_code" name="schema_code" value="{{$schemas->schema_code}}" placeholder="Enter Scheme Code">
+                                <label for="Schema_code">Scheme Code<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="schema_code" name="schema_code" value="{{$schemas->schema_code}}" placeholder="Enter Scheme Code" required>
                             </div>
                            
                         </div>
@@ -67,8 +67,8 @@ Edit Loan Schemes - Admin Panel
                         <div class="form-row">
                             
                             <div class="form-group col-md-6 ">
-                                <label for="max_loan_amt">Maximum Loan Amount(INR)</label>
-                                <input type="text" class="form-control" id="max_loan_amt" name="max_loan_amt" value="{{$schemas->max_loan_amt}}" placeholder="Enter Maximum Loan Amount(INR)">
+                                <label for="max_loan_amt">Maximum Loan Amount(INR)<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="max_loan_amt" name="max_loan_amt" value="{{$schemas->max_loan_amt}}" placeholder="Enter Maximum Loan Amount(INR)" required>
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="max_loan_lim">Maximum Loan Limit % (if any)</label>
@@ -80,9 +80,9 @@ Edit Loan Schemes - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="max_tanure">Max. Tenure</label> 
+                                <label for="max_tanure">Max. Tenure<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
-                                <select name="max_tanure" id="max_tanure" class="form-control" >
+                                <select name="max_tanure" id="max_tanure" class="form-control" required>
                                     <option value="1 Months"{{$schemas->max_tanure=='1 Months'?'selected':''}}>1 Month</option>
                                     <option value="3 Months"{{$schemas->max_tanure=='3 Months'?'selected':''}}>3 Months</option>
                                     <option value="6 Months"{{$schemas->max_tanure=='6 Months'?'selected':''}}>6 Months</option>
@@ -97,8 +97,8 @@ Edit Loan Schemes - Admin Panel
                             </div>
                            
                             <div class="form-group col-md-6">
-                                <label for="ann_rate_int">Annual Interest Rate (%)</label>
-                                <input type="text" class="form-control" id="ann_rate_int" name="ann_rate_int" value="{{$schemas->ann_rate_int}}" placeholder="Enter Annual Interest Rate (%)">
+                                <label for="ann_rate_int">Annual Interest Rate (%)<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="ann_rate_int" name="ann_rate_int" value="{{$schemas->ann_rate_int}}" placeholder="Enter Annual Interest Rate (%)" required>
                             </div>
 
                         </div>
@@ -120,9 +120,9 @@ Edit Loan Schemes - Admin Panel
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="sec_deposit">Security Deposit</label> 
+                                <label for="sec_deposit">Security Deposit<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
                                
-                                <select name="sec_deposit" id="sec_deposit" class="form-control" >
+                                <select name="sec_deposit" id="sec_deposit" class="form-control" required>
                                     <option value="">Please Select</option>
                                     <option value="FD of Self"{{$schemas->sec_deposit=='FD of Self'?'selected':''}}>FD of Self</option>
                                     <option value="RD of Self"{{$schemas->sec_deposit=='RD of Self'?'selected':''}}>RD of Self</option>
