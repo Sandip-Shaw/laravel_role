@@ -115,6 +115,24 @@
                     @endif
         <!-- -------------end company profile ---------------------->
 
+        <!--------------- Collection Center  ------------>
+         <!-- @if ($usr->can('members_management.create') || $usr->can('members_management.view') ||  $usr->can('members_management.edit') ||  $usr->can('members_management.delete')) */ -->
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
+                            COLLECTION CENTER
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.collec_branch.create') || Route::is('admin.collec_branch.index') || Route::is('admin.collec_branch.edit') || Route::is('admin.collec_branch.show') ? 'in' : '' }}">
+                            
+                            <!-- @if ($usr->can('members_management.view')) -->
+                                <li class="{{ Route::is('admin.collec_branch.index') || Route::is('admin.collec_branch.index')  || Route::is('admin.collec_branch.edit') ? 'active' : '' }}"><a href="{{ route('admin.collec_branch.index') }}">Collection Centers</a></li>
+                            <!-- @endif -->
+
+                        </ul>
+                    </li>
+                   
+                    <!-- @endif -->
+            <!---------------end Collection Center   ------------>
+
         <!--------------- Members management    ------------>
                      @if ($usr->can('members_management.create') || $usr->can('members_management.view') ||  $usr->can('members_management.edit') ||  $usr->can('members_management.delete'))
                     <li>
