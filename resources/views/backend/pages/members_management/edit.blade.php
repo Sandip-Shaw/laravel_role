@@ -539,9 +539,9 @@ Members Edit - Admin Panel
                             <div class="form-group col-md-6">
                                 <label class="col-sm-3 control-label">Photo</label>
                          
-                                <input type="file" name="image_photo" class="GalleryImage" id="image_photo"  />  
+                                <input type="file" name="image_photo" class="GalleryImage" id="image_photo" />  
                                 @if(isset($member))
-                                    <img src="{{asset('/images/KYC-Member/member_photo/'.$member->image_photo)}}" width="80">
+                                    <img src="{{asset('/images/KYC-Member/member_photo/'.$member->image_photo)}}" width="60%" class="img-thumbnail">
                                 @endif
                              </div>
                              <div class="form-group col-md-6">
@@ -549,7 +549,7 @@ Members Edit - Admin Panel
                          
                                 <input type="file" name="image_idproof" class="GalleryImage" id="image_idproof"  />  
                                 @if(isset($member))
-                                    <img src="{{asset('/images/KYC-Member/member_idProof/'.$member->image_idproof)}}" width="80">
+                                    <img src="{{asset('/images/KYC-Member/member_idProof/'.$member->image_idproof)}}" width="60%" class="img-thumbnail">
                                 @endif
                              </div>  
                              
@@ -561,7 +561,7 @@ Members Edit - Admin Panel
                          
                                 <input type="file" name="image_address" class="GalleryImage" id="image_address"  />  
                                 @if(isset($member))
-                                    <img src="{{asset('/images/KYC-Member/member_address/'.$member->image_address)}}" width="80">
+                                    <img src="{{asset('/images/KYC-Member/member_address/'.$member->image_address)}}" width="60%" class="img-thumbnail">
                                 @endif
                              </div>
                              <div class="form-group col-md-6">
@@ -569,7 +569,7 @@ Members Edit - Admin Panel
                          
                                 <input type="file" name="image_pan" class="GalleryImage" id="image_pan"  />  
                                 @if(isset($member))
-                                    <img src="{{asset('/images/KYC-Member/member_pan/'.$member->image_pan)}}" width="80">
+                                    <img src="{{asset('/images/KYC-Member/member_pan/'.$member->image_pan)}}" width="60%" class="img-thumbnail">
                                 @endif
                              </div>  
                              
@@ -581,7 +581,7 @@ Members Edit - Admin Panel
                          
                                 <input type="file" name="image_signature" class="GalleryImage" id="image_signature"  />  
                                 @if(isset($member))
-                                    <img src="{{asset('/images/KYC-Member/member_signature/'.$member->image_signature)}}" width="80">
+                                    <img src="{{asset('/images/KYC-Member/member_signature/'.$member->image_signature)}}" width="60%" class="img-thumbnail">
                                 @endif
                              </div>
                              

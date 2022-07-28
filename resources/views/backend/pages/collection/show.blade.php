@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Branches - Admin Panel
+Collection Center - Admin Panel
 @endsection
 
 @section('styles')
@@ -21,12 +21,12 @@ Branches - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Company Branch</h4>
+                <h4 class="page-title pull-left">Collection Center</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li><a href="{{ route('admin.collec_branch.index') }}">Company Branch</a></li>
+                    <li><a href="{{ route('admin.collec_branch.index') }}">Collection Center</a></li>
 
-                    <li><span>{{$collection->collectiondetails->branch_name }}</span></li>
+                    <li><span>{{$collection->center_no}}</span></li>
                 </ul>
             </div>
         </div>

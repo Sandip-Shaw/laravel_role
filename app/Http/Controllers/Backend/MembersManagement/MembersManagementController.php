@@ -130,7 +130,7 @@ class MembersManagementController extends Controller
 
         // file for photo
         $file=$request->file('image_photo');
-        $filename='KYC-Members-photo'.time().$file->getClientOriginalName();
+        $filename='KYC-Members-photo'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_photo');
         $file->move($destinationPath,$filename);
@@ -140,7 +140,7 @@ class MembersManagementController extends Controller
 
          // file for ID proof
          $file=$request->file('image_idproof');
-         $filename='KYC-Members-IDphoto'.time().$file->getClientOriginalName();
+         $filename='KYC-Members-IDphoto'.$file->getClientOriginalName();
          
          $destinationPath = public_path('images/KYC-Member/member_idProof');
          $file->move($destinationPath,$filename);
@@ -150,7 +150,7 @@ class MembersManagementController extends Controller
 
         // file for member address
         $file=$request->file('image_address');
-        $filename='KYC-Members-address'.time().$file->getClientOriginalName();
+        $filename='KYC-Members-address'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_address');
         $file->move($destinationPath,$filename);
@@ -160,7 +160,7 @@ class MembersManagementController extends Controller
 
         // file for member pan
         $file=$request->file('image_pan');
-        $filename='KYC-Members-pan'.time().$file->getClientOriginalName();
+        $filename='KYC-Members-pan'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_pan');
         $file->move($destinationPath,$filename);
@@ -170,7 +170,7 @@ class MembersManagementController extends Controller
 
         // file for member signature
         $file=$request->file('image_signature');
-        $filename='KYC-Members-signature'.time().$file->getClientOriginalName();
+        $filename='KYC-Members-signature'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_signature');
         $file->move($destinationPath,$filename);
@@ -292,52 +292,60 @@ class MembersManagementController extends Controller
 
         // file for photo
         $file=$request->file('image_photo');
-        $filename='KYC-Members-photo'.time().$file->getClientOriginalName();
+        if(isset($file)){
+        $filename='KYC-Members-photo'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_photo');
         $file->move($destinationPath,$filename);
         $member->image_photo=$filename;
-
+        }
         // end photo file
 
          // file for ID proof
          $file=$request->file('image_idproof');
-         $filename='KYC-Members-IDphoto'.time().$file->getClientOriginalName();
+         if(isset($file)){
+         $filename='KYC-Members-IDphoto'.$file->getClientOriginalName();
          
          $destinationPath = public_path('images/KYC-Member/member_idProof');
          $file->move($destinationPath,$filename);
          $member->image_idproof=$filename;
- 
+         }
          // end ID proof file
 
         // file for member address
         $file=$request->file('image_address');
-        $filename='KYC-Members-address'.time().$file->getClientOriginalName();
+        if(isset($file)){
+
+        $filename='KYC-Members-address'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_address');
         $file->move($destinationPath,$filename);
         $member->image_address=$filename;
-
+        }
         // end member address file
 
         // file for member pan
         $file=$request->file('image_pan');
-        $filename='KYC-Members-pan'.time().$file->getClientOriginalName();
+        if(isset($file)){
+
+        $filename='KYC-Members-pan'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_pan');
         $file->move($destinationPath,$filename);
         $member->image_pan=$filename;
-
+        }
         // end member pan file
 
         // file for member signature
         $file=$request->file('image_signature');
-        $filename='KYC-Members-signature'.time().$file->getClientOriginalName();
+        if(isset($file)){
+
+        $filename='KYC-Members-signature'.$file->getClientOriginalName();
         
         $destinationPath = public_path('images/KYC-Member/member_signature');
         $file->move($destinationPath,$filename);
         $member->image_signature=$filename;
-
+        }
         // end member signature file
 
         $member->save();        

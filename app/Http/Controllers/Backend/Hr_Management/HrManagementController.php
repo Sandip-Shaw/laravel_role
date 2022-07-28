@@ -143,12 +143,13 @@ class HrManagementController extends Controller
 
         }
             $file=$request->file('image');
+            if(isset($file)){
             $filename='Employee'.'-'.time().'.'.$file->getClientOriginalName();
             // $extension=$file->getClientOriginalExtension();
             $destinationPath = public_path('images/employeeImage');
             $file->move($destinationPath,$filename);
             $hrmanagement->image=$filename;
-
+            }
             
             $hrmanagement->save();        
         

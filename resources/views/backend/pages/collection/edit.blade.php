@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Branch Edit - Admin Panel
+Collection Center - Admin Panel
 @endsection
 
 @section('styles')
@@ -73,7 +73,7 @@ Branch Edit - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="center_head">Center Head</label>
-                                <select name="center_head" id="center_head" class="form-control" required>
+                                <select name="center_head" id="center_head" class="form-control" >
                                     <option value="">Select Center Head</option>
 
                                     <option value="Andhra Pradesh" {{$collection->center_head=='Andhra Pradesh'?'selected':''}}>Andhra Pradesh</option>
@@ -85,7 +85,7 @@ Branch Edit - Admin Panel
                             </div>
                             <div class="form-group col-md-6 ">
                             <label for="center_cashier">Center Cashier</label>
-                                <select name="center_cashier" id="center_cashier" class="form-control" required>
+                                <select name="center_cashier" id="center_cashier" class="form-control" >
                                     <option value="">Select Center Head</option>
 
                                     <option value="Andhra Pradesh" {{$collection->center_cashier=='Andhra Pradesh'?'selected':''}}>Andhra Pradesh</option>

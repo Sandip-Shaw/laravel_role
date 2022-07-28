@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Company Branch - Admin Panel
+Collection Center - Admin Panel
 @endsection
 
 @section('styles')
@@ -24,7 +24,7 @@ Company Branch - Admin Panel
                 <h4 class="page-title pull-left">Collection Centers</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li><span>All Collection</span></li>
+                    <li><span>All Collection Center</span></li>
                 </ul>
             </div>
         </div>
@@ -41,7 +41,7 @@ Company Branch - Admin Panel
         <div class="col-12 mt-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title float-left">Branch List</h4>
+                    <h4 class="header-title float-left">Center List</h4>
                     <p class="float-right mb-2">
                         <a class="btn btn-primary text-white" href="{{ route('admin.collec_branch.create') }}">Create New Branch</a>
                     </p>
@@ -56,7 +56,7 @@ Company Branch - Admin Panel
                                     <th width="15%">CENTER NO.</th>
                                     <th width="10%">C. HEAD</th>
                                     <th width="15%">C. CASHIER</th>
-                                    <th width="10%">GROUPS</th>
+                                    
                                     <th width="10%">ACTIVE</th>
                                     <th width="10%">Actions</th>
 
@@ -70,7 +70,7 @@ Company Branch - Admin Panel
                                     <td>{{$collections->center_no }}</td>
                                     <td>{{$collections->center_head}}</td>
                                     <td>{{$collections->center_cashier}}</td>
-                                    <td>groups</td>
+                                    
                                     <td>{{$collections->center_active}}</td>
                                   
                                        

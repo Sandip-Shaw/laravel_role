@@ -108,7 +108,7 @@ Director - Admin Panel
                                     <td class="ft-600" style="width: 250px;">Image</td>
                                     <td> 
                                     @if(isset($director))
-                                    <img src="{{asset('/images/directorImage/'.$director->image)}}" width="500">
+                                    <img src="{{asset('/images/directorImage/'.$director->image)}}" width="60%" class="img-thumbnail">
                                     @endif
                                     </td>
                                 </tr>

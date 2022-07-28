@@ -154,7 +154,7 @@ HR Management Edit - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-sm-3 control-label">Employee Image</label>
-                                <img src="{{asset('/images/employeeImage/'.$hrmanagements->image)}}" width="80">
+                                <img src="{{asset('/images/employeeImage/'.$hrmanagements->image)}}" width="60%" class="img-thumbnail">
                                 <input type="file" name="image" class="GalleryImage"  id="image" />
                                
                              </div>  
