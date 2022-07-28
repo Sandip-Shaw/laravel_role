@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('loan_approval', array('uses'=>'Backend\Loan\LoanApplicationController@approval', 'as' => 'admin.loan_approval'));
     Route::get('loan_approvalUpdate/{id}', array('uses'=>'Backend\Loan\LoanApplicationController@updateStatus', 'as' => 'admin.loan_approvalUpdate'));
     Route::resource('loan_appli_accnt', 'Backend\Loan\LoanAccountController', ['names' => 'admin.loan_appli_accnt']);
+
+    Route::resource('collec_branch', 'Backend\Collection_Center\CollectionCenterController', ['names' => 'admin.collec_branch']);
 
    
    # Route::get('itsolutionstuff/tag/{id}', array('as'=> 'itsolutionstuff.tag', 'uses' => 'HomeController@tags'));
