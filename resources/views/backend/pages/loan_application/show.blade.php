@@ -25,7 +25,7 @@ Loan Application - Admin Panel
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ route('admin.loan_application.index') }}"> Loan Application</a></li>
-                    <li><span>  </span></li>
+                    <li><span>   {{$applications->loanApplication_id}} </span></li>
                 </ul>
             </div>
         </div>

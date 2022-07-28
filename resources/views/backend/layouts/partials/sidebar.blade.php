@@ -192,6 +192,7 @@
                         <ul class="collapse {{ Route::is('admin.approval_loan_application.create') || Route::is('admin.approval_loan_application.index') || Route::is('admin.approval_loan_application.edit') || Route::is('admin.approval_loan_application.show') ? 'in' : '' }}">
 
                              <li class=""><a href="{{ route('admin.loan_approval')}}">Loan Applications</a></li>
+                          
 
                            
                         </ul>
