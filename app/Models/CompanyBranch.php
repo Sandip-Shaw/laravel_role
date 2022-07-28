@@ -25,4 +25,9 @@ class CompanyBranch extends Model
         return $this->hasMany(HrManagement::class);
     }
 
+    public function collectioncenter(){
+
+        return $this->hasMany(CollectionCenter::class);
+    }
+
 }
