@@ -50,7 +50,8 @@ Loan Application - Admin Panel
                              @include('backend.layouts.partials.messages')
                              <h4>Application No. - {{$applications->loanApplication_id }} </h4>
                              <hr>
-                             <form action="" method="post"  >
+                             <form action="{{ route('admin.loan_disbursements.store') }}" method="post"  >
+                                @csrf
                              <div class="form-group row">
                                 <label class="col-sm-4 col-form-label" for="" >Loan Amount (A)</label>
                             
@@ -88,7 +89,7 @@ Loan Application - Admin Panel
                                 <label class="col-sm-4 col-form-label" for="" >First EMI Date <span style="color:red; font-size: 18px;line-height:1">*</span></label>
                             
                                 <div class="col-sm-6">
-                                <input type="date" name="" id="" value="" class="form-control" >
+                                <input type="date" name="" id="first_emi_date" value="" class="form-control" >
 
                                 </div>
                             </div>
@@ -159,7 +160,7 @@ Loan Application - Admin Panel
                             </div>
 
                             <div style="text-align:center;">
-                                <button type="submit"  class="btn btn-primary  pr-4 pl-4">Disburse Loan </button>
+                                <button type="submit"  class="btn btn-primary  pr-4 pl-4" data-toggle="modal" data-target="#exampleModal">Disburse Loan </button>
                                 <a class="btn btn-danger" href="">Cancel </a>
                                
                             </div>
@@ -267,26 +268,31 @@ Loan Application - Admin Panel
                         </a>
                     </div>
                     <div id="collapseTwo" class="collapse show" data-parent="#accordion">
-                        <div class="card-body">
+
+                        <div id="total_interest" style="text-align:center; margin-top:20px"></div>
+                        <div class="card-body" style="display:flex;padding: 10px; flex-direction:column-reverse; overflow-x: scroll">
+                        <hr>
                             <table id="dataTable" class="table table-details">
                                 <thead class="bg-light text-capitalize">
                                     <tr>
-                                    <th>Emi No.</th>
-                                    <th>PRINCIPAL</th>
-                                    <th>INTEREST</th>
-                                    <th>OTHER CHRG.</th>
-                                    <th>EMI</th>
-                                    <th>EMI DATE</th>
-                                    <th>DUE DATE</th>
-                                    <th>BAL. PRINCIPAL</th>
+                                        <th>Emi No.</th>
+                                        <th>PRINCIPAL</th>
+                                        <th>INTEREST</th>
+                                        <th>OTHER CHRG.</th>
+                                        <th>EMI</th>
+                                        <th>EMI DATE</th>
+                                        <th>DUE DATE</th>
+                                        <th>BAL. PRINCIPAL</th>
                                     </tr>
 
                                 </thead>
-                                <tbody>
-                                    <div id="total_interest">
+                                
+                                <tbody id="emi_list">
+                                    
+                                    <!-- <tr id="emi_list">
 
-                                    </div>
-                                    <td></td>
+                                    </tr> -->
+                                   
                                 </tbody>
                             </table>
                         </div>
@@ -300,7 +306,30 @@ Loan Application - Admin Panel
         </div>
 
 
-
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+            Are you sure to continue?
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+        <!-- end modal -->
         
       
                 
@@ -319,6 +348,7 @@ Loan Application - Admin Panel
      <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
      <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
      <script>
          /*================================
         datatable active
@@ -450,7 +480,7 @@ let result = document.querySelector('#radio_btn');
 
       $(document).ready(function(){
     
-         
+        // const moment= require('moment'); 
           var id = {!! json_encode($applications->loanApplication_id) !!}; 
             $.ajax({
                 type:"GET",
@@ -471,14 +501,54 @@ let result = document.querySelector('#radio_btn');
                     var interest_per_emi= Number(interest_amount)/Number(tenure_months);
                     var other_charges_per_emi =Number(other_charges)/Number(tenure_months); 
                     var per_emi=Number(principal_per_emi)+Number(interest_per_emi)+Number(other_charges_per_emi); 
-                   console.log(principal_per_emi);   
-                   console.log(interest_amount);   
-                   console.log(interest_per_emi);   
-                   console.log(other_charges_per_emi);   
-                   console.log(per_emi);   
+                  // console.log(principal_per_emi);   
+                  // console.log(interest_amount);   
+                  // console.log(interest_per_emi);   
+                  // console.log(other_charges_per_emi);   
+                 //  console.log(per_emi);  
+                   
+                  var d = new Date();
+                  var first_emi_date = new Date(d.setMonth(d.getMonth() + 1));
+                 // console.log(first_emi_date);
+                  var newDate = moment(first_emi_date,"MM/DD/YY").format("YYYY-MM-DD");
 
+                  var paid_principal= 0;
 
-                //    trHTML=
+                  document.getElementById("first_emi_date").value = newDate;
+                   // console.log(newDate);
+
+                    // var dd = String(first_emi_date. getDate()). padStart(2, '0');
+
+                    // var mm = String(first_emi_date. getMonth() + 1). padStart(2, '0'); //January is 0!
+
+                    // var yyyy = first_emi_date. getFullYear();
+                    // var today = mm + '/' + dd + '/' + yyyy
+
+                    // console.log(today);
+
+                   for (let i = 1; i <= tenure_months; i++) {
+
+                  
+                    var per_emi=Number(principal_per_emi)+Number(interest_per_emi)+Number(other_charges_per_emi); 
+                    var next_emi_date = new Date(first_emi_date.setMonth(first_emi_date.getMonth() + 1));
+                 // console.log(first_emi_date);
+                    var newDate = moment(next_emi_date,"MM/DD/YY").format("DD-MM-YYYY");
+                    // var due_date = next_emi_date.add(1, 'days');
+                    var due_date = moment(next_emi_date).add(1, "days").format("DD-MM-YYYY");
+                   // console.log(due_date);
+                   paid_principal=paid_principal+principal_per_emi;
+                   var bal_principal = principal - paid_principal;
+                   
+                   trHTML ='<tr><td>'+i+'</td><td>'+principal_per_emi.toFixed(2)+'</td><td>'+interest_per_emi.toFixed(2) +
+                            '</td><td>'+other_charges_per_emi.toFixed(2) +'</td><td>' + per_emi.toFixed(2) +'</td><td>' +newDate +
+                            '</td><td>'+due_date +'</td><td>' +bal_principal.toFixed(2) + '</td></tr>';
+
+                    $('#emi_list').append(trHTML);
+                   console.log(i+'-'+principal_per_emi.toFixed(2)+'-'+interest_per_emi.toFixed(2)+'-'+other_charges_per_emi.toFixed(2)+'-'+per_emi.toFixed(2)+'-'+newDate+'-'+due_date+'-'+bal_principal.toFixed(2));
+                   first_emi_date=next_emi_date;
+                   
+                    }
+                
 
                 }
             }

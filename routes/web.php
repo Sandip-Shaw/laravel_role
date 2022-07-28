@@ -48,6 +48,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('loan_approvalUpdate/{id}', array('uses'=>'Backend\Loan\LoanApplicationController@updateStatus', 'as' => 'admin.loan_approvalUpdate'));
     Route::resource('loan_appli_accnt', 'Backend\Loan\LoanAccountController', ['names' => 'admin.loan_appli_accnt']);
 
+    Route::resource('loan_disbursement_approval', 'Backend\Loan\LoanDisbursementController', ['names' => 'admin.loan_disbursement_approval']);
    
    # Route::get('itsolutionstuff/tag/{id}', array('as'=> 'itsolutionstuff.tag', 'uses' => 'HomeController@tags'));
 

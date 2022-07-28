@@ -13,7 +13,13 @@ Loan Application Create - Admin Panel
         text-transform: capitalize;
     }
 
-   
+   #doc_table td{
+    padding: 10px 20px;
+   }
+
+   #cal-form td{
+    padding: 10px 20px;
+   }
 </style>
 @endsection
 
@@ -60,7 +66,7 @@ Loan Application Create - Admin Panel
                            
                             <div class="form-group col-md-6">
                                 <label  for="application_date">Application Date<span style="color:red; font-size: 18px;line-height:1">*</span></label>
-                                <input type="date" class="form-control" id="application_date" name="application_date"  required>
+                                <input type="date" class="form-control" id="application_date" value="{{Carbon\Carbon::now()->format('Y-m-d')}}" name="application_date"  required>
                                
                             </div>
                            
@@ -189,7 +195,7 @@ Loan Application Create - Admin Panel
                             <div class="form-group col-md-6">
                                 <label for="loan_schema">Loan Scheme<span style="color:red; font-size: 18px;line-height:1">*</span></label>
                                 <select name="loan_schema" id="loan_scheme" class="form-control"  required>
-                                <option value="">Select Loan Scheme</option>
+                                <option value="" id="default-val">Select Loan Scheme</option>
                                 @foreach($schemas as $key=>$schema)
                                     <option value="{{$schema}}">{{$key}}</option>
                                    
@@ -197,7 +203,7 @@ Loan Application Create - Admin Panel
                               
                                 </select>
                             </div>
-                           <div id="schema_details">
+                           <div id="schema_details" style="width:450px; height: 100%;height: 250px; height: 250px;">
 
                         </div>
     
@@ -336,7 +342,7 @@ Loan Application Create - Admin Panel
 
 
 
-<div id="application_value">
+<div id="application_value" style="width: 100%; height: 100%;">
     
       
        
@@ -497,6 +503,7 @@ $(document).ready(function() {
     $(document).ready(function(){
         $("#loan_scheme").change(function(){
             var id=$(this).find(":selected").val();
+          
 
             $.ajax({
                 type:"GET",
@@ -518,7 +525,7 @@ $(document).ready(function() {
                     collection_charge=obj.collection_charge;
                     process_fee=obj.process_fee;
 
-                    trHTML = '<table><tr><td>' + 'Scheme Name' + '</td><td>' + obj.schema_name + '</td></tr> <tr><td>' + 'Scheme Code' + '</td><td>' + obj.schema_code + '</td></tr><tr><td>' +
+                    trHTML = '<table id="doc_table" style="width:100%;"><tr><td>' + 'Scheme Name' + '</td><td>' + obj.schema_name + '</td></tr> <tr><td>' + 'Scheme Code' + '</td><td>' + obj.schema_code + '</td></tr><tr><td>' +
                              'Maximum Loan Amount' + '</td><td>' + obj.max_loan_amt + '</td></tr><tr><td>' + 'Maximum Loan Limit' + '</td><td>' + obj.max_loan_lim + 
                             '</td></tr><tr><td>' + 'Maximum Tenure' + '</td><td>' + obj.max_tanure + '</td></tr><tr><td>' + 'Annual Rate Interest' + '</td><td>' + obj.ann_rate_int + 
                             '</td></tr><tr><td>' + 'Fore Closure Charge' + '</td><td>' + obj.fore_closure_charge + '</td></tr> <tr><td>' + 'Processing Fee' + '</td><td>' + obj.process_fee + 
@@ -598,13 +605,13 @@ $(document).ready(function(){
             $('#application_value').empty();
             
 
-                trHTML = '<table><tr><td>' + 'Amount of loan requested' + '</td><td>' + loan_requested + '</td></tr><tr><td>' + 
+                trHTML = '<table id="cal-form" style="width:100%"><tr><td>' + 'Amount of loan requested' + '</td><td>' + loan_requested + '</td></tr><tr><td>' + 
                 'Amount of Loan can be Approved' + '</td><td>' + max_loan_amt + '</td></tr> <tr><td>' + 'Loan Amount Approved (Principal Amount)' + '</td><td>' + amt_approved + 
                 '</td></tr><tr><td>' + 'Interest Amount' + '</td><td>' + eff_int + '</td></tr> <tr><td>' + 'Other Charges' + '</td><td>' + total_emi_charge + 
                 '</td></tr><tr><td>' + 'Total Amount Recovered' + '</td><td>' + total_collection + '</td></tr> <tr><td>' + 'Loan Tenure' + '</td><td>' + tenure_months + " "+radio_event+" "+
                 '</td></tr> <tr><td>' + 'EMI Amount' + '</td><td>' + emi_amount + '</td></tr> <tr><td>' + 'No. of EMIs' + '</td><td>' + no_emi_collection +
                  '</td></tr> <tr><td>' + 'Processing Charges' + '</td><td>' + processing_fee + '</td></tr></table>' +
-                 '<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Apply for Loan</button>'+'<a href="" class="btn btn-danger">Cancel</a>';
+                 '<div style="display:flex;justify-content:center;"> <button type="submit" class="btn btn-primary" style="text-align:center;margin:10px 0;" data-toggle="modal" data-target="#exampleModal">Apply for Loan</button>'+'<a href="" style="margin:10px 0;" class="btn btn-danger">Cancel</a></div>';
                 
                 $('#application_value').append(trHTML);
 

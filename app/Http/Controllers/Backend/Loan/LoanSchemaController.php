@@ -89,7 +89,7 @@ class LoanSchemaController extends Controller
         $schema->int_type               =       $request->int_type;
         $schema->save();
 
-        session()->flash('success', 'Loan Schema has been created !!');
+        session()->flash('success', 'Loan Scheme has been created !!');
         return redirect()->route('admin.loan_schema.index');
 
     }
