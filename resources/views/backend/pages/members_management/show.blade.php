@@ -70,14 +70,14 @@ Member - Admin Panel
                                 <tr>
                                     <td class="ft-600" style="width: 250px;"> Branch</td>
                                     <td> 
-                                    {{$member->branch}}
+                                    {{$member->branchdet->branch_name}}
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">Associate/Advisor/Staff</td>
                                     <td> 
-                                    {{$member->associate}}
+                                    {{$member->associatedet->name}}
                                     </td>
                                 </tr>
 

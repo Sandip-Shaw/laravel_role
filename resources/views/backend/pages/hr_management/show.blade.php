@@ -156,7 +156,7 @@ Hr Management - Admin Panel
                                     <td class="ft-600" style="width: 250px;">Image</td>
                                     <td> 
                                     @if(isset($hrmanagement))
-                                    <img src="{{asset('/images/employeeImage/'.$hrmanagement->image)}}" width="250" height="250">
+                                    <img src="{{asset('/images/employeeImage/'.$hrmanagement->image)}}" width="60%" class="img-thumbnail" height="250">
                                     @endif
                                     </td>
                                 </tr>

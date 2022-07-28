@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Branch Create - Admin Panel
+Collection center - Admin Panel
 @endsection
 
 @section('styles')
@@ -72,7 +72,7 @@ Branch Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="center_head">Center Head</label>
-                                <select name="center_head" id="center_head" class="form-control" required>
+                                <select name="center_head" id="center_head" class="form-control" >
                                     <option value="">Select Center Head</option>
 
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -84,7 +84,7 @@ Branch Create - Admin Panel
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="center_cashier">Center Cashier</label>
-                                <select name="center_cashier" id="center_cashier" class="form-control" required>
+                                <select name="center_cashier" id="center_cashier" class="form-control" >
                                     <option value="">Select Center Cashier</option>
 
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -101,12 +101,12 @@ Branch Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6 ">
                                 <label for="collection_day">Collection Day</label>
-                                <input type="text" class="form-control" id="collection_day" name="collection_day" placeholder="Enter Collection Day" required>
+                                <input type="text" class="form-control" id="collection_day" name="collection_day" placeholder="Enter Collection Day" >
                                
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="collection_time">Collection Time</label>
-                                <input type="text" class="form-control" id="collection_time" name="collection_time" placeholder="Enter Collection Time" required>
+                                <input type="text" class="form-control" id="collection_time" name="collection_time" placeholder="Enter Collection Time" >
                             </div>
                         
                         </div>
@@ -127,7 +127,7 @@ Branch Create - Admin Panel
                            
                             <div class="form-group col-md-6">
                                 <label for="current_address">Center Address</label>
-                                <textarea id="current_address" name="current_address" class="form-control" placeholder="Enter Center Address"required></textarea> 
+                                <textarea id="current_address" name="current_address" class="form-control" placeholder="Enter Center Address"></textarea> 
                             </div>
 
                         </div>

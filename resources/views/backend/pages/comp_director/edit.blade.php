@@ -95,7 +95,7 @@ Director Edit - Admin Panel
                          
                                 <input type="file" name="image" class="GalleryImage" id="image"  />  
                                 @if(isset($director))
-                                    <img src="{{asset('/images/directorImage/'.$director->image)}}" width="500">
+                                    <img src="{{asset('/images/directorImage/'.$director->image)}}" width="60%" class="img-thumbnail">
                                 @endif
                              </div>  
                              <div class="form-group col-md-6"> 
