@@ -124,6 +124,11 @@ class MembersManagementController extends Controller
         $member->nominee_pan        =   $data['nominee_pan'];
         $member->nominee_ration     =   $data['nominee_ration'];
         $member->nominee_address    =   $data['nominee_address'];
+        $member->bank_name          =   $data['bank_name'];
+        $member->bank_branch        =   $data['bank_branch'];
+        $member->account_no         =   $data['account_no'];
+        $member->ifsc_code          =   $data['ifsc_code'];
+
         $member->senior_citizen     =   'no';
         $member->kyc_status         =   '0';
         $member->status             =   'Active';
@@ -285,6 +290,10 @@ class MembersManagementController extends Controller
         $member->nominee_pan        =   $request->nominee_pan;
         $member->nominee_ration     =   $request->nominee_ration;
         $member->nominee_address    =   $request->nominee_address;
+        $member->bank_name          =   $request->bank_name;
+        $member->bank_branch        =   $request->bank_branch;
+        $member->account_no         =   $request->account_no;
+        $member->ifsc_code          =   $request->ifsc_code;
         $member->senior_citizen     =   'no';
         $member->kyc_status         =   $request->kyc_status;
      

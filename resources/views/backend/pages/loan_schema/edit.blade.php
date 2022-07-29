@@ -136,6 +136,20 @@ Edit Loan Schemes - Admin Panel
                                    
                                 </select>
                             </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="loan_type">Loan Type<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
+                               
+                                <select name="loan_type" id="loan_type" class="form-control" required>
+                                    <option value="">Please Select</option>
+                                    <option value="Business_loan"{{$schemas->loan_type=='Business_loan'?'selected':''}}>Business Loan</option>
+                                    <option value="Property_loan"{{$schemas->loan_type=='Property_loan'?'selected':''}}>Property Loan</option>
+                                    <option value="personal_loan"{{$schemas->loan_type=='personal_loan'?'selected':''}}>Personal Loan</option>
+                                    <option value="loan_against_policy"{{$schemas->loan_type=='loan_against_policy'?'selected':''}}>Loan Against Policy</option>
+                                    <option value="other_loan"{{$schemas->loan_type=='other_loan'?'selected':''}}>Other Loan</option>
+                                    
+                                </select>
+                            </div>
                             
 
                         </div>
@@ -202,6 +216,29 @@ Edit Loan Schemes - Admin Panel
                             </div>
    
                         </div> 
+
+                        <hr>
+                        <h4 class="header-title"  style="text-align:center;">Late Fine Details</h4>    
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="grace_period">Grace Period Days <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="grace_period" name="grace_period" value="{{$schemas->grace_period}}" placeholder="Enter Grace Period Days " >
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="panulty_type">Penulty Type <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+ 
+                               <select name="panulty_type" id="panulty_type" class="form-control" >
+                                   <option value="fixed"{{$schemas->panulty_type=='fixed'?'selected':''}}>Fixed</option>
+                                   <option value="percentage"{{$schemas->panulty_type=='percentage'?'selected':''}}>Percentage</option>
+                                  
+                               </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="penalty">Penalty (p.m)<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="penalty" name="penalty" value="{{$schemas->penalty}}" placeholder="Enter Penalty (p.m)" >
+                            </div>
+                           
+                        </div>
                         
                         <div style="text-align:center;">                 
                         

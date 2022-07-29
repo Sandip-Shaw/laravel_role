@@ -141,7 +141,7 @@ Loan Application - Admin Panel
           
           <div id="accordion">
               <div class="card" style="width:50%">
-              <div class="card-header">
+              <div class="card-header" style="background-color: aqua;">
                   <a class="card-link" data-toggle="collapse" href="#collapseOne">
                   Other Loan Scheme Info
                   </a>
@@ -230,15 +230,15 @@ Loan Application - Admin Panel
                       
                      
                      
-                  </tbody>
-                  </table>
+                    </tbody>
+                    </table>
                   </div>
               </div>
               </div>
             </div>
-      
+        
             <div class="card" style="width:50%">
-              <div class="card-header">
+              <div class="card-header" style="background-color: SandyBrown;">
                   <a class="card-link" data-toggle="collapse" href="#collapseTwo">
                   Other Loan Application Info
                   </a>
@@ -373,12 +373,15 @@ Loan Application - Admin Panel
                   </tbody>
                   </table>
                   </div>
-              </div>
+                </div>
               </div>
         </div>
         
     </div>
 </div>
+
+
+
 @endsection
 
 

@@ -638,8 +638,8 @@ Members Edit - Admin Panel
                             </div>
                            
                         </div>
-<hr>
-                        <h4 class="header-title" style="text-align:center;">Extra Settings</h4>
+
+                        <!-- <h4 class="header-title" style="text-align:center;">Extra Settings</h4>
                         <label  for="sms">SMS</label>
                         <div class="form-group row">
                       
@@ -648,12 +648,38 @@ Members Edit - Admin Panel
                                 <span class="switch-label" data-on="On" data-off="Off"></span> 
                                 <span class="switch-handle"></span> 
                             </label>  
-                        </div>
+                        </div> -->
 
-                       
+                        <hr>    
+                        <h4 class="header-title"  style="text-align:center;">Bank Details</h4>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label  for="bank_name">Bank Name</label>
+                                <input type="text" class="form-control" id="bank_name" name="bank_name" value="{{ $member->bank_name }}" placeholder="Enter Bank Name">
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <label for="bank_branch">Bank Branch</label>
+                                <input type="text" class="form-control" id="bank_branch" name="bank_branch" value="{{ $member->bank_branch }}" placeholder="Enter Bank Name">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label  for="account_no">Account No.</label>
+                                <input type="text" class="form-control" id="account_no" name="account_no" value="{{ $member->account_no }}" placeholder="Enter Account Number">
+                            </div>
+                           
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label  for="ifsc_code">IFSC Code</label>
+                                <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" value="{{ $member->ifsc_code }}" placeholder="Enter IFSC Code">
+                            </div>
+                            
+                           
+                        </div>
+                        <div style="text-align:center;">
                         
                         <button type="submit" class="btn btn-primary  pr-4 pl-4">Update Member </button>
                         <a class="btn btn-danger" href="{{route('admin.members_management.index')}}">Cancel </a>
+                        </div>
                     </form>
                 </div>
             </div>

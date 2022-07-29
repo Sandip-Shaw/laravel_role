@@ -78,12 +78,17 @@ class LoanSchemaController extends Controller
         $schema->fore_closure_charge    =       $request->fore_closure_charge;
         $schema->process_fee            =       $request->process_fee;
         $schema->sec_deposit            =       $request->sec_deposit;
+        $schema->loan_type              =       $request->loan_type;
 
         $schema->sms_charges            =       $request->sms_charges;
         $schema->fuel_charge            =       $request->fuel_charge;
         $schema->stationary_charges     =       $request->stationary_charges;
         $schema->maintenance_charge     =       $request->maintenance_charge;
         $schema->collection_charge      =       $request->collection_charge;
+        $schema->grace_period           =       $request->grace_period;
+        $schema->panulty_type           =       $request->panulty_type;
+        $schema->penalty                =       $request->penalty;
+
 
         $schema->active                 =       $request->active;
         $schema->int_type               =       $request->int_type;
@@ -166,11 +171,15 @@ class LoanSchemaController extends Controller
         $schema->fore_closure_charge    =       $request->fore_closure_charge;
         $schema->process_fee            =       $request->process_fee;
         $schema->sec_deposit            =       $request->sec_deposit;
+        $schema->loan_type              =       $request->loan_type;
         $schema->sms_charges            =       $request->sms_charges;
         $schema->fuel_charge            =       $request->fuel_charge;
         $schema->stationary_charges     =       $request->stationary_charges;
         $schema->maintenance_charge     =       $request->maintenance_charge;
         $schema->collection_charge      =       $request->collection_charge;
+        $schema->grace_period           =       $request->grace_period;
+        $schema->panulty_type           =       $request->panulty_type;
+        $schema->penalty                =       $request->penalty;
         $schema->active                 =       $request->active;
         $schema->int_type               =       $request->int_type;
         $schema->update();
