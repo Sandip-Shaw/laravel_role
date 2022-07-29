@@ -265,6 +265,7 @@ Loan Application - Admin Panel
                     <div class="card-header" style="background-color: aqua;">
                         <a class="card-link" data-toggle="collapse" href="#collapseTwo">
                         EMI Info
+                        <span class="add-on"><i class="icon-print"></i></span>
                         </a>
                     </div>
                     <div id="collapseTwo" class="collapse show" data-parent="#accordion">
@@ -496,6 +497,7 @@ let result = document.querySelector('#radio_btn');
                     tenure_months=obj.tenure_months;
                     interest_amount=obj.interest_amount;
                     other_charges=obj.other_charges;
+                    credit_period=obj.credit_period;
                     var principal =  $('#principal_amount').val();
                     var principal_per_emi = Number(principal)/Number(tenure_months);
                     var interest_per_emi= Number(interest_amount)/Number(tenure_months);
@@ -506,7 +508,7 @@ let result = document.querySelector('#radio_btn');
                   // console.log(interest_per_emi);   
                   // console.log(other_charges_per_emi);   
                  //  console.log(per_emi);  
-                   
+                // console.log(credit_period);
                   var d = new Date();
                   var first_emi_date = new Date(d.setMonth(d.getMonth() + 1));
                  // console.log(first_emi_date);
@@ -534,7 +536,7 @@ let result = document.querySelector('#radio_btn');
                  // console.log(first_emi_date);
                     var newDate = moment(next_emi_date,"MM/DD/YY").format("DD-MM-YYYY");
                     // var due_date = next_emi_date.add(1, 'days');
-                    var due_date = moment(next_emi_date).add(1, "days").format("DD-MM-YYYY");
+                    var due_date = moment(next_emi_date).add(credit_period, "days").format("DD-MM-YYYY");
                    // console.log(due_date);
                    paid_principal=paid_principal+principal_per_emi;
                    var bal_principal = principal - paid_principal;

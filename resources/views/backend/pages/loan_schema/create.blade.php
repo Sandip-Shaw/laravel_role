@@ -135,6 +135,19 @@ Loan Schemes - Admin Panel
                                    
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="loan_type">Loan Type<span style="color:red; font-size: 18px;line-height:1">*</span></label> 
+                               
+                                <select name="loan_type" id="loan_type" class="form-control" required>
+                                    <option value="">Please Select</option>
+                                    <option value="Business_loan">Business Loan</option>
+                                    <option value="Property_loan">Property Loan</option>
+                                    <option value="personal_loan">Personal Loan</option>
+                                    <option value="loan_against_policy">Loan Against Policy</option>
+                                    <option value="other_loan">Other Loan</option>
+                                    
+                                </select>
+                            </div>
                             
 
                         </div>
@@ -148,7 +161,7 @@ Loan Schemes - Admin Panel
                                     <label class="form-check-label" for="active">Yes</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="active" value="no">
+                                    <input class="form-check-input" type="radio" name="active" value="no" required>
                                     <label class="form-check-label" for="active">No</label>
                                 </div>
                             </div>  
@@ -201,6 +214,29 @@ Loan Schemes - Admin Panel
                             </div>
    
                         </div> 
+
+                        <hr>
+                        <h4 class="header-title"  style="text-align:center;">Late Fine Details</h4>    
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="grace_period">Grace Period Days <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="grace_period" name="grace_period" placeholder="Enter Grace Period Days " >
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="panulty_type">Penulty Type <span style="color:red; font-size: 18px;line-height:1">*</span></label>
+ 
+                               <select name="panulty_type" id="panulty_type" class="form-control" >
+                                   <option value="fixed">Fixed</option>
+                                   <option value="percentage">Percentage</option>
+                                  
+                               </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="penalty">Penalty (p.m)<span style="color:red; font-size: 18px;line-height:1">*</span></label>
+                                <input type="text" class="form-control" id="penalty" name="penalty" placeholder="Enter Penalty (p.m)" >
+                            </div>
+                           
+                        </div>
                         
                         <div style="text-align:center;">
                         <button type="submit" class="btn btn-primary  pr-4 pl-4">Save </button>
