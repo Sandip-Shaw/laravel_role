@@ -79,8 +79,7 @@ return new class extends Migration
             $table->string('bank_branch')->nullable();
             $table->string('account_no')->nullable();
             $table->string('ifsc_code')->nullable();
-          
-            $table->string('senior_citizen')->nullable();
+
             $table->tinyInteger('kyc_status')->nullable();
 
            

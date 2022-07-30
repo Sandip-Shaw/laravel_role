@@ -41,7 +41,7 @@ Member - Admin Panel
     <div class="row">
         <!-- data table start -->
         
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="box">
                 <div class="box-body">
                     <!-- <h4 class="header-title float-left">Blogs List</h4> -->
@@ -109,14 +109,27 @@ Member - Admin Panel
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">Age</td>
                                     <td> 
-                                  
+                                    @php
+                                        $birthday = $member->dob;
+                                        $age = Carbon\Carbon::parse($birthday)->diff(Carbon\Carbon::now())->format('%y years');
+                                    @endphp
+
+                                <p>{{$age}}</p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="ft-600" style="width: 250px;">Senior Citizen</td>
                                     <td> 
-                                    {{$member->senior_citizen}}
+                                    @php
+                                        $birthday = $member->dob;
+                                        $age = Carbon\Carbon::parse($birthday)->diff(Carbon\Carbon::now())->format('%y years');
+                                        if($age>=60){
+                                            echo "Yes";
+                                        }else{
+                                            echo "No";
+                                        }
+                                    @endphp
                                     </td>
                                 </tr>
 
@@ -186,12 +199,14 @@ Member - Admin Panel
             </div>
         </div>
         <!-- data table end -->
+       
+
 
         <div class="container">
           
             <div id="accordion">
-                <div class="card">
-                <div class="card-header">
+                <div class="card" style="width:50%">
+                <div class="card-header" style="background-color: aqua;">
                     <a class="card-link" data-toggle="collapse" href="#collapseOne">
                   Member KYC Info
                     </a>
@@ -259,8 +274,8 @@ Member - Admin Panel
                     </div>
                 </div>
                 </div>
-                <div class="card">
-                <div class="card-header">
+                <div class="card" style="width:50%">
+                <div class="card-header" style="background-color: AntiqueWhite;">
                     <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
                    Nominee Info
                 </a>
@@ -337,8 +352,8 @@ Member - Admin Panel
                     </div>
                 </div>
                 </div>
-                <div class="card">
-                <div class="card-header">
+                <div class="card" style="width:50%">
+                <div class="card-header" style="background-color: LawnGreen;">
                     <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
                    Member KYC Status
                     </a>
@@ -350,20 +365,90 @@ Member - Admin Panel
                         <tr>
                             <td class="ft-200" style="width: 250px;">KYC Status</td>
                             <td> 
-                            {{$member->kyc_status}}
-                            
+                          
+                            @php
+                              if($member->kyc_status==0){
+                                echo "Pending" ;
+                                }elseif($member->kyc_status==-1){
+                                echo  "Failed";
+                                }else{
+                                echo  "Full KYC";
+                               }
+                            @endphp
                             </td>
                         </tr>
                     
                         </tbody>
                     </table>
-                    <form action="{{route('admin.members_management.update', $member->member_id)}}" method="POST">
+                    <form action="{{route('admin.kyc_statusUpdate', $member->member_id)}}" method="PUT">
                     @csrf
-                    @method('PUT')
+                  
                             <label for="kyc_status">KYC Status:</label><br>
                             {!!Form::select('kyc_status', array('1' => 'Full KYC', '0' => 'Pending', '-1'=>'Failed'),$member->kyc_status)!!}
                             <input type="submit" value="Submit">
                     </form>
+                    </div>
+                </div>
+                </div>
+
+                <div class="card" style="width:50%">
+                <div class="card-header" style="background-color: MediumTurquoise;">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                   Member Documents
+                    </a>
+                </div>
+                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                    <table id="dataTable" class="table table-details">
+                    <tbody>
+                    <tr>
+                            <td class="ft-200" style="width: 250px;">Photo</td>
+                            <td> 
+                            @if(isset($member))
+                                    <img src="{{asset('/images/KYC-Member/member_photo/'.$member->image_photo)}}" width="60%" class="img-thumbnail">
+                            @endif
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Id Proof</td>
+                            <td> 
+                            @if(isset($member))
+                                    <img src="{{asset('/images/KYC-Member/member_idProof/'.$member->image_idproof)}}" width="60%" class="img-thumbnail">
+                            @endif
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Address Proof</td>
+                            <td> 
+                            @if(isset($member))
+                                    <img src="{{asset('/images/KYC-Member/member_address/'.$member->image_address)}}" width="60%" class="img-thumbnail">
+                            @endif
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Pan Card</td>
+                            <td> 
+                            @if(isset($member))
+                                    <img src="{{asset('/images/KYC-Member/member_pan/'.$member->image_pan)}}" width="60%" class="img-thumbnail">
+                            @endif
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Signature</td>
+                            <td> 
+                            @if(isset($member))
+                                    <img src="{{asset('/images/KYC-Member/member_signature/'.$member->image_signature)}}" width="60%" class="img-thumbnail">
+                            @endif
+                            
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    
                     </div>
                 </div>
                 </div>

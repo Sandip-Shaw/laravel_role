@@ -55,7 +55,7 @@ Member Management - Admin Panel
                                     <th width="05%">Member No.</th>
                                     <th width="10%">Branch</th>
                                     <th width="10%">Name</th>
-                                    <th width="10%">F/H Name</th>
+                                  
                                     <th width="10%">Senior Citizen</th>
                                     <th width="10%">Enroll Date</th>
                                     <th width="10%">Aadhar No.</th>
@@ -78,13 +78,33 @@ Member Management - Admin Panel
                                    
 
                                     <td>{{ $members->first_name }} {{ $members->middle_name }} {{ $members->last_name }}</td>
-                                    <td>{{ $members->father_name }} </td>
-                                    <td>{{ $members->senior_citizen }} </td>
+                                   
+                                    <td>
+                                        @php
+                                        $birthday = $members->dob;
+                                        $age = Carbon\Carbon::parse($birthday)->diff(Carbon\Carbon::now())->format('%y years');
+                                        if($age>=60){
+                                            echo "Yes";
+                                        }else{
+                                            echo "No";
+                                        }
+                                         @endphp    
+                                    </td>
                                     <td>{{ $members->emr_date }} </td>
                                     <td>{{ $members->adhar_no }} </td>
                                     <td>{{ $members->pan_no }} </td>
 
-                                    <td>{{ $members->kyc_status }} </td>
+                                    <td>
+                                         @php
+                                            if($members->kyc_status==0){
+                                                echo "Pending" ;
+                                                }elseif($members->kyc_status==-1){
+                                                echo  "Failed";
+                                                }else{
+                                                echo  "Full KYC";
+                                            }
+                                            @endphp 
+                                    </td>
                                     <td>{{ $members->mobile }} </td>
                                
                                     <td>{{ $members->status }} </td>

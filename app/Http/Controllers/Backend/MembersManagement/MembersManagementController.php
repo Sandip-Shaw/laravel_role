@@ -129,7 +129,6 @@ class MembersManagementController extends Controller
         $member->account_no         =   $data['account_no'];
         $member->ifsc_code          =   $data['ifsc_code'];
 
-        $member->senior_citizen     =   'no';
         $member->kyc_status         =   '0';
         $member->status             =   'Active';
 
@@ -221,6 +220,18 @@ class MembersManagementController extends Controller
         return view('backend.pages.members_management.edit')->withMember($member)->withBranches($branch)->withHrmanagements($hrmanagement); 
     }
 
+    public function updateKYCStatus(Request $request, $member_id)
+    {
+       $member=MemberManagement::findOrFail($member_id);
+       //dd($member);
+      
+       $member->kyc_status = $request->kyc_status;
+      
+       $member->save();
+
+       return redirect()->route('admin.members_management.index');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -294,8 +305,6 @@ class MembersManagementController extends Controller
         $member->bank_branch        =   $request->bank_branch;
         $member->account_no         =   $request->account_no;
         $member->ifsc_code          =   $request->ifsc_code;
-        $member->senior_citizen     =   'no';
-        $member->kyc_status         =   $request->kyc_status;
      
         $member->status             =   'Active';
 
