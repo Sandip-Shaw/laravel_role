@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('pincode');
             $table->string('country')->nullable();
             $table->string('contact_no')->nullable();
-            $table->string('members');
+            $table->string('members')->nullable();
             $table->string('email')->nullable();
 
             $table->timestamps();

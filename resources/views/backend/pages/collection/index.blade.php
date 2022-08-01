@@ -43,7 +43,7 @@ Collection Center - Admin Panel
                 <div class="card-body">
                     <h4 class="header-title float-left">Center List</h4>
                     <p class="float-right mb-2">
-                        <a class="btn btn-primary text-white" href="{{ route('admin.collec_branch.create') }}">Create New Branch</a>
+                        <a class="btn btn-primary text-white" href="{{ route('admin.collec_branch.create') }}">Create New Collection Center</a>
                     </p>
                     <div class="clearfix"></div>
                     <div class="data-tables">

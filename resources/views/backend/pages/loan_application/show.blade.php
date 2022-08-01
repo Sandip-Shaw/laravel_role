@@ -165,7 +165,7 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">Max. Loan Amount</td>
                           <td> 
-                          {{ $applications->loanSchema->max_loan_amt }}
+                          INR {{ $applications->loanSchema->max_loan_amt }}
                          
                           </td>
                       </tr>
@@ -203,7 +203,7 @@ Loan Application - Admin Panel
                           <td class="ft-200" style="width: 250px;">Fuel Charges per EMI</td>
                           <td> 
                          
-                          INR{{ $applications->loanSchema->fuel_charge }}
+                          INR  {{ $applications->loanSchema->fuel_charge }}
                           </td>
                       </tr>
                       <tr>
@@ -256,41 +256,41 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">Amount Requested</td>
                           <td> 
-                          {{$applications->loan_requested}}
+                         INR {{$applications->loan_requested}}
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Max. Amount can be Approved</td>
                           <td> 
                        
-                          {{ $applications->loanSchema->max_loan_amt }}
+                         INR {{ $applications->loanSchema->max_loan_amt }}
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Loan Amount</td>
                           <td> 
-                          {{$applications->amt_approved}}
+                          INR {{$applications->amt_approved}}
                    
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Amount Approved</td>
                           <td> 
-                          {{$applications->amt_approved}}
+                         INR {{$applications->amt_approved}}
                        
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Interest Amount</td>
                           <td> 
-                          {{$applications->interest_amount}}
+                         INR {{$applications->interest_amount}}
                        
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;">Other Charges</td>
                           <td> 
-                          {{$applications->other_charges}}
+                         INR {{$applications->other_charges}}
                        
                           </td>
                       </tr>
@@ -325,7 +325,7 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">Total Amount to Recover</td>
                           <td> 
-                          {{$applications->total_amount_coll}}
+                         INR {{$applications->total_amount_coll}}
                      
                       
                           </td>
@@ -340,7 +340,7 @@ Loan Application - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;">EMI Amount</td>
                           <td> 
-                          {{$applications->emi_amount_total}}
+                         INR {{$applications->emi_amount_total}}
                      
                       
                           </td>
@@ -376,6 +376,60 @@ Loan Application - Admin Panel
                 </div>
               </div>
         </div>
+
+        <div class="card" style="width:50%">
+                <div class="card-header" style="background-color: MediumTurquoise;">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                    Documents
+                    </a>
+                </div>
+                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                    <table id="dataTable" class="table table-details">
+                    <tbody>
+                    <tr>
+                            <td class="ft-200" style="width: 250px;">Photo</td>
+                            <td> 
+                           
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Id Proof</td>
+                            <td> 
+                            
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Address Proof</td>
+                            <td> 
+                           
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Pan Card</td>
+                            <td> 
+                           
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ft-200" style="width: 250px;">Signature</td>
+                            <td> 
+                            
+                            
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
         
     </div>
 </div>

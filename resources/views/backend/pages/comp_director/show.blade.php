@@ -70,7 +70,7 @@ Director - Admin Panel
                                 <tr>
                                     <td class="ft-600" style="width: 250px;"> Member</td>
                                     <td> 
-                                    {{$director->member}}
+                                    {{$director->memberdet->first_name}}
                                     </td>
                                 </tr>
 

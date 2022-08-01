@@ -356,6 +356,30 @@ Loan Application Create - Admin Panel
 
 <script src="http://parsleyjs.org/dist/parsley.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+        $("#member").change(function(){
+            var id=$(this).find(":selected").val();
+          
+
+            $.ajax({
+                type:"GET",
+                url:"../member_details/"+id,
+                success:function(res){ 
+                    console.log(res);       
+                if(res){
+                    const obj = JSON.parse(res);
+                    document.getElementById("member_name").value = obj.first_name;
+                    document.getElementById("branch").value = obj.branch;
+
+                }
+            }
+        })
+    })
+})
+
+</script>
 <script>
 //     $(document).ready(function() {
 //          $('.select2').select2();
@@ -638,12 +662,12 @@ $(document).ready(function(){
 
 
 <script>
-    $(function(){
-        $("#member").change(function(){
-            var displaymember= $("#member option:selected").text();
-            $("#member_name").val(displaymember);
-        })
-    })
+    // $(function(){
+    //     $("#member").change(function(){
+    //         var displaymember= $("#member option:selected").text();
+    //         $("#member_name").val(displaymember);
+    //     })
+    // })
 </script>
 
 

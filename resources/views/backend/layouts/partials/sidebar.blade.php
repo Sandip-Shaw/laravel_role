@@ -87,29 +87,29 @@
                         <ul class="collapse {{ Route::is('admin.company.create') || Route::is('admin.company.index') || Route::is('admin.company.edit') || Route::is('admin.company.show') || Route::is('admin.comp_branch.create')  ||  Route::is('admin.comp_branch.edit')  
                                     ||  Route::is('admin.comp_branch.show')  ||Route::is('admin.comp_branch.index') || Route::is('admin.comp_director.create') || Route::is('admin.comp_director.index') || Route::is('admin.comp_director.edit') || Route::is('admin.comp_director.show') ? 'in' : '' }}">
                             
-                            @if ($usr->can('company_profile.view'))
-                                <li class="{{ Route::is('admin.company.index')  || Route::is('admin.company.edit') ? 'active' : '' }}"><a href="{{ route('admin.company.index') }}"> Company Profile</a></li>
+                            @if ($usr->can('company_profile.view') || $usr->can('company_profile.create'))
+                                <li class="{{ Route::is('admin.company.create') || Route::is('admin.company.index')  || Route::is('admin.company.edit') ? 'active' : '' }}"><a href="{{ route('admin.company.index') }}"> Company Profile</a></li>
                             @endif
 
-                            @if ($usr->can('company_profile.create'))
+                            <!-- @if ($usr->can('company_profile.create'))
                                 <li class="{{ Route::is('admin.company.create')  ? 'active' : '' }}"><a href="{{ route('admin.company.create') }}"> Company Profile Create</a></li>
-                            @endif
+                            @endif -->
 
-                            @if($usr->can('company_branch.view'))
-                            <li class="{{ Route::is('admin.comp_branch.index')  || Route::is('admin.comp_branch.edit') || Route::is('admin.comp_branch.show') ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.index') }}">Branch Profile</a></li>
+                            @if($usr->can('company_branch.view') || $usr->can('company_branch.create'))
+                            <li class="{{Route::is('admin.comp_branch.create')|| Route::is('admin.comp_branch.index')  || Route::is('admin.comp_branch.edit') || Route::is('admin.comp_branch.show') ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.index') }}">Branch Profile</a></li>
                             @endif
                             
-                            @if($usr->can('company_branch.create'))
+                            <!-- @if($usr->can('company_branch.create'))
                             <li class="{{ Route::is('admin.comp_branch.create')  ? 'active' : '' }}"><a href="{{ route('admin.comp_branch.create') }}">Branch Profile Create</a></li>
+                            @endif -->
+
+                            @if($usr->can('company_director.view') || $usr->can('company_director.create'))
+                            <li class="{{Route::is('admin.comp_director.create') || Route::is('admin.comp_director.index')  || Route::is('admin.comp_director.edit') || Route::is('admin.comp_director.show') ? 'active' : '' }}"><a href="{{ route('admin.comp_director.index') }}">Director Profile</a></li>
                             @endif
 
-                            @if($usr->can('company_director.view'))
-                            <li class="{{ Route::is('admin.comp_director.index')  || Route::is('admin.comp_director.edit') || Route::is('admin.comp_director.show') ? 'active' : '' }}"><a href="{{ route('admin.comp_director.index') }}">Director Profile</a></li>
-                            @endif
-
-                            @if($usr->can('company_director.create'))
+                            <!-- @if($usr->can('company_director.create'))
                             <li class="{{ Route::is('admin.comp_director.create')  ? 'active' : '' }}"><a href="{{ route('admin.comp_director.create') }}">Director Profile Create</a></li>
-                            @endif
+                            @endif -->
                         </ul>
                     </li>
                     @endif

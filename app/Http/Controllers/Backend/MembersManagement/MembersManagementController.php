@@ -191,6 +191,14 @@ class MembersManagementController extends Controller
 
     }
 
+    public function member_details($member_id)
+    {
+        $member = MemberManagement::findOrFail($member_id);
+        //dd($member);
+       return $member->toJson();
+ 
+    }
+
     /**
      * Display the specified resource.
      *

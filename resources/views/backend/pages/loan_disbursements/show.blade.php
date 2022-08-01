@@ -505,9 +505,7 @@ let result = document.querySelector('#radio_btn');
                     var per_emi=Number(principal_per_emi)+Number(interest_per_emi)+Number(other_charges_per_emi); 
                   // console.log(principal_per_emi);   
                   // console.log(interest_amount);   
-                  // console.log(interest_per_emi);   
-                  // console.log(other_charges_per_emi);   
-                 //  console.log(per_emi);  
+                    
                 // console.log(credit_period);
                   var d = new Date();
                   var first_emi_date = new Date(d.setMonth(d.getMonth() + 1));
@@ -519,14 +517,7 @@ let result = document.querySelector('#radio_btn');
                   document.getElementById("first_emi_date").value = newDate;
                    // console.log(newDate);
 
-                    // var dd = String(first_emi_date. getDate()). padStart(2, '0');
-
-                    // var mm = String(first_emi_date. getMonth() + 1). padStart(2, '0'); //January is 0!
-
-                    // var yyyy = first_emi_date. getFullYear();
-                    // var today = mm + '/' + dd + '/' + yyyy
-
-                    // console.log(today);
+                   
 
                    for (let i = 1; i <= tenure_months; i++) {
 
