@@ -69,7 +69,7 @@ Director - Admin Panel
                                <tr>
                                     <td>{{ $loop->index+1 }}</td>
                                     <td>{{ $directors->designation }}</td>
-                                    <td>{{ $directors->member }}</td>
+                                    <td>{{ $directors->memberdet->first_name }}</td>
                                     <td>{{ $directors->director_name }} </td>
                                     <td>{{ $directors->din_no }} </td>
                                     <td>{{ $directors->appointment_date }} </td>

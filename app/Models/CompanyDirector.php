@@ -10,4 +10,9 @@ use Spatie\Permission\Traits\HasRoles;
 class CompanyDirector extends Model
 {
     use HasFactory,HasRoles;
+
+    public function memberdet(){
+
+        return $this->belongsTo(MemberManagement::class,'member');
+    }
 }

@@ -11,6 +11,8 @@ use App\Models\Admin;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\CompanyDirector;
+use App\Models\MemberManagement;
+
 use Image;
 
 class CompanyDirectorController extends Controller
@@ -53,8 +55,9 @@ class CompanyDirectorController extends Controller
         if (is_null($this->user) || !$this->user->can('company_director.create')) {
             abort(403, 'Sorry !! You are Unauthorized to create any admin !');
         } 
-
-        return view('backend.pages.comp_director.create');
+        $member= MemberManagement::pluck('member_id','first_name','last_name');
+        //dd($member);
+        return view('backend.pages.comp_director.create')->withMembers($member);
     }
 
     /**
@@ -125,8 +128,9 @@ class CompanyDirectorController extends Controller
         }
 
         $director = CompanyDirector::find($id);
+        $member= MemberManagement::pluck('member_id','first_name','last_name');
     
-        return view('backend.pages.comp_director.edit')->withDirector($director); 
+        return view('backend.pages.comp_director.edit')->withDirector($director)->withMembers($member); 
     }
 
     /**

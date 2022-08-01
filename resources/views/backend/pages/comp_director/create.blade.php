@@ -58,7 +58,15 @@ Director Create - Admin Panel
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="member">Member</label>
-                                <input type="text" class="form-control" id="member" name="member" placeholder="Enter member">
+                                <!-- <input type="text" class="form-control" id="member" name="member" placeholder="Enter member"> -->
+                                <select name="member" id="member" class="form-control" required>
+                                    <option value="">Select Member</option>
+                                    @foreach($members as $key=>$member)
+                                    <option value="{{$member}}">{{$key}}</option>
+                                   
+                                   @endforeach
+                                   
+                                </select>
                             </div>
                            
                         </div>

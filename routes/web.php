@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('scheme_details/{id}', 'Backend\Loan\LoanSchemaController@loan_details', ['names' => 'admin.scheme_details']);
     Route::get('application_details/{id}', 'Backend\Loan\LoanApplicationController@loan_appli_details', ['names' => 'admin.application_details']);
     Route::get('kyc_status/{id}', array('uses'=>'Backend\MembersManagement\MembersManagementController@updateKYCStatus', 'as' => 'admin.kyc_statusUpdate'));
+    Route::get('member_details/{id}', 'Backend\MembersManagement\MembersManagementController@member_details', ['names' => 'admin.member_details']);
 
    # Route::resource('approval_loan_application', 'Backend\Loan\LoanApplicationApproval', ['names' => 'admin.approval_loan_application']);
     Route::get('loan_approval', array('uses'=>'Backend\Loan\LoanApplicationController@approval', 'as' => 'admin.loan_approval'));

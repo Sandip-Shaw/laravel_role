@@ -27,4 +27,8 @@ class MemberManagement extends Model
 
         return $this->belongsTo(HrManagement::class,'associate');
     }
+    public function comp_director(){
+
+        return $this->hasMany(CompanyDirector::class);
+    } 
 }

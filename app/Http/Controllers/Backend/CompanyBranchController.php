@@ -80,8 +80,7 @@ class CompanyBranchController extends Controller
             'state' => 'required',
             'pincode' => 'required',
             'country' => 'required',
-            'members' => 'required',
-            'email' => 'required|email',
+           
              
         ]);
         $branch = new CompanyBranch();
@@ -164,8 +163,7 @@ class CompanyBranchController extends Controller
             'state' => 'required',
             'pincode' => 'required',
             'country' => 'required',
-            'members' => 'required',
-            'email' => 'required|email',
+            
              
         ]);
      
