@@ -142,7 +142,10 @@ Loan Schemes - Admin Panel
                                     <option value="">Please Select</option>
                                     <option value="Business_loan">Business Loan</option>
                                     <option value="Property_loan">Property Loan</option>
-                                    <option value="personal_loan">Personal Loan</option>
+                                    <option value="Vehical_loan">Vehical Loan</option>
+                                    <option value="Home_loan">Home Loan</option>
+                                    <option value="Micro_loan">Micro Loan</option>
+                                    <option value="Personal_loan">Personal Loan</option>
                                     <option value="loan_against_policy">Loan Against Policy</option>
                                     <option value="other_loan">Other Loan</option>
                                     
@@ -150,6 +153,19 @@ Loan Schemes - Admin Panel
                             </div>
                             
 
+                        </div>
+
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-6">
+                                <label for="max_age">Maximum Age </label>
+                                <input type="text" class="form-control" id="max_age" name="max_age" placeholder="Enter Maximum Age" data-parsley-type="integer" data-parsley-max="80">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="min_age">Minimum Age </label>
+                                <input type="text" class="form-control" id="min_age" name="min_age" placeholder="Enter Minimum Age" data-parsley-type="integer" data-parsley-min="15">
+                            </div>
+                           
                         </div>
 
 

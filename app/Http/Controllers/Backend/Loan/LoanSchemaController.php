@@ -79,6 +79,8 @@ class LoanSchemaController extends Controller
         $schema->process_fee            =       $request->process_fee;
         $schema->sec_deposit            =       $request->sec_deposit;
         $schema->loan_type              =       $request->loan_type;
+        $schema->max_age                =       $request->max_age;
+        $schema->min_age                =       $request->min_age;
 
         $schema->sms_charges            =       $request->sms_charges;
         $schema->fuel_charge            =       $request->fuel_charge;
@@ -172,6 +174,8 @@ class LoanSchemaController extends Controller
         $schema->process_fee            =       $request->process_fee;
         $schema->sec_deposit            =       $request->sec_deposit;
         $schema->loan_type              =       $request->loan_type;
+        $schema->max_age                =       $request->max_age;
+        $schema->min_age                =       $request->min_age;
         $schema->sms_charges            =       $request->sms_charges;
         $schema->fuel_charge            =       $request->fuel_charge;
         $schema->stationary_charges     =       $request->stationary_charges;

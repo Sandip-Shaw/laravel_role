@@ -144,7 +144,10 @@ Edit Loan Schemes - Admin Panel
                                     <option value="">Please Select</option>
                                     <option value="Business_loan"{{$schemas->loan_type=='Business_loan'?'selected':''}}>Business Loan</option>
                                     <option value="Property_loan"{{$schemas->loan_type=='Property_loan'?'selected':''}}>Property Loan</option>
-                                    <option value="personal_loan"{{$schemas->loan_type=='personal_loan'?'selected':''}}>Personal Loan</option>
+                                    <option value="Vehical_loan"{{$schemas->loan_type=='Vehical_loan'?'selected':''}}>Vehical Loan</option>
+                                    <option value="Home_loan"{{$schemas->loan_type=='Home_loan'?'selected':''}}>Home Loan</option>
+                                    <option value="Micro_loan"{{$schemas->loan_type=='Micro_loan'?'selected':''}}>Micro Loan</option>
+                                    <option value="Personal_loan"{{$schemas->loan_type=='Personal_loan'?'selected':''}}>Personal Loan</option>
                                     <option value="loan_against_policy"{{$schemas->loan_type=='loan_against_policy'?'selected':''}}>Loan Against Policy</option>
                                     <option value="other_loan"{{$schemas->loan_type=='other_loan'?'selected':''}}>Other Loan</option>
                                     
@@ -152,6 +155,19 @@ Edit Loan Schemes - Admin Panel
                             </div>
                             
 
+                        </div>
+
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-6">
+                                <label for="max_age">Maximum Age </label>
+                                <input type="text" class="form-control" id="max_age" name="max_age" value="{{$schemas->max_age}}" placeholder="Enter Maximum Age" data-parsley-type="integer" data-parsley-max="80">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="min_age">Minimum Age </label>
+                                <input type="text" class="form-control" id="min_age" name="min_age" value="{{$schemas->min_age}}" placeholder="Enter Minimum Age" data-parsley-type="integer" data-parsley-min="15">
+                            </div>
+                           
                         </div>
 
 
