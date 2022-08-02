@@ -25,6 +25,9 @@ return new class extends Migration
             $table->string('process_fee')->nullable();
             $table->string('sec_deposit')->nullable();
             $table->string('loan_type')->nullable();
+            $table->string('max_age')->nullable();
+            $table->string('min_age')->nullable();
+
 
             $table->integer('sms_charges')->nullable()->default(0);
             $table->integer('fuel_charge')->nullable()->default(0);

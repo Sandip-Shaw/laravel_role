@@ -55,7 +55,9 @@ Loan Schemes - Admin Panel
                                     <th width="15%">Scheme Code</th>
                                     <th width="15%">Scheme Name</th>
                                     <th width="10%">Tenure</th>
-                                    <th width="20%">Max. Loan Ammount</th>
+                                    <th width="15%">Max. Loan Ammount</th>
+                                    <th width="15%">Loan Type</th>
+
                                     <th width="15%">Interest Type</th>
                                     <th width="15%">A.Interest Rate(%)</th>
                                     <th width="05%">Active</th>
@@ -71,6 +73,8 @@ Loan Schemes - Admin Panel
                                     <td>{{ $schema->schema_name }}</td>
                                     <td>{{ $schema->max_tanure }} </td>
                                     <td>{{ $schema->max_loan_amt }} </td>
+                                    <td>{{ $schema->loan_type }} </td>
+
                                     <td>{{ $schema->int_type }} </td>
                                     <td>{{ $schema->ann_rate_int }} </td>
                                     <td>{{ $schema->active }} </td>

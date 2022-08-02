@@ -97,6 +97,18 @@ Loan Schemes - Admin Panel
                                     {{ $schema->max_tanure }}
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="ft-600" style="width: 250px;">Max. Age</td>
+                                    <td> 
+                                    {{ $schema->max_age }} Years
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ft-600" style="width: 250px;">Min. Age</td>
+                                    <td> 
+                                    {{ $schema->min_age }} Years
+                                    </td>
+                                </tr>
 
                       
 

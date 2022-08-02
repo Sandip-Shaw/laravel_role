@@ -381,47 +381,15 @@ Loan Application - Admin Panel
                 <div class="card-header" style="background-color: MediumTurquoise;">
                     <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
                     Documents
+                    <a  class="pull-right" href="{{route('admin.upload_application_doc')}}"><i class="fa fa-upload" aria-hidden="true"></i></a>
                     </a>
                 </div>
                 <div id="collapseFour" class="collapse" data-parent="#accordion">
                     <div class="card-body">
                     <table id="dataTable" class="table table-details">
                     <tbody>
-                    <tr>
-                            <td class="ft-200" style="width: 250px;">Photo</td>
-                            <td> 
-                           
-                            
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ft-200" style="width: 250px;">Id Proof</td>
-                            <td> 
-                            
-                            
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ft-200" style="width: 250px;">Address Proof</td>
-                            <td> 
-                           
-                            
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ft-200" style="width: 250px;">Pan Card</td>
-                            <td> 
-                           
-                            
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ft-200" style="width: 250px;">Signature</td>
-                            <td> 
-                            
-                            
-                            </td>
-                        </tr>
+                        
+          
                     </tbody>
                     </table>
                     
@@ -430,6 +398,14 @@ Loan Application - Admin Panel
                 </div>
             </div>
             </div>
+
+            <!-- <div class="card border-danger mb-3" style="max-width: 50rem;">
+                <div class="card-header">Header</div>
+                    <div class="card-body text-danger">
+                    <h5 class="card-title">Danger card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div> -->
         
     </div>
 </div>
